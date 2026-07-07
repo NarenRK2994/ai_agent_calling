@@ -1,0 +1,17 @@
+{
+  "module": "Accounts Payable",
+  "table": "AP_SUPPLIERS",
+  "description": "Stores supplier master information.",
+  "primary_key": "VENDOR_ID",
+  "columns": [
+    { "name": "VENDOR_ID", "description": "Primary key for the supplier." },
+    { "name": "VENDOR_NAME", "description": "Supplier name." }
+	],
+  "relationships": [
+    { "table": "AP_INVOICES_ALL", "join": "VENDOR_ID" }
+  ],
+  "business_questions": [
+    "Find supplier details",
+    "Match invoices to suppliers"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "module": "Accounts Payable",
+  "table": "AP_INVOICES_ALL",
+  "description": "Stores supplier invoice header information.",
+  "primary_key": "INVOICE_ID",
+  "columns": [
+    { "name": "INVOICE_ID", "description": "Primary key for the invoice." },
+    { "name": "INVOICE_NUM", "description": "Invoice number entered by the supplier." },
+    { "name": "INVOICE_DATE", "description": "Date of the invoice." },
+    { "name": "VENDOR_ID", "description": "Supplier identifier." },
+    { "name": "INVOICE_AMOUNT", "description": "Total invoice amount." },
+    { "name": "PAYMENT_STATUS_FLAG", "description": "Payment status flag for the invoice." }
+  ],
+  "relationships": [
+    { "table": "AP_SUPPLIERS", "join": "VENDOR_ID" }
+  ],
+  "business_questions": [
+    "Show unpaid invoices for a supplier",
+    "Find invoices by supplier",
+    "List invoice amounts and dates"
+  ]
+}

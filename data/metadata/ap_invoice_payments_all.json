@@ -1,0 +1,22 @@
+{
+  "module": "Accounts Payable",
+  "table": "AP_INVOICE_PAYMENTS_ALL",
+  "description": "Stores payment records applied to supplier invoices.",
+  "primary_key": "INVOICE_PAYMENT_ID",
+  "columns": [
+    { "name": "INVOICE_PAYMENT_ID", "description": "Primary key for the invoice payment record." },
+    { "name": "INVOICE_ID", "description": "Invoice identifier linked to the payment." },
+    { "name": "CHECK_ID", "description": "Payment instrument or check identifier." },
+    { "name": "AMOUNT", "description": "Amount applied in the payment transaction." },
+    { "name": "PAYMENT_NUM", "description": "Sequence number of the payment against the invoice." },
+    { "name": "ACCOUNTING_DATE", "description": "Accounting date for the payment." }
+  ],
+  "relationships": [
+    { "table": "AP_INVOICES_ALL", "join": "INVOICE_ID" }
+  ],
+  "business_questions": [
+    "Show payments made against invoices",
+    "Find unpaid or partially paid invoices",
+    "List invoice payment history"
+  ]
+}
