@@ -1,6 +1,12 @@
 import React, { startTransition, useEffect, useRef, useState } from "react";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "http://127.0.0.1:8000";
+const CONFIGURED_API_PREFIX = import.meta.env.VITE_API_ROUTE_PREFIX;
+const API_PREFIX_CANDIDATES = [
+  CONFIGURED_API_PREFIX,
+  "/api",
+  "/api/ticketing",
+].filter((value, index, values) => value && values.indexOf(value) === index);
 
 function App() {
   const [question, setQuestion] = useState("");
@@ -8,7 +14,7 @@ function App() {
     {
       id: "welcome",
       role: "assistant",
-      content: "Ask your ERP question and I will return only the final answer.",
+      content: "Ask Any Question About Your ERP Data",
       status: "ready",
       meta: "",
     },
@@ -20,6 +26,7 @@ function App() {
   const listRef = useRef(null);
   const lastSqlRef = useRef("");
   const lastErrorRef = useRef("");
+  const apiPrefixRef = useRef(API_PREFIX_CANDIDATES[0] ?? "/api");
 
   useEffect(() => {
     return () => {
@@ -73,18 +80,32 @@ function App() {
     setStatusText("Starting");
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/runs`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: trimmedQuestion }),
-      });
+      let payload = null;
+      let lastErrorText = "";
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(errorText || "Failed to start workflow run.");
+      for (const prefix of API_PREFIX_CANDIDATES) {
+        const response = await fetch(`${API_BASE_URL}${prefix}/runs`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question: trimmedQuestion }),
+        });
+
+        if (response.ok) {
+          payload = await response.json();
+          apiPrefixRef.current = prefix;
+          break;
+        }
+
+        lastErrorText = await response.text();
+        if (response.status !== 404) {
+          throw new Error(lastErrorText || "Failed to start workflow run.");
+        }
       }
 
-      const payload = await response.json();
+      if (!payload) {
+        throw new Error(lastErrorText || "Failed to start workflow run.");
+      }
+
       setRunId(payload.run_id);
       subscribeToRun(payload.run_id, assistantMessageId);
     } catch (error) {
@@ -104,7 +125,9 @@ function App() {
       eventSourceRef.current.close();
     }
 
-    const source = new EventSource(`${API_BASE_URL}/api/runs/${nextRunId}/events`);
+    const source = new EventSource(
+      `${API_BASE_URL}${apiPrefixRef.current}/runs/${nextRunId}/events`,
+    );
     eventSourceRef.current = source;
     lastSqlRef.current = "";
     lastErrorRef.current = "";

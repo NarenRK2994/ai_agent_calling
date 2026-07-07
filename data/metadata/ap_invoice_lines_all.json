@@ -1,0 +1,35 @@
+{
+  "module": "Accounts Payable",
+  "table": "AP_INVOICE_LINES_ALL",
+  "description": "Stores supplier invoice line information including item, tax, freight, and miscellaneous line details.",
+  "primary_key": "LINE_NUMBER",
+  "columns": [
+    { "name": "INVOICE_ID", "description": "Reference to the invoice header." },
+    { "name": "LINE_NUMBER", "description": "Invoice line number." },
+    { "name": "LINE_TYPE_LOOKUP_CODE", "description": "Type of invoice line such as ITEM, TAX, FREIGHT, or MISCELLANEOUS." },
+    { "name": "AMOUNT", "description": "Invoice line amount." },
+    { "name": "DESCRIPTION", "description": "Description of the invoice line." },
+    { "name": "ACCOUNTING_DATE", "description": "Accounting date for the invoice line." },
+    { "name": "PO_HEADER_ID", "description": "Purchase Order header associated with the invoice line." },
+    { "name": "PO_LINE_ID", "description": "Purchase Order line associated with the invoice line." },
+    { "name": "PO_DISTRIBUTION_ID", "description": "Purchase Order distribution associated with the invoice line." },
+    { "name": "QUANTITY_INVOICED", "description": "Quantity invoiced." },
+    { "name": "UNIT_PRICE", "description": "Unit price of the invoice line." }
+  ],
+  "relationships": [
+    { "table": "AP_INVOICES_ALL", "join": "INVOICE_ID" },
+    { "table": "PO_HEADERS_ALL", "join": "PO_HEADER_ID" },
+    { "table": "PO_LINES_ALL", "join": "PO_LINE_ID" },
+    { "table": "PO_DISTRIBUTIONS_ALL", "join": "PO_DISTRIBUTION_ID" }
+  ],
+  "business_questions": [
+    "Show invoice line details for an invoice",
+    "List item lines for a supplier invoice",
+    "Show tax and freight lines",
+    "Find invoice lines matched to purchase orders",
+    "Display invoice line quantities and unit prices",
+    "Show invoice line accounting dates",
+    "Find invoice lines by description",
+    "List invoice lines for a purchase order"
+  ]
+}

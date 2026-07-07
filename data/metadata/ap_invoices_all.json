@@ -12,7 +12,8 @@
     { "name": "PAYMENT_STATUS_FLAG", "description": "Payment status flag for the invoice." }
   ],
   "relationships": [
-    { "table": "AP_SUPPLIERS", "join": "VENDOR_ID" }
+    { "table": "AP_SUPPLIERS", "join": "VENDOR_ID" },
+    { "table": "AP_INVOICE_LINES_ALL", "join": "INVOICE_ID" }
   ],
   "business_questions": [
     "Show unpaid invoices for a supplier",
