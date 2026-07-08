@@ -1,0 +1,373 @@
+{
+  "module": "Accounts Receivable",
+  "table": "AR_CASH_RECEIPTS_ALL",
+  "description": "Cash receipt header table for Oracle Accounts Receivable. Each record represents a customer receipt, remittance, miscellaneous receipt, or reversal event and captures the amount, customer reference, receipt method, bank processing, status, and accounting context used in the order-to-cash cycle.",
+  "primary_key": "CASH_RECEIPT_ID",
+  "columns": [
+    {
+      "name": "CASH_RECEIPT_ID",
+      "description": "Unique system-generated identifier for the cash receipt. Used to track receipt lifecycle, applications, reversals, and accounting."
+    },
+    {
+      "name": "LAST_UPDATED_BY",
+      "description": "User identifier for the person or process that last updated the record."
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "description": "Date and time when the record was last updated."
+    },
+    {
+      "name": "LAST_UPDATE_LOGIN",
+      "description": "Login session identifier that performed the last update."
+    },
+    {
+      "name": "CREATED_BY",
+      "description": "User identifier for the person or process that created the record."
+    },
+    {
+      "name": "CREATION_DATE",
+      "description": "Date and time when the record was created."
+    },
+    {
+      "name": "AMOUNT",
+      "description": "Monetary amount recorded for the transaction in the transaction currency."
+    },
+    {
+      "name": "SET_OF_BOOKS_ID",
+      "description": "Ledger identifier in which accounting entries are recorded."
+    },
+    {
+      "name": "CURRENCY_CODE",
+      "description": "Currency code in which the transaction is denominated."
+    },
+    {
+      "name": "RECEIVABLES_TRX_ID",
+      "description": "System-generated identifier for the related receivables trx record."
+    },
+    {
+      "name": "PAY_FROM_CUSTOMER",
+      "description": "Business attribute of the cash receipt used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "STATUS",
+      "description": "Current processing status of the transaction within the Oracle application flow."
+    },
+    {
+      "name": "TYPE",
+      "description": "Business attribute of the cash receipt used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "RECEIPT_NUMBER",
+      "description": "Business receipt number assigned to the customer receipt."
+    },
+    {
+      "name": "RECEIPT_DATE",
+      "description": "Date on which the customer receipt was entered or received."
+    },
+    {
+      "name": "MISC_PAYMENT_SOURCE",
+      "description": "Business attribute of the cash receipt used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "COMMENTS",
+      "description": "Free-text explanation entered to document the business purpose of the record."
+    },
+    {
+      "name": "DISTRIBUTION_SET_ID",
+      "description": "Foreign key referencing the predefined distribution set used to default accounting information."
+    },
+    {
+      "name": "REVERSAL_DATE",
+      "description": "Date on which the transaction or application was reversed."
+    },
+    {
+      "name": "REVERSAL_CATEGORY",
+      "description": "Business category assigned to reversal."
+    },
+    {
+      "name": "REVERSAL_REASON_CODE",
+      "description": "Lookup or classification code identifying reversal reason for the record."
+    },
+    {
+      "name": "REVERSAL_COMMENTS",
+      "description": "Business attribute of the cash receipt used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "EXCHANGE_RATE_TYPE",
+      "description": "Conversion rate type used to derive the exchange rate for the transaction."
+    },
+    {
+      "name": "EXCHANGE_RATE",
+      "description": "Exchange rate used to convert the foreign currency transaction to functional currency."
+    },
+    {
+      "name": "EXCHANGE_DATE",
+      "description": "Date used to derive the foreign currency conversion rate."
+    },
+    {
+      "name": "REMITTANCE_BANK_ACCOUNT_ID",
+      "description": "System-generated identifier for the related remittance bank account record."
+    },
+    {
+      "name": "CONFIRMED_FLAG",
+      "description": "Indicates whether confirmed applies to the record."
+    },
+    {
+      "name": "CUSTOMER_BANK_ACCOUNT_ID",
+      "description": "Foreign key referencing the customer bank account used for receipt processing."
+    },
+    {
+      "name": "CUSTOMER_SITE_USE_ID",
+      "description": "System-generated identifier for the related customer site use record."
+    },
+    {
+      "name": "DEPOSIT_DATE",
+      "description": "Date on which the receipt was deposited to the bank."
+    },
+    {
+      "name": "PROGRAM_APPLICATION_ID",
+      "description": "Oracle application identifier for the concurrent program that last updated the record."
+    },
+    {
+      "name": "PROGRAM_ID",
+      "description": "Concurrent program identifier for the process that last updated the record."
+    },
+    {
+      "name": "PROGRAM_UPDATE_DATE",
+      "description": "Date and time when the concurrent program last updated the record."
+    },
+    {
+      "name": "RECEIPT_METHOD_ID",
+      "description": "Foreign key referencing the receipt method controlling customer receipt processing."
+    },
+    {
+      "name": "REQUEST_ID",
+      "description": "Concurrent request identifier for the program run that created or updated the record."
+    },
+    {
+      "name": "SELECTED_FOR_FACTORING_FLAG",
+      "description": "Indicates whether selected for factoring applies to the record."
+    },
+    {
+      "name": "SELECTED_REMITTANCE_BATCH_ID",
+      "description": "System-generated identifier for the related selected remittance batch record."
+    },
+    {
+      "name": "FACTOR_DISCOUNT_AMOUNT",
+      "description": "Monetary amount representing factor discount for the transaction."
+    },
+    {
+      "name": "USSGL_TRANSACTION_CODE",
+      "description": "Lookup or classification code identifying ussgl transaction for the record."
+    },
+    {
+      "name": "USSGL_TRANSACTION_CODE_CONTEXT",
+      "description": "Context value used to interpret the USSGL transaction code for federal reporting."
+    },
+    {
+      "name": "DOC_SEQUENCE_VALUE",
+      "description": "Stored value associated with doc sequence."
+    },
+    {
+      "name": "DOC_SEQUENCE_ID",
+      "description": "Foreign key referencing the document sequencing definition used to assign the transaction number."
+    },
+    {
+      "name": "VAT_TAX_ID",
+      "description": "System-generated identifier for the related vat tax record."
+    },
+    {
+      "name": "REFERENCE_TYPE",
+      "description": "Type classification used to control reference processing."
+    },
+    {
+      "name": "REFERENCE_ID",
+      "description": "Foreign key referencing the referenced business entity linked to the transaction."
+    },
+    {
+      "name": "CUSTOMER_RECEIPT_REFERENCE",
+      "description": "Business reference captured for customer receipt."
+    },
+    {
+      "name": "OVERRIDE_REMIT_ACCOUNT_FLAG",
+      "description": "Indicates whether override remit account applies to the record."
+    },
+    {
+      "name": "ORG_ID",
+      "description": "Operating unit identifier that owns the transaction in a multi-org Oracle EBS environment."
+    },
+    {
+      "name": "ANTICIPATED_CLEARING_DATE",
+      "description": "Business date associated with anticipated clearing."
+    },
+    {
+      "name": "ISSUER_NAME",
+      "description": "Business name associated with issuer."
+    },
+    {
+      "name": "ISSUE_DATE",
+      "description": "Date on which the document or instrument was issued."
+    },
+    {
+      "name": "ISSUER_BANK_BRANCH_ID",
+      "description": "System-generated identifier for the related issuer bank branch record."
+    },
+    {
+      "name": "CUSTOMER_BANK_BRANCH_ID",
+      "description": "System-generated identifier for the related customer bank branch record."
+    },
+    {
+      "name": "MRC_EXCHANGE_RATE_TYPE",
+      "description": "Type classification used to control mrc exchange rate processing."
+    },
+    {
+      "name": "MRC_EXCHANGE_RATE",
+      "description": "Rate used to calculate or value mrc exchange for the transaction."
+    },
+    {
+      "name": "MRC_EXCHANGE_DATE",
+      "description": "Business date associated with mrc exchange."
+    },
+    {
+      "name": "PAYMENT_SERVER_ORDER_NUM",
+      "description": "Business number used to identify or sequence payment server order."
+    },
+    {
+      "name": "APPROVAL_CODE",
+      "description": "Lookup or classification code identifying approval for the record."
+    },
+    {
+      "name": "ADDRESS_VERIFICATION_CODE",
+      "description": "Lookup or classification code identifying address verification for the record."
+    },
+    {
+      "name": "TAX_RATE",
+      "description": "Tax rate applied to calculate the tax amount."
+    },
+    {
+      "name": "ACTUAL_VALUE_DATE",
+      "description": "Business date associated with actual value."
+    },
+    {
+      "name": "POSTMARK_DATE",
+      "description": "Postmark date associated with mailing or receipt handling."
+    },
+    {
+      "name": "APPLICATION_NOTES",
+      "description": "Business attribute of the cash receipt used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "UNIQUE_REFERENCE",
+      "description": "Business reference captured for unique."
+    },
+    {
+      "name": "PROMISE_SOURCE",
+      "description": "Business attribute of the cash receipt used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "REC_VERSION_NUMBER",
+      "description": "Business number used to identify or sequence rec version nu."
+    },
+    {
+      "name": "CC_ERROR_CODE",
+      "description": "Lookup or classification code identifying cc error for the record."
+    },
+    {
+      "name": "CC_ERROR_TEXT",
+      "description": "Detailed text associated with cc error."
+    },
+    {
+      "name": "CC_ERROR_FLAG",
+      "description": "Indicates whether cc error applies to the record."
+    },
+    {
+      "name": "REMIT_BANK_ACCT_USE_ID",
+      "description": "System-generated identifier for the related remit bank acct use record."
+    },
+    {
+      "name": "OLD_CUSTOMER_BANK_BRANCH_ID",
+      "description": "System-generated identifier for the related old customer bank branch record."
+    },
+    {
+      "name": "OLD_ISSUER_BANK_BRANCH_ID",
+      "description": "System-generated identifier for the related old issuer bank branch record."
+    },
+    {
+      "name": "LEGAL_ENTITY_ID",
+      "description": "Foreign key referencing the legal entity responsible for the transaction."
+    },
+    {
+      "name": "PAYMENT_TRXN_EXTENSION_ID",
+      "description": "System-generated identifier for the related payment trxn extension record."
+    },
+    {
+      "name": "AX_ACCOUNTED_FLAG",
+      "description": "Indicates whether ax accounted applies to the record."
+    },
+    {
+      "name": "OLD_CUSTOMER_BANK_ACCOUNT_ID",
+      "description": "System-generated identifier for the related old customer bank account record."
+    },
+    {
+      "name": "CASH_APPLN_OWNER_ID",
+      "description": "System-generated identifier for the related cash appln owner record."
+    },
+    {
+      "name": "WORK_ITEM_ASSIGNMENT_DATE",
+      "description": "Business date associated with work item assignment."
+    },
+    {
+      "name": "WORK_ITEM_REVIEW_DATE",
+      "description": "Business date associated with work item review."
+    },
+    {
+      "name": "WORK_ITEM_STATUS_CODE",
+      "description": "Lookup or classification code identifying work item status for the record."
+    },
+    {
+      "name": "WORK_ITEM_REVIEW_NOTE",
+      "description": "Business attribute of the cash receipt used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PREV_PAY_FROM_CUSTOMER",
+      "description": "Business attribute of the cash receipt used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PREV_CUSTOMER_SITE_USE_ID",
+      "description": "System-generated identifier for the related prev customer site use record."
+    },
+    {
+      "name": "WORK_ITEM_EXCEPTION_REASON",
+      "description": "Business reason captured for work item exception."
+    },
+    {
+      "name": "AUTOMATCH_SET_ID",
+      "description": "System-generated identifier for the related automatch set record."
+    },
+    {
+      "name": "AUTOAPPLY_FLAG",
+      "description": "Indicates whether autoapply applies to the record."
+    },
+    {
+      "name": "SEQ_TYPE_LAST",
+      "description": "Business attribute of the cash receipt used for Oracle EBS transaction processing, control, or reporting."
+    }
+  ],
+  "relationships": [
+    {
+      "table": "AR_RECEIVABLE_APPLICATIONS_ALL",
+      "join": "CASH_RECEIPT_ID",
+      "relationship_type": "child"
+    }
+  ],
+  "business_questions": [
+    "Show customer cash receipts entered during a date range.",
+    "Find unapplied or partially applied cash receipts.",
+    "List reversed or NSF receipts with reversal details.",
+    "Show cash receipts by customer, receipt method, or bank account.",
+    "Identify high-value receipts above a business threshold.",
+    "Display receipt status and remittance information.",
+    "Find receipts awaiting confirmation or clearing.",
+    "Show miscellaneous receipts and their accounting attributes."
+  ]
+}

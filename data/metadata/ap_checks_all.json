@@ -1,0 +1,501 @@
+{
+  "module": "Accounts Payable",
+  "table": "AP_CHECKS_ALL",
+  "description": "Payment instrument header table for Oracle Accounts Payable disbursements. Each record represents a payment document or electronic payment issued to a supplier and captures settlement details, bank information, payment status, remittance attributes, supplier references, and reconciliation data used in the procure-to-pay cycle.",
+  "primary_key": "CHECK_ID",
+  "columns": [
+    {
+      "name": "AMOUNT",
+      "description": "Monetary amount recorded for the transaction in the transaction currency."
+    },
+    {
+      "name": "BANK_ACCOUNT_ID",
+      "description": "Foreign key referencing the internal bank account used to process the payment or receipt."
+    },
+    {
+      "name": "BANK_ACCOUNT_NAME",
+      "description": "Business name associated with bank account."
+    },
+    {
+      "name": "CHECK_DATE",
+      "description": "Date on which the payment document was issued."
+    },
+    {
+      "name": "CHECK_ID",
+      "description": "Unique system-generated identifier for the supplier payment document or electronic payment."
+    },
+    {
+      "name": "CHECK_NUMBER",
+      "description": "Business payment document number assigned to the check or payment instrument."
+    },
+    {
+      "name": "CURRENCY_CODE",
+      "description": "Currency code in which the transaction is denominated."
+    },
+    {
+      "name": "LAST_UPDATED_BY",
+      "description": "User identifier for the person or process that last updated the record."
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "description": "Date and time when the record was last updated."
+    },
+    {
+      "name": "PAYMENT_METHOD_LOOKUP_CODE",
+      "description": "Lookup code identifying the method used to settle the transaction."
+    },
+    {
+      "name": "PAYMENT_TYPE_FLAG",
+      "description": "Indicates whether payment type applies to the record."
+    },
+    {
+      "name": "ADDRESS_LINE1",
+      "description": "Address line 1 of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "ADDRESS_LINE2",
+      "description": "Address line 2 of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "ADDRESS_LINE3",
+      "description": "Address line 3 of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "CHECKRUN_NAME",
+      "description": "Business name associated with checkrun."
+    },
+    {
+      "name": "CHECK_FORMAT_ID",
+      "description": "System-generated identifier for the related check format record."
+    },
+    {
+      "name": "CHECK_STOCK_ID",
+      "description": "System-generated identifier for the related check stock record."
+    },
+    {
+      "name": "CITY",
+      "description": "City component of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "COUNTRY",
+      "description": "Country component of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "CREATED_BY",
+      "description": "User identifier for the person or process that created the record."
+    },
+    {
+      "name": "CREATION_DATE",
+      "description": "Date and time when the record was created."
+    },
+    {
+      "name": "LAST_UPDATE_LOGIN",
+      "description": "Login session identifier that performed the last update."
+    },
+    {
+      "name": "STATUS_LOOKUP_CODE",
+      "description": "Lookup code identifying the current status of the record."
+    },
+    {
+      "name": "VENDOR_NAME",
+      "description": "Business name of the supplier."
+    },
+    {
+      "name": "VENDOR_SITE_CODE",
+      "description": "Business code identifying the supplier site."
+    },
+    {
+      "name": "ZIP",
+      "description": "Postal code component of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "BANK_ACCOUNT_NUM",
+      "description": "Business number used to identify or sequence bank account."
+    },
+    {
+      "name": "BANK_ACCOUNT_TYPE",
+      "description": "Type classification used to control bank account processing."
+    },
+    {
+      "name": "BANK_NUM",
+      "description": "Business number used to identify or sequence bank."
+    },
+    {
+      "name": "CHECK_VOUCHER_NUM",
+      "description": "Business number used to identify or sequence check voucher."
+    },
+    {
+      "name": "CLEARED_AMOUNT",
+      "description": "Monetary amount representing cleared for the transaction."
+    },
+    {
+      "name": "CLEARED_DATE",
+      "description": "Date on which the payment or receipt cleared the bank."
+    },
+    {
+      "name": "DOC_CATEGORY_CODE",
+      "description": "Lookup or classification code identifying doc category for the record."
+    },
+    {
+      "name": "DOC_SEQUENCE_ID",
+      "description": "Foreign key referencing the document sequencing definition used to assign the transaction number."
+    },
+    {
+      "name": "DOC_SEQUENCE_VALUE",
+      "description": "Stored value associated with doc sequence."
+    },
+    {
+      "name": "PROVINCE",
+      "description": "Province or regional component of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "RELEASED_AT",
+      "description": "Date and time when released occurred."
+    },
+    {
+      "name": "RELEASED_BY",
+      "description": "User or person responsible for released."
+    },
+    {
+      "name": "STATE",
+      "description": "State or province code component of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "STOPPED_AT",
+      "description": "Date and time when stopped occurred."
+    },
+    {
+      "name": "STOPPED_BY",
+      "description": "User or person responsible for stopped."
+    },
+    {
+      "name": "VOID_DATE",
+      "description": "Date on which the payment document was voided."
+    },
+    {
+      "name": "FUTURE_PAY_DUE_DATE",
+      "description": "Future dated payment due date used for settlement scheduling."
+    },
+    {
+      "name": "TREASURY_PAY_DATE",
+      "description": "Date on which treasury processing settled the payment."
+    },
+    {
+      "name": "TREASURY_PAY_NUMBER",
+      "description": "Business number used to identify or sequence treasury pay nu."
+    },
+    {
+      "name": "USSGL_TRANSACTION_CODE",
+      "description": "Lookup or classification code identifying ussgl transaction for the record."
+    },
+    {
+      "name": "USSGL_TRX_CODE_CONTEXT",
+      "description": "Context value used to interpret the USSGL transaction code for federal reporting."
+    },
+    {
+      "name": "WITHHOLDING_STATUS_LOOKUP_CODE",
+      "description": "Lookup or classification code identifying withholding status lookup for the record."
+    },
+    {
+      "name": "RECONCILIATION_BATCH_ID",
+      "description": "System-generated identifier for the related reconciliation batch record."
+    },
+    {
+      "name": "CLEARED_BASE_AMOUNT",
+      "description": "Monetary amount representing cleared base for the transaction."
+    },
+    {
+      "name": "CLEARED_EXCHANGE_RATE",
+      "description": "Rate used to calculate or value cleared exchange for the transaction."
+    },
+    {
+      "name": "CLEARED_EXCHANGE_DATE",
+      "description": "Business date associated with cleared exchange."
+    },
+    {
+      "name": "CLEARED_EXCHANGE_RATE_TYPE",
+      "description": "Type classification used to control cleared exchange rate processing."
+    },
+    {
+      "name": "ADDRESS_LINE4",
+      "description": "Address line 4 of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "COUNTY",
+      "description": "County or administrative district component of the address."
+    },
+    {
+      "name": "ADDRESS_STYLE",
+      "description": "Business attribute of the supplier payment used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ORG_ID",
+      "description": "Operating unit identifier that owns the transaction in a multi-org Oracle EBS environment."
+    },
+    {
+      "name": "VENDOR_ID",
+      "description": "Foreign key referencing the supplier master record associated with the transaction."
+    },
+    {
+      "name": "VENDOR_SITE_ID",
+      "description": "Foreign key referencing the supplier site associated with the transaction."
+    },
+    {
+      "name": "EXCHANGE_RATE",
+      "description": "Exchange rate used to convert the foreign currency transaction to functional currency."
+    },
+    {
+      "name": "EXCHANGE_DATE",
+      "description": "Date used to derive the foreign currency conversion rate."
+    },
+    {
+      "name": "EXCHANGE_RATE_TYPE",
+      "description": "Conversion rate type used to derive the exchange rate for the transaction."
+    },
+    {
+      "name": "BASE_AMOUNT",
+      "description": "Functional currency amount derived from the entered transaction amount."
+    },
+    {
+      "name": "CHECKRUN_ID",
+      "description": "System-generated identifier for the related checkrun record."
+    },
+    {
+      "name": "REQUEST_ID",
+      "description": "Concurrent request identifier for the program run that created or updated the record."
+    },
+    {
+      "name": "CLEARED_ERROR_AMOUNT",
+      "description": "Monetary amount representing cleared error for the transaction."
+    },
+    {
+      "name": "CLEARED_CHARGES_AMOUNT",
+      "description": "Monetary amount representing cleared charges for the transaction."
+    },
+    {
+      "name": "CLEARED_ERROR_BASE_AMOUNT",
+      "description": "Monetary amount representing cleared error base for the transaction."
+    },
+    {
+      "name": "CLEARED_CHARGES_BASE_AMOUNT",
+      "description": "Monetary amount representing cleared charges base for the transaction."
+    },
+    {
+      "name": "POSITIVE_PAY_STATUS_CODE",
+      "description": "Lookup or classification code identifying positive pay status for the record."
+    },
+    {
+      "name": "TRANSFER_PRIORITY",
+      "description": "Priority used to control processing of the record."
+    },
+    {
+      "name": "EXTERNAL_BANK_ACCOUNT_ID",
+      "description": "Foreign key referencing the external supplier or customer bank account used for settlement."
+    },
+    {
+      "name": "STAMP_DUTY_AMT",
+      "description": "Monetary amount recorded for stamp duty."
+    },
+    {
+      "name": "STAMP_DUTY_BASE_AMT",
+      "description": "Monetary amount recorded for stamp duty base."
+    },
+    {
+      "name": "MRC_CLEARED_BASE_AMOUNT",
+      "description": "Monetary amount representing mrc cleared base for the transaction."
+    },
+    {
+      "name": "MRC_CLEARED_EXCHANGE_RATE",
+      "description": "Rate used to calculate or value mrc cleared exchange for the transaction."
+    },
+    {
+      "name": "MRC_CLEARED_EXCHANGE_DATE",
+      "description": "Business date associated with mrc cleared exchange."
+    },
+    {
+      "name": "MRC_CLEARED_EXCHANGE_RATE_TYPE",
+      "description": "Type classification used to control mrc cleared exchange rate processing."
+    },
+    {
+      "name": "MRC_EXCHANGE_RATE",
+      "description": "Rate used to calculate or value mrc exchange for the transaction."
+    },
+    {
+      "name": "MRC_EXCHANGE_DATE",
+      "description": "Business date associated with mrc exchange."
+    },
+    {
+      "name": "MRC_EXCHANGE_RATE_TYPE",
+      "description": "Type classification used to control mrc exchange rate processing."
+    },
+    {
+      "name": "MRC_BASE_AMOUNT",
+      "description": "Monetary amount representing mrc base for the transaction."
+    },
+    {
+      "name": "MRC_CLEARED_ERROR_BASE_AMOUNT",
+      "description": "Monetary amount representing mrc cleared error base for the transaction."
+    },
+    {
+      "name": "MRC_CLEARED_CHARGES_BASE_AMT",
+      "description": "Monetary amount recorded for mrc cleared charges base."
+    },
+    {
+      "name": "MRC_STAMP_DUTY_BASE_AMT",
+      "description": "Monetary amount recorded for mrc stamp duty base."
+    },
+    {
+      "name": "MATURITY_EXCHANGE_DATE",
+      "description": "Business date associated with maturity exchange."
+    },
+    {
+      "name": "MATURITY_EXCHANGE_RATE_TYPE",
+      "description": "Type classification used to control maturity exchange rate processing."
+    },
+    {
+      "name": "MATURITY_EXCHANGE_RATE",
+      "description": "Rate used to calculate or value maturity exchange for the transaction."
+    },
+    {
+      "name": "DESCRIPTION",
+      "description": "Free-text business description entered to explain the purpose or content of the transaction."
+    },
+    {
+      "name": "ACTUAL_VALUE_DATE",
+      "description": "Business date associated with actual value."
+    },
+    {
+      "name": "ANTICIPATED_VALUE_DATE",
+      "description": "Business date associated with anticipated value."
+    },
+    {
+      "name": "RELEASED_DATE",
+      "description": "Date on which the payment or hold was released."
+    },
+    {
+      "name": "STOPPED_DATE",
+      "description": "Date on which the payment was stopped."
+    },
+    {
+      "name": "MRC_MATURITY_EXG_DATE",
+      "description": "Business date associated with mrc maturity exg."
+    },
+    {
+      "name": "MRC_MATURITY_EXG_RATE",
+      "description": "Rate used to calculate or value mrc maturity exg for the transaction."
+    },
+    {
+      "name": "MRC_MATURITY_EXG_RATE_TYPE",
+      "description": "Type classification used to control mrc maturity exg rate processing."
+    },
+    {
+      "name": "IBAN_NUMBER",
+      "description": "Business number used to identify or sequence iban nu."
+    },
+    {
+      "name": "CE_BANK_ACCT_USE_ID",
+      "description": "System-generated identifier for the related ce bank acct use record."
+    },
+    {
+      "name": "PAYMENT_METHOD_CODE",
+      "description": "Payment method used to settle the transaction."
+    },
+    {
+      "name": "PARTY_ID",
+      "description": "Foreign key referencing the Trading Community Architecture party associated with the record."
+    },
+    {
+      "name": "PARTY_SITE_ID",
+      "description": "Party site associated with the supplier, customer, or payment record."
+    },
+    {
+      "name": "PAYMENT_PROFILE_ID",
+      "description": "System-generated identifier for the related payment profile record."
+    },
+    {
+      "name": "SETTLEMENT_PRIORITY",
+      "description": "Priority used by payment processing to determine the order of settlement."
+    },
+    {
+      "name": "BANK_CHARGE_BEARER",
+      "description": "Indicates which party bears bank charges associated with the payment or receipt settlement."
+    },
+    {
+      "name": "LEGAL_ENTITY_ID",
+      "description": "Foreign key referencing the legal entity responsible for the transaction."
+    },
+    {
+      "name": "PAYMENT_DOCUMENT_ID",
+      "description": "System-generated identifier for the related payment document record."
+    },
+    {
+      "name": "COMPLETED_PMTS_GROUP_ID",
+      "description": "System-generated identifier for the related completed pmts group record."
+    },
+    {
+      "name": "PAYMENT_ID",
+      "description": "System-generated identifier for the related payment record."
+    },
+    {
+      "name": "PAYMENT_INSTRUCTION_ID",
+      "description": "System-generated identifier for the related payment instruction record."
+    },
+    {
+      "name": "VOID_CHECK_NUMBER",
+      "description": "Business number used to identify or sequence void check nu."
+    },
+    {
+      "name": "VOID_CHECK_ID",
+      "description": "System-generated identifier for the related void check record."
+    },
+    {
+      "name": "REMIT_TO_SUPPLIER_NAME",
+      "description": "Business name associated with remit to supplier."
+    },
+    {
+      "name": "REMIT_TO_SUPPLIER_ID",
+      "description": "System-generated identifier for the related remit to supplier record."
+    },
+    {
+      "name": "REMIT_TO_SUPPLIER_SITE",
+      "description": "Supplier site to which payment remittance is directed."
+    },
+    {
+      "name": "REMIT_TO_SUPPLIER_SITE_ID",
+      "description": "System-generated identifier for the related remit to supplier site record."
+    },
+    {
+      "name": "RELATIONSHIP_ID",
+      "description": "System-generated identifier for the related relationship record."
+    },
+    {
+      "name": "PAYCARD_AUTHORIZATION_NUMBER",
+      "description": "Business number used to identify or sequence paycard authorization nu."
+    },
+    {
+      "name": "PAYCARD_REFERENCE_ID",
+      "description": "System-generated identifier for the related paycard reference record."
+    },
+    {
+      "name": "ACKNOWLEDGED_FLAG",
+      "description": "Indicates whether acknowledged applies to the record."
+    }
+  ],
+  "relationships": [
+    {
+      "table": "AP_INVOICE_PAYMENTS_ALL",
+      "join": "CHECK_ID",
+      "relationship_type": "child"
+    }
+  ],
+  "business_questions": [
+    "Show supplier payments issued during a date range.",
+    "List voided, stopped, or cancelled payment documents.",
+    "Find checks that have not yet cleared the bank.",
+    "Show payments issued to a specific supplier or supplier site.",
+    "Display bank account and payment method details for disbursements.",
+    "Find payments created by a specific payment batch or payment run.",
+    "Show cleared amount and clearing date for reconciled payments.",
+    "Identify high-value supplier payments above a business threshold."
+  ]
+}

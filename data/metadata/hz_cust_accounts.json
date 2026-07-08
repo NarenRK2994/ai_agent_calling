@@ -1,0 +1,422 @@
+{
+  "module": "Customer Data",
+  "table": "HZ_CUST_ACCOUNTS",
+  "description": "Customer account master table in Oracle Trading Community Architecture. Each record represents a commercial customer account associated with a party and is used by Accounts Receivable to control billing relationships, account ownership, and customer transaction processing.",
+  "primary_key": "CUST_ACCOUNT_ID",
+  "columns": [
+    {
+      "name": "CUST_ACCOUNT_ID",
+      "description": "Unique system-generated identifier for the customer account in Trading Community Architecture."
+    },
+    {
+      "name": "PARTY_ID",
+      "description": "Foreign key referencing the Trading Community Architecture party associated with the record."
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "description": "Date and time when the record was last updated."
+    },
+    {
+      "name": "ACCOUNT_NUMBER",
+      "description": "Business number used to identify or sequence account nu."
+    },
+    {
+      "name": "LAST_UPDATED_BY",
+      "description": "User identifier for the person or process that last updated the record."
+    },
+    {
+      "name": "CREATION_DATE",
+      "description": "Date and time when the record was created."
+    },
+    {
+      "name": "CREATED_BY",
+      "description": "User identifier for the person or process that created the record."
+    },
+    {
+      "name": "LAST_UPDATE_LOGIN",
+      "description": "Login session identifier that performed the last update."
+    },
+    {
+      "name": "REQUEST_ID",
+      "description": "Concurrent request identifier for the program run that created or updated the record."
+    },
+    {
+      "name": "PROGRAM_APPLICATION_ID",
+      "description": "Oracle application identifier for the concurrent program that last updated the record."
+    },
+    {
+      "name": "PROGRAM_ID",
+      "description": "Concurrent program identifier for the process that last updated the record."
+    },
+    {
+      "name": "PROGRAM_UPDATE_DATE",
+      "description": "Date and time when the concurrent program last updated the record."
+    },
+    {
+      "name": "WH_UPDATE_DATE",
+      "description": "Business date associated with wh update."
+    },
+    {
+      "name": "ORIG_SYSTEM_REFERENCE",
+      "description": "Reference to the originating source system record used during integration or conversion."
+    },
+    {
+      "name": "STATUS",
+      "description": "Current processing status of the transaction within the Oracle application flow."
+    },
+    {
+      "name": "CUSTOMER_TYPE",
+      "description": "Type classification used to control customer processing."
+    },
+    {
+      "name": "CUSTOMER_CLASS_CODE",
+      "description": "Lookup or classification code identifying customer class for the record."
+    },
+    {
+      "name": "PRIMARY_SALESREP_ID",
+      "description": "System-generated identifier for the related primary salesrep record."
+    },
+    {
+      "name": "SALES_CHANNEL_CODE",
+      "description": "Lookup or classification code identifying sales channel for the record."
+    },
+    {
+      "name": "ORDER_TYPE_ID",
+      "description": "System-generated identifier for the related order type record."
+    },
+    {
+      "name": "PRICE_LIST_ID",
+      "description": "System-generated identifier for the related price list record."
+    },
+    {
+      "name": "SUBCATEGORY_CODE",
+      "description": "Lookup or classification code identifying subcategory for the record."
+    },
+    {
+      "name": "TAX_CODE",
+      "description": "Lookup or classification code identifying tax for the record."
+    },
+    {
+      "name": "FOB_POINT",
+      "description": "Free On Board point that determines when ownership or shipping responsibility transfers."
+    },
+    {
+      "name": "FREIGHT_TERM",
+      "description": "Business attribute of the customer account used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SHIP_PARTIAL",
+      "description": "Business attribute of the customer account used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SHIP_VIA",
+      "description": "Shipping method or carrier reference associated with the transaction or customer account."
+    },
+    {
+      "name": "WAREHOUSE_ID",
+      "description": "Foreign key referencing the warehouse organization used for shipping or inventory processing."
+    },
+    {
+      "name": "PAYMENT_TERM_ID",
+      "description": "System-generated identifier for the related payment term record."
+    },
+    {
+      "name": "TAX_HEADER_LEVEL_FLAG",
+      "description": "Indicates whether tax header level applies to the record."
+    },
+    {
+      "name": "TAX_ROUNDING_RULE",
+      "description": "Rounding adjustment associated with tax rounding rule."
+    },
+    {
+      "name": "COTERMINATE_DAY_MONTH",
+      "description": "Business attribute of the customer account used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PRIMARY_SPECIALIST_ID",
+      "description": "System-generated identifier for the related primary specialist record."
+    },
+    {
+      "name": "SECONDARY_SPECIALIST_ID",
+      "description": "System-generated identifier for the related secondary specialist record."
+    },
+    {
+      "name": "ACCOUNT_LIABLE_FLAG",
+      "description": "Indicates whether account liable applies to the record."
+    },
+    {
+      "name": "RESTRICTION_LIMIT_AMOUNT",
+      "description": "Monetary amount representing restriction limit for the transaction."
+    },
+    {
+      "name": "CURRENT_BALANCE",
+      "description": "Business attribute of the customer account used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PASSWORD_TEXT",
+      "description": "Detailed text associated with password."
+    },
+    {
+      "name": "HIGH_PRIORITY_INDICATOR",
+      "description": "Business attribute of the customer account used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ACCOUNT_ESTABLISHED_DATE",
+      "description": "Business date associated with account established."
+    },
+    {
+      "name": "ACCOUNT_TERMINATION_DATE",
+      "description": "Business date associated with account termination."
+    },
+    {
+      "name": "ACCOUNT_ACTIVATION_DATE",
+      "description": "Business date associated with account activation."
+    },
+    {
+      "name": "CREDIT_CLASSIFICATION_CODE",
+      "description": "Lookup or classification code identifying credit classification for the record."
+    },
+    {
+      "name": "DEPARTMENT",
+      "description": "Business attribute of the customer account used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "MAJOR_ACCOUNT_NUMBER",
+      "description": "Business number used to identify or sequence major account nu."
+    },
+    {
+      "name": "HOTWATCH_SERVICE_FLAG",
+      "description": "Indicates whether hotwatch service applies to the record."
+    },
+    {
+      "name": "HOTWATCH_SVC_BAL_IND",
+      "description": "Business attribute of the customer account used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "HELD_BILL_EXPIRATION_DATE",
+      "description": "Business date associated with held bill expiration."
+    },
+    {
+      "name": "HOLD_BILL_FLAG",
+      "description": "Indicates whether hold bill applies to the record."
+    },
+    {
+      "name": "HIGH_PRIORITY_REMARKS",
+      "description": "Business attribute of the customer account used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PO_EFFECTIVE_DATE",
+      "description": "Business date associated with po effective."
+    },
+    {
+      "name": "PO_EXPIRATION_DATE",
+      "description": "Business date associated with po expiration."
+    },
+    {
+      "name": "REALTIME_RATE_FLAG",
+      "description": "Indicates whether realtime rate applies to the record."
+    },
+    {
+      "name": "SINGLE_USER_FLAG",
+      "description": "Indicates whether single user applies to the record."
+    },
+    {
+      "name": "WATCH_ACCOUNT_FLAG",
+      "description": "Indicates whether watch account applies to the record."
+    },
+    {
+      "name": "WATCH_BALANCE_INDICATOR",
+      "description": "Business attribute of the customer account used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "GEO_CODE",
+      "description": "Lookup or classification code identifying geo for the record."
+    },
+    {
+      "name": "ACCT_LIFE_CYCLE_STATUS",
+      "description": "Status value showing the current processing state of acct life cycle."
+    },
+    {
+      "name": "ACCOUNT_NAME",
+      "description": "Business name associated with account."
+    },
+    {
+      "name": "DEPOSIT_REFUND_METHOD",
+      "description": "Business attribute of the customer account used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DORMANT_ACCOUNT_FLAG",
+      "description": "Indicates whether dormant account applies to the record."
+    },
+    {
+      "name": "NPA_NUMBER",
+      "description": "Business number used to identify or sequence npa nu."
+    },
+    {
+      "name": "PIN_NUMBER",
+      "description": "Business number used to identify or sequence pin nu."
+    },
+    {
+      "name": "SUSPENSION_DATE",
+      "description": "Business date associated with suspension."
+    },
+    {
+      "name": "WRITE_OFF_ADJUSTMENT_AMOUNT",
+      "description": "Monetary amount representing write off adjustment for the transaction."
+    },
+    {
+      "name": "WRITE_OFF_PAYMENT_AMOUNT",
+      "description": "Monetary amount representing write off payment for the transaction."
+    },
+    {
+      "name": "WRITE_OFF_AMOUNT",
+      "description": "Monetary amount representing write off for the transaction."
+    },
+    {
+      "name": "SOURCE_CODE",
+      "description": "Lookup or classification code identifying source for the record."
+    },
+    {
+      "name": "COMPETITOR_TYPE",
+      "description": "Type classification used to control competitor processing."
+    },
+    {
+      "name": "COMMENTS",
+      "description": "Free-text explanation entered to document the business purpose of the record."
+    },
+    {
+      "name": "DATES_NEGATIVE_TOLERANCE",
+      "description": "Tolerance threshold used to control dates negative tolerance."
+    },
+    {
+      "name": "DATES_POSITIVE_TOLERANCE",
+      "description": "Tolerance threshold used to control dates positive tolerance."
+    },
+    {
+      "name": "DATE_TYPE_PREFERENCE",
+      "description": "Reference value used for integration, reconciliation, or business traceability."
+    },
+    {
+      "name": "OVER_SHIPMENT_TOLERANCE",
+      "description": "Tolerance threshold used to control over shipment tolerance."
+    },
+    {
+      "name": "UNDER_SHIPMENT_TOLERANCE",
+      "description": "Tolerance threshold used to control under shipment tolerance."
+    },
+    {
+      "name": "OVER_RETURN_TOLERANCE",
+      "description": "Tolerance threshold used to control over return tolerance."
+    },
+    {
+      "name": "UNDER_RETURN_TOLERANCE",
+      "description": "Tolerance threshold used to control under return tolerance."
+    },
+    {
+      "name": "ITEM_CROSS_REF_PREF",
+      "description": "Business attribute of the customer account used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SHIP_SETS_INCLUDE_LINES_FLAG",
+      "description": "Indicates whether ship sets include lines applies to the record."
+    },
+    {
+      "name": "ARRIVALSETS_INCLUDE_LINES_FLAG",
+      "description": "Indicates whether arrivalsets include lines applies to the record."
+    },
+    {
+      "name": "SCHED_DATE_PUSH_FLAG",
+      "description": "Indicates whether sched date push applies to the record."
+    },
+    {
+      "name": "INVOICE_QUANTITY_RULE",
+      "description": "Quantity associated with invoice quan for the transaction."
+    },
+    {
+      "name": "PRICING_EVENT",
+      "description": "Business attribute of the customer account used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ACCOUNT_REPLICATION_KEY",
+      "description": "Business attribute of the customer account used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "STATUS_UPDATE_DATE",
+      "description": "Business date associated with status update."
+    },
+    {
+      "name": "AUTOPAY_FLAG",
+      "description": "Indicates whether autopay applies to the record."
+    },
+    {
+      "name": "NOTIFY_FLAG",
+      "description": "Indicates whether notify applies to the record."
+    },
+    {
+      "name": "LAST_BATCH_ID",
+      "description": "System-generated identifier for the related last batch record."
+    },
+    {
+      "name": "ORG_ID",
+      "description": "Operating unit identifier that owns the transaction in a multi-org Oracle EBS environment."
+    },
+    {
+      "name": "OBJECT_VERSION_NUMBER",
+      "description": "Business number used to identify or sequence object version nu."
+    },
+    {
+      "name": "CREATED_BY_MODULE",
+      "description": "Business attribute of the customer account used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "APPLICATION_ID",
+      "description": "System-generated identifier for the related application record."
+    },
+    {
+      "name": "SELLING_PARTY_ID",
+      "description": "System-generated identifier for the related selling party record."
+    },
+    {
+      "name": "FEDERAL_ENTITY_TYPE",
+      "description": "Type classification used to control federal entity processing."
+    },
+    {
+      "name": "TRADING_PARTNER_AGENCY_ID",
+      "description": "System-generated identifier for the related trading partner agency record."
+    },
+    {
+      "name": "DUNS_EXTENSION",
+      "description": "Business attribute of the customer account used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ADVANCE_PAYMENT_INDICATOR",
+      "description": "Business attribute of the customer account used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CANCEL_UNSHIPPED_LINES_FLAG",
+      "description": "Indicates whether cancel unshipped lines applies to the record."
+    }
+  ],
+  "relationships": [
+    {
+      "table": "HZ_PARTIES",
+      "join": "PARTY_ID",
+      "relationship_type": "parent"
+    },
+    {
+      "table": "RA_CUSTOMER_TRX_ALL",
+      "join": "BILL_TO_CUSTOMER_ID",
+      "relationship_type": "child"
+    }
+  ],
+  "business_questions": [
+    "Show customer account details and account status.",
+    "Trace customer accounts to receivables transactions.",
+    "Find customer accounts for a party record.",
+    "Show billing accounts used for a specific customer transaction.",
+    "Identify customer accounts with recent invoice activity.",
+    "List customer accounts by account number or account name.",
+    "Display customer accounts by operating unit or business classification.",
+    "Find accounts associated with a specific bill-to customer reference."
+  ]
+}

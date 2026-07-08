@@ -1,0 +1,185 @@
+{
+  "module": "Costing",
+  "table": "CST_ITEM_COSTS",
+  "description": "Item cost table for Oracle Cost Management. Each record represents the cost of an inventory item for a specific organization and cost type and stores the material, resource, overhead, and rolled-up cost components used in valuation, inventory accounting, and cost analysis.",
+  "primary_key": "INVENTORY_ITEM_ID, ORGANIZATION_ID, COST_TYPE_ID",
+  "columns": [
+    {
+      "name": "INVENTORY_ITEM_ID",
+      "description": "Unique system-generated identifier for the item cost record. Used together with organization context to relate item setup, translated descriptions, costs, and transaction history."
+    },
+    {
+      "name": "ORGANIZATION_ID",
+      "description": "Foreign key referencing the inventory organization or operating organization that owns the record."
+    },
+    {
+      "name": "COST_TYPE_ID",
+      "description": "Foreign key referencing the cost type that defines how item cost is valued or analyzed."
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "description": "Date and time when the record was last updated."
+    },
+    {
+      "name": "LAST_UPDATED_BY",
+      "description": "User identifier for the person or process that last updated the record."
+    },
+    {
+      "name": "CREATION_DATE",
+      "description": "Date and time when the record was created."
+    },
+    {
+      "name": "CREATED_BY",
+      "description": "User identifier for the person or process that created the record."
+    },
+    {
+      "name": "LAST_UPDATE_LOGIN",
+      "description": "Login session identifier that performed the last update."
+    },
+    {
+      "name": "INVENTORY_ASSET_FLAG",
+      "description": "Indicates whether inventory asset applies to the record."
+    },
+    {
+      "name": "LOT_SIZE",
+      "description": "Business attribute of the item cost record used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "BASED_ON_ROLLUP_FLAG",
+      "description": "Indicates whether based on rollup applies to the record."
+    },
+    {
+      "name": "SHRINKAGE_RATE",
+      "description": "Rate used to calculate or value shrinkage for the transaction."
+    },
+    {
+      "name": "DEFAULTED_FLAG",
+      "description": "Indicates whether defaulted applies to the record."
+    },
+    {
+      "name": "COST_UPDATE_ID",
+      "description": "System-generated identifier for the related cost update record."
+    },
+    {
+      "name": "PL_MATERIAL",
+      "description": "Business attribute of the item cost record used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PL_MATERIAL_OVERHEAD",
+      "description": "Business attribute of the item cost record used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PL_RESOURCE",
+      "description": "Business attribute of the item cost record used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PL_OUTSIDE_PROCESSING",
+      "description": "Business attribute of the item cost record used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PL_OVERHEAD",
+      "description": "Business attribute of the item cost record used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TL_MATERIAL",
+      "description": "Business attribute of the item cost record used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TL_MATERIAL_OVERHEAD",
+      "description": "Business attribute of the item cost record used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TL_RESOURCE",
+      "description": "Business attribute of the item cost record used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TL_OUTSIDE_PROCESSING",
+      "description": "Business attribute of the item cost record used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TL_OVERHEAD",
+      "description": "Business attribute of the item cost record used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "MATERIAL_COST",
+      "description": "Business attribute of the item cost record used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "MATERIAL_OVERHEAD_COST",
+      "description": "Business attribute of the item cost record used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "RESOURCE_COST",
+      "description": "Business attribute of the item cost record used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "OUTSIDE_PROCESSING_COST",
+      "description": "Business attribute of the item cost record used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "OVERHEAD_COST",
+      "description": "Business attribute of the item cost record used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PL_ITEM_COST",
+      "description": "Business attribute of the item cost record used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TL_ITEM_COST",
+      "description": "Business attribute of the item cost record used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ITEM_COST",
+      "description": "Total item cost for the organization and cost type after combining all cost components."
+    },
+    {
+      "name": "UNBURDENED_COST",
+      "description": "Business attribute of the item cost record used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "BURDEN_COST",
+      "description": "Business attribute of the item cost record used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "REQUEST_ID",
+      "description": "Concurrent request identifier for the program run that created or updated the record."
+    },
+    {
+      "name": "PROGRAM_APPLICATION_ID",
+      "description": "Oracle application identifier for the concurrent program that last updated the record."
+    },
+    {
+      "name": "PROGRAM_ID",
+      "description": "Concurrent program identifier for the process that last updated the record."
+    },
+    {
+      "name": "PROGRAM_UPDATE_DATE",
+      "description": "Date and time when the concurrent program last updated the record."
+    },
+    {
+      "name": "ROLLUP_ID",
+      "description": "System-generated identifier for the related rollup record."
+    },
+    {
+      "name": "ASSIGNMENT_SET_ID",
+      "description": "System-generated identifier for the related assignment set record."
+    }
+  ],
+  "relationships": [
+    {
+      "table": "MTL_SYSTEM_ITEMS_B",
+      "join": "INVENTORY_ITEM_ID, ORGANIZATION_ID",
+      "relationship_type": "parent"
+    }
+  ],
+  "business_questions": [
+    "Show item cost by organization and cost type.",
+    "Compare material, resource, and overhead cost components.",
+    "Find item costs used for inventory valuation.",
+    "Show cost records updated by a cost rollup or cost update.",
+    "Identify items with zero or missing item cost.",
+    "Display standard or average cost details for an item.",
+    "Find item costs for a specific inventory organization.",
+    "Analyze cost changes across items and cost types."
+  ]
+}

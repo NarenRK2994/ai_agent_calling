@@ -1,0 +1,426 @@
+{
+  "module": "Accounts Receivable",
+  "table": "AR_RECEIVABLE_APPLICATIONS_ALL",
+  "description": "Receipt application detail table for Oracle Accounts Receivable. Each record represents the application, unapplication, on-account activity, chargeback, or reversal of a cash receipt against a customer transaction or payment schedule and provides the accounting trail for receipt application history.",
+  "primary_key": "RECEIVABLE_APPLICATION_ID",
+  "columns": [
+    {
+      "name": "RECEIVABLE_APPLICATION_ID",
+      "description": "System-generated identifier for the related receivable application record."
+    },
+    {
+      "name": "LAST_UPDATED_BY",
+      "description": "User identifier for the person or process that last updated the record."
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "description": "Date and time when the record was last updated."
+    },
+    {
+      "name": "CREATED_BY",
+      "description": "User identifier for the person or process that created the record."
+    },
+    {
+      "name": "CREATION_DATE",
+      "description": "Date and time when the record was created."
+    },
+    {
+      "name": "AMOUNT_APPLIED",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "AMOUNT_APPLIED_FROM",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TRANS_TO_RECEIPT_RATE",
+      "description": "Rate used to calculate or value trans to receipt for the transaction."
+    },
+    {
+      "name": "GL_DATE",
+      "description": "Accounting date used when posting the transaction to General Ledger."
+    },
+    {
+      "name": "CODE_COMBINATION_ID",
+      "description": "Foreign key referencing the General Ledger account combination associated with the accounting entry."
+    },
+    {
+      "name": "SET_OF_BOOKS_ID",
+      "description": "Ledger identifier in which accounting entries are recorded."
+    },
+    {
+      "name": "DISPLAY",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "APPLY_DATE",
+      "description": "Business date associated with apply."
+    },
+    {
+      "name": "APPLICATION_TYPE",
+      "description": "Type classification used to control application processing."
+    },
+    {
+      "name": "STATUS",
+      "description": "Current processing status of the transaction within the Oracle application flow."
+    },
+    {
+      "name": "PAYMENT_SCHEDULE_ID",
+      "description": "Foreign key referencing the receivables payment schedule referenced by the application."
+    },
+    {
+      "name": "LAST_UPDATE_LOGIN",
+      "description": "Login session identifier that performed the last update."
+    },
+    {
+      "name": "CASH_RECEIPT_ID",
+      "description": "Foreign key referencing the cash receipt header associated with the application or receipt activity."
+    },
+    {
+      "name": "APPLIED_CUSTOMER_TRX_ID",
+      "description": "Foreign key referencing the receivables transaction header being settled by the application."
+    },
+    {
+      "name": "APPLIED_CUSTOMER_TRX_LINE_ID",
+      "description": "Foreign key referencing the receivables transaction line being settled by the application."
+    },
+    {
+      "name": "APPLIED_PAYMENT_SCHEDULE_ID",
+      "description": "Foreign key referencing the payment schedule being affected by the receipt application."
+    },
+    {
+      "name": "CUSTOMER_TRX_ID",
+      "description": "Foreign key referencing the receivables transaction header to which the record belongs."
+    },
+    {
+      "name": "LINE_APPLIED",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TAX_APPLIED",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "FREIGHT_APPLIED",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "RECEIVABLES_CHARGES_APPLIED",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "EARNED_DISCOUNT_TAKEN",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "UNEARNED_DISCOUNT_TAKEN",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DAYS_LATE",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "APPLICATION_RULE",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "GL_POSTED_DATE",
+      "description": "Business date associated with gl posted."
+    },
+    {
+      "name": "COMMENTS",
+      "description": "Free-text explanation entered to document the business purpose of the record."
+    },
+    {
+      "name": "POSTABLE",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "POSTING_CONTROL_ID",
+      "description": "System-generated identifier for the related posting control record."
+    },
+    {
+      "name": "ACCTD_AMOUNT_APPLIED_FROM",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ACCTD_AMOUNT_APPLIED_TO",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ACCTD_EARNED_DISCOUNT_TAKEN",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CONFIRMED_FLAG",
+      "description": "Indicates whether confirmed applies to the record."
+    },
+    {
+      "name": "PROGRAM_APPLICATION_ID",
+      "description": "Oracle application identifier for the concurrent program that last updated the record."
+    },
+    {
+      "name": "PROGRAM_ID",
+      "description": "Concurrent program identifier for the process that last updated the record."
+    },
+    {
+      "name": "PROGRAM_UPDATE_DATE",
+      "description": "Date and time when the concurrent program last updated the record."
+    },
+    {
+      "name": "REQUEST_ID",
+      "description": "Concurrent request identifier for the program run that created or updated the record."
+    },
+    {
+      "name": "USSGL_TRANSACTION_CODE",
+      "description": "Lookup or classification code identifying ussgl transaction for the record."
+    },
+    {
+      "name": "USSGL_TRANSACTION_CODE_CONTEXT",
+      "description": "Context value used to interpret the USSGL transaction code for federal reporting."
+    },
+    {
+      "name": "EARNED_DISCOUNT_CCID",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "UNEARNED_DISCOUNT_CCID",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ACCTD_UNEARNED_DISCOUNT_TAKEN",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "REVERSAL_GL_DATE",
+      "description": "Business date associated with reversal gl."
+    },
+    {
+      "name": "CASH_RECEIPT_HISTORY_ID",
+      "description": "Foreign key referencing the cash receipt history event linked to the application."
+    },
+    {
+      "name": "ORG_ID",
+      "description": "Operating unit identifier that owns the transaction in a multi-org Oracle EBS environment."
+    },
+    {
+      "name": "TAX_CODE",
+      "description": "Lookup or classification code identifying tax for the record."
+    },
+    {
+      "name": "CONS_INV_ID",
+      "description": "System-generated identifier for the related cons inv record."
+    },
+    {
+      "name": "CONS_INV_ID_TO",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "RULE_SET_ID",
+      "description": "System-generated identifier for the related rule set record."
+    },
+    {
+      "name": "LINE_EDISCOUNTED",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TAX_EDISCOUNTED",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "FREIGHT_EDISCOUNTED",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CHARGES_EDISCOUNTED",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "LINE_UEDISCOUNTED",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TAX_UEDISCOUNTED",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "FREIGHT_UEDISCOUNTED",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CHARGES_UEDISCOUNTED",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "RECEIVABLES_TRX_ID",
+      "description": "System-generated identifier for the related receivables trx record."
+    },
+    {
+      "name": "ON_ACCOUNT_CUSTOMER",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "MRC_AMOUNT_APPLIED",
+      "description": "Multiple Reporting Currency attribute for amount applied."
+    },
+    {
+      "name": "MRC_AMOUNT_APPLIED_FROM",
+      "description": "Multiple Reporting Currency attribute for amount applied from."
+    },
+    {
+      "name": "MRC_DISPLAY",
+      "description": "Multiple Reporting Currency attribute for display."
+    },
+    {
+      "name": "MRC_STATUS",
+      "description": "Status value showing the current processing state of mrc."
+    },
+    {
+      "name": "MRC_PAYMENT_SCHEDULE_ID",
+      "description": "System-generated identifier for the related mrc payment schedule record."
+    },
+    {
+      "name": "MRC_CASH_RECEIPT_ID",
+      "description": "System-generated identifier for the related mrc cash receipt record."
+    },
+    {
+      "name": "MRC_GL_POSTED_DATE",
+      "description": "Business date associated with mrc gl posted."
+    },
+    {
+      "name": "MRC_POSTING_CONTROL_ID",
+      "description": "System-generated identifier for the related mrc posting control record."
+    },
+    {
+      "name": "MRC_ACCTD_AMOUNT_APPLIED_FROM",
+      "description": "Multiple Reporting Currency attribute for acctd amount applied from."
+    },
+    {
+      "name": "MRC_ACCTD_AMOUNT_APPLIED_TO",
+      "description": "Multiple Reporting Currency attribute for acctd amount applied to."
+    },
+    {
+      "name": "MRC_ACCTD_EARNED_DISC_TAKEN",
+      "description": "Multiple Reporting Currency attribute for acctd earned disc taken."
+    },
+    {
+      "name": "MRC_ACCTD_UNEARNED_DISC_TAKEN",
+      "description": "Multiple Reporting Currency attribute for acctd unearned disc taken."
+    },
+    {
+      "name": "EDISC_TAX_ACCT_RULE",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "UNEDISC_TAX_ACCT_RULE",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "LINK_TO_TRX_HIST_ID",
+      "description": "System-generated identifier for the related link to trx hist record."
+    },
+    {
+      "name": "LINK_TO_CUSTOMER_TRX_ID",
+      "description": "System-generated identifier for the related link to customer trx record."
+    },
+    {
+      "name": "APPLICATION_REF_TYPE",
+      "description": "Type classification used to control application ref processing."
+    },
+    {
+      "name": "APPLICATION_REF_ID",
+      "description": "System-generated identifier for the related application ref record."
+    },
+    {
+      "name": "APPLICATION_REF_NUM",
+      "description": "Business number used to identify or sequence application ref."
+    },
+    {
+      "name": "CHARGEBACK_CUSTOMER_TRX_ID",
+      "description": "System-generated identifier for the related chargeback customer trx record."
+    },
+    {
+      "name": "SECONDARY_APPLICATION_REF_ID",
+      "description": "System-generated identifier for the related secondary application ref record."
+    },
+    {
+      "name": "PAYMENT_SET_ID",
+      "description": "System-generated identifier for the related payment set record."
+    },
+    {
+      "name": "APPLICATION_REF_REASON",
+      "description": "Business reason captured for application ref."
+    },
+    {
+      "name": "CUSTOMER_REFERENCE",
+      "description": "Business reference captured for customer."
+    },
+    {
+      "name": "CUSTOMER_REASON",
+      "description": "Business reason captured for customer."
+    },
+    {
+      "name": "APPLIED_REC_APP_ID",
+      "description": "System-generated identifier for the related applied rec app record."
+    },
+    {
+      "name": "SECONDARY_APPLICATION_REF_TYPE",
+      "description": "Type classification used to control secondary application ref processing."
+    },
+    {
+      "name": "SECONDARY_APPLICATION_REF_NUM",
+      "description": "Business number used to identify or sequence secondary application ref."
+    },
+    {
+      "name": "EVENT_ID",
+      "description": "System-generated identifier for the related event record."
+    },
+    {
+      "name": "UPGRADE_METHOD",
+      "description": "Legacy upgrade or migration attribute preserved from conversion processing."
+    },
+    {
+      "name": "AX_ACCOUNTED_FLAG",
+      "description": "Indicates whether ax accounted applies to the record."
+    },
+    {
+      "name": "INCLUDE_IN_ACCUMULATION",
+      "description": "Business attribute of the receipt application used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ON_ACCT_CUST_ID",
+      "description": "System-generated identifier for the related on acct cust record."
+    },
+    {
+      "name": "ON_ACCT_CUST_SITE_USE_ID",
+      "description": "System-generated identifier for the related on acct cust site use record."
+    },
+    {
+      "name": "ON_ACCT_PO_NUM",
+      "description": "Business number used to identify or sequence on acct po."
+    }
+  ],
+  "relationships": [
+    {
+      "table": "RA_CUSTOMER_TRX_ALL",
+      "join": "CUSTOMER_TRX_ID",
+      "relationship_type": "parent"
+    },
+    {
+      "table": "AR_CASH_RECEIPTS_ALL",
+      "join": "CASH_RECEIPT_ID",
+      "relationship_type": "parent"
+    }
+  ],
+  "business_questions": [
+    "Show how customer receipts were applied to invoices.",
+    "Find unapplied or reversed receipt applications.",
+    "Display earned and unearned discount amounts taken on applications.",
+    "Show receipt applications posted during a period.",
+    "Trace a receipt application to the related customer transaction.",
+    "Identify on-account and chargeback application activity.",
+    "Show tax, freight, and charge portions applied to receivables.",
+    "List applications by customer, receipt, or transaction status."
+  ]
+}

@@ -1,22 +1,262 @@
 {
   "module": "Accounts Payable",
   "table": "AP_INVOICE_PAYMENTS_ALL",
-  "description": "Stores payment records applied to supplier invoices.",
+  "description": "Invoice payment application table for Oracle Accounts Payable. Each record represents a payment event applied to a supplier invoice and links the invoice, payment instrument, accounting dates, gains or losses, and settlement amounts used in payment accounting and audit history.",
   "primary_key": "INVOICE_PAYMENT_ID",
   "columns": [
-    { "name": "INVOICE_PAYMENT_ID", "description": "Primary key for the invoice payment record." },
-    { "name": "INVOICE_ID", "description": "Invoice identifier linked to the payment." },
-    { "name": "CHECK_ID", "description": "Payment instrument or check identifier." },
-    { "name": "AMOUNT", "description": "Amount applied in the payment transaction." },
-    { "name": "PAYMENT_NUM", "description": "Sequence number of the payment against the invoice." },
-    { "name": "ACCOUNTING_DATE", "description": "Accounting date for the payment." }
+    {
+      "name": "ACCOUNTING_EVENT_ID",
+      "description": "Foreign key referencing the Subledger Accounting event that generated accounting for the transaction."
+    },
+    {
+      "name": "ACCOUNTING_DATE",
+      "description": "Accounting date used to recognize the transaction in Subledger Accounting and General Ledger."
+    },
+    {
+      "name": "ACCRUAL_POSTED_FLAG",
+      "description": "Indicates whether accrual posted applies to the record."
+    },
+    {
+      "name": "AMOUNT",
+      "description": "Monetary amount recorded for the transaction in the transaction currency."
+    },
+    {
+      "name": "CASH_POSTED_FLAG",
+      "description": "Indicates whether cash posted applies to the record."
+    },
+    {
+      "name": "CHECK_ID",
+      "description": "Foreign key referencing the payment document or electronic payment record associated with the settlement."
+    },
+    {
+      "name": "INVOICE_ID",
+      "description": "Foreign key referencing the supplier invoice header associated with the line, distribution, schedule, or payment."
+    },
+    {
+      "name": "INVOICE_PAYMENT_ID",
+      "description": "Unique system-generated identifier for the invoice payment application record."
+    },
+    {
+      "name": "LAST_UPDATED_BY",
+      "description": "User identifier for the person or process that last updated the record."
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "description": "Date and time when the record was last updated."
+    },
+    {
+      "name": "PAYMENT_NUM",
+      "description": "Sequence number identifying the payment event or installment against the document."
+    },
+    {
+      "name": "PERIOD_NAME",
+      "description": "Business name associated with period."
+    },
+    {
+      "name": "POSTED_FLAG",
+      "description": "Indicates whether posted applies to the record."
+    },
+    {
+      "name": "SET_OF_BOOKS_ID",
+      "description": "Ledger identifier in which accounting entries are recorded."
+    },
+    {
+      "name": "ACCTS_PAY_CODE_COMBINATION_ID",
+      "description": "Liability account combination charged for the supplier invoice or payment accounting entry."
+    },
+    {
+      "name": "ASSET_CODE_COMBINATION_ID",
+      "description": "System-generated identifier for the related asset code combination record."
+    },
+    {
+      "name": "CREATED_BY",
+      "description": "User identifier for the person or process that created the record."
+    },
+    {
+      "name": "CREATION_DATE",
+      "description": "Date and time when the record was created."
+    },
+    {
+      "name": "LAST_UPDATE_LOGIN",
+      "description": "Login session identifier that performed the last update."
+    },
+    {
+      "name": "BANK_ACCOUNT_NUM",
+      "description": "Business number used to identify or sequence bank account."
+    },
+    {
+      "name": "BANK_ACCOUNT_TYPE",
+      "description": "Type classification used to control bank account processing."
+    },
+    {
+      "name": "BANK_NUM",
+      "description": "Business number used to identify or sequence bank."
+    },
+    {
+      "name": "DISCOUNT_LOST",
+      "description": "Business attribute of the invoice payment used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DISCOUNT_TAKEN",
+      "description": "Business attribute of the invoice payment used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "EXCHANGE_DATE",
+      "description": "Date used to derive the foreign currency conversion rate."
+    },
+    {
+      "name": "EXCHANGE_RATE",
+      "description": "Exchange rate used to convert the foreign currency transaction to functional currency."
+    },
+    {
+      "name": "EXCHANGE_RATE_TYPE",
+      "description": "Conversion rate type used to derive the exchange rate for the transaction."
+    },
+    {
+      "name": "GAIN_CODE_COMBINATION_ID",
+      "description": "System-generated identifier for the related gain code combination record."
+    },
+    {
+      "name": "INVOICE_BASE_AMOUNT",
+      "description": "Monetary amount representing invoice base for the transaction."
+    },
+    {
+      "name": "LOSS_CODE_COMBINATION_ID",
+      "description": "System-generated identifier for the related loss code combination record."
+    },
+    {
+      "name": "PAYMENT_BASE_AMOUNT",
+      "description": "Monetary amount representing payment base for the transaction."
+    },
+    {
+      "name": "CASH_JE_BATCH_ID",
+      "description": "System-generated identifier for the related cash je batch record."
+    },
+    {
+      "name": "FUTURE_PAY_CODE_COMBINATION_ID",
+      "description": "System-generated identifier for the related future pay code combination record."
+    },
+    {
+      "name": "FUTURE_PAY_POSTED_FLAG",
+      "description": "Indicates whether future pay posted applies to the record."
+    },
+    {
+      "name": "JE_BATCH_ID",
+      "description": "System-generated identifier for the related je batch record."
+    },
+    {
+      "name": "ELECTRONIC_TRANSFER_ID",
+      "description": "System-generated identifier for the related electronic transfer record."
+    },
+    {
+      "name": "ASSETS_ADDITION_FLAG",
+      "description": "Indicates whether assets addition applies to the record."
+    },
+    {
+      "name": "INVOICE_PAYMENT_TYPE",
+      "description": "Type classification used to control invoice payment processing."
+    },
+    {
+      "name": "OTHER_INVOICE_ID",
+      "description": "System-generated identifier for the related other invoice record."
+    },
+    {
+      "name": "ORG_ID",
+      "description": "Operating unit identifier that owns the transaction in a multi-org Oracle EBS environment."
+    },
+    {
+      "name": "EXTERNAL_BANK_ACCOUNT_ID",
+      "description": "Foreign key referencing the external supplier or customer bank account used for settlement."
+    },
+    {
+      "name": "MRC_EXCHANGE_DATE",
+      "description": "Business date associated with mrc exchange."
+    },
+    {
+      "name": "MRC_EXCHANGE_RATE",
+      "description": "Rate used to calculate or value mrc exchange for the transaction."
+    },
+    {
+      "name": "MRC_EXCHANGE_RATE_TYPE",
+      "description": "Type classification used to control mrc exchange rate processing."
+    },
+    {
+      "name": "MRC_GAIN_CODE_COMBINATION_ID",
+      "description": "System-generated identifier for the related mrc gain code combination record."
+    },
+    {
+      "name": "MRC_INVOICE_BASE_AMOUNT",
+      "description": "Monetary amount representing mrc invoice base for the transaction."
+    },
+    {
+      "name": "MRC_LOSS_CODE_COMBINATION_ID",
+      "description": "System-generated identifier for the related mrc loss code combination record."
+    },
+    {
+      "name": "MRC_PAYMENT_BASE_AMOUNT",
+      "description": "Monetary amount representing mrc payment base for the transaction."
+    },
+    {
+      "name": "REVERSAL_FLAG",
+      "description": "Indicates whether reversal applies to the record."
+    },
+    {
+      "name": "REVERSAL_INV_PMT_ID",
+      "description": "System-generated identifier for the related reversal inv pmt record."
+    },
+    {
+      "name": "IBAN_NUMBER",
+      "description": "Business number used to identify or sequence iban nu."
+    },
+    {
+      "name": "INVOICING_PARTY_ID",
+      "description": "System-generated identifier for the related invoicing party record."
+    },
+    {
+      "name": "INVOICING_PARTY_SITE_ID",
+      "description": "System-generated identifier for the related invoicing party site record."
+    },
+    {
+      "name": "INVOICING_VENDOR_SITE_ID",
+      "description": "System-generated identifier for the related invoicing vendor site record."
+    },
+    {
+      "name": "REMIT_TO_SUPPLIER_NAME",
+      "description": "Business name associated with remit to supplier."
+    },
+    {
+      "name": "REMIT_TO_SUPPLIER_ID",
+      "description": "System-generated identifier for the related remit to supplier record."
+    },
+    {
+      "name": "REMIT_TO_SUPPLIER_SITE",
+      "description": "Supplier site to which payment remittance is directed."
+    },
+    {
+      "name": "REMIT_TO_SUPPLIER_SITE_ID",
+      "description": "System-generated identifier for the related remit to supplier site record."
+    }
   ],
   "relationships": [
-    { "table": "AP_INVOICES_ALL", "join": "INVOICE_ID" }
+    {
+      "table": "AP_INVOICES_ALL",
+      "join": "INVOICE_ID",
+      "relationship_type": "parent"
+    },
+    {
+      "table": "AP_CHECKS_ALL",
+      "join": "CHECK_ID",
+      "relationship_type": "parent"
+    }
   ],
   "business_questions": [
-    "Show payments made against invoices",
-    "Find unpaid or partially paid invoices",
-    "List invoice payment history"
+    "Show payment history for a supplier invoice.",
+    "Trace a payment document back to the invoices it settled.",
+    "List payment applications posted during a period.",
+    "Show payment gains, losses, discounts, and accounting dates.",
+    "Find reversed invoice payment applications.",
+    "Display partial payments made against an invoice.",
+    "Show payment records by supplier, bank account, or operating unit.",
+    "Identify invoices paid by a specific check or payment instruction."
   ]
 }

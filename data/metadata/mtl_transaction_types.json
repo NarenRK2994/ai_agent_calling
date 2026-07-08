@@ -1,0 +1,97 @@
+{
+  "module": "Inventory",
+  "table": "MTL_TRANSACTION_TYPES",
+  "description": "Inventory transaction type setup table for Oracle Inventory. Each record defines a transaction type used to classify material movements, associate a transaction action and source type, and control how inventory transactions are interpreted by the application.",
+  "primary_key": "TRANSACTION_TYPE_ID",
+  "columns": [
+    {
+      "name": "TRANSACTION_TYPE_ID",
+      "description": "Unique system-generated identifier for the inventory transaction type definition."
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "description": "Date and time when the record was last updated."
+    },
+    {
+      "name": "LAST_UPDATED_BY",
+      "description": "User identifier for the person or process that last updated the record."
+    },
+    {
+      "name": "CREATION_DATE",
+      "description": "Date and time when the record was created."
+    },
+    {
+      "name": "CREATED_BY",
+      "description": "User identifier for the person or process that created the record."
+    },
+    {
+      "name": "TRANSACTION_TYPE_NAME",
+      "description": "Business name of the inventory transaction type."
+    },
+    {
+      "name": "DESCRIPTION",
+      "description": "Free-text business description entered to explain the purpose or content of the transaction."
+    },
+    {
+      "name": "TRANSACTION_ACTION_ID",
+      "description": "Foreign key referencing the inventory transaction action that determines how stock is affected."
+    },
+    {
+      "name": "TRANSACTION_SOURCE_TYPE_ID",
+      "description": "Foreign key referencing the source type that explains what business process created the inventory transaction."
+    },
+    {
+      "name": "SHORTAGE_MSG_BACKGROUND_FLAG",
+      "description": "Indicates whether shortage msg background applies to the record."
+    },
+    {
+      "name": "SHORTAGE_MSG_ONLINE_FLAG",
+      "description": "Indicates whether shortage msg online applies to the record."
+    },
+    {
+      "name": "DISABLE_DATE",
+      "description": "Business date associated with disable."
+    },
+    {
+      "name": "USER_DEFINED_FLAG",
+      "description": "Indicates whether user defined applies to the record."
+    },
+    {
+      "name": "TYPE_CLASS",
+      "description": "Classification assigned to type."
+    },
+    {
+      "name": "STATUS_CONTROL_FLAG",
+      "description": "Indicates whether status control applies to the record."
+    },
+    {
+      "name": "LOCATION_REQUIRED_FLAG",
+      "description": "Indicates whether location required applies to the record."
+    },
+    {
+      "name": "ZD_EDITION_NAME",
+      "description": "Business name associated with zd edition."
+    },
+    {
+      "name": "ZD_SYNC",
+      "description": "Business attribute of the transaction type used for Oracle EBS transaction processing, control, or reporting."
+    }
+  ],
+  "relationships": [
+    {
+      "table": "MTL_MATERIAL_TRANSACTIONS",
+      "join": "TRANSACTION_TYPE_ID",
+      "relationship_type": "child"
+    }
+  ],
+  "business_questions": [
+    "Show configured inventory transaction types.",
+    "Find the transaction type used for a material movement.",
+    "Display transaction action and source type for each transaction type.",
+    "Identify disabled or end-dated transaction types.",
+    "Show user-defined transaction types created by the business.",
+    "List transaction types used in inventory adjustments or transfers.",
+    "Find transaction types that require locator control.",
+    "Display setup details for inventory transaction classification."
+  ]
+}

@@ -1,23 +1,685 @@
 {
   "module": "Accounts Payable",
   "table": "AP_INVOICES_ALL",
-  "description": "Stores supplier invoice header information.",
+  "description": "Supplier invoice header table for Oracle Accounts Payable. Each record represents an invoice, debit memo, credit memo, expense report, or prepayment entered for a supplier and holds the supplier reference, payment attributes, accounting context, approval status, tax information, and purchase order linkage used throughout the procure-to-pay process.",
   "primary_key": "INVOICE_ID",
   "columns": [
-    { "name": "INVOICE_ID", "description": "Primary key for the invoice." },
-    { "name": "INVOICE_NUM", "description": "Invoice number entered by the supplier." },
-    { "name": "INVOICE_DATE", "description": "Date of the invoice." },
-    { "name": "VENDOR_ID", "description": "Supplier identifier." },
-    { "name": "INVOICE_AMOUNT", "description": "Total invoice amount." },
-    { "name": "PAYMENT_STATUS_FLAG", "description": "Payment status flag for the invoice." }
+    {
+      "name": "INVOICE_ID",
+      "description": "Unique system-generated identifier for the supplier invoice. Used to relate the invoice header to lines, distributions, payment schedules, and payment history."
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "description": "Date and time when the record was last updated."
+    },
+    {
+      "name": "LAST_UPDATED_BY",
+      "description": "User identifier for the person or process that last updated the record."
+    },
+    {
+      "name": "VENDOR_ID",
+      "description": "Foreign key referencing the supplier master record associated with the transaction."
+    },
+    {
+      "name": "INVOICE_NUM",
+      "description": "Supplier invoice number entered by the supplier and used as the primary business reference."
+    },
+    {
+      "name": "SET_OF_BOOKS_ID",
+      "description": "Ledger identifier in which accounting entries are recorded."
+    },
+    {
+      "name": "INVOICE_CURRENCY_CODE",
+      "description": "Currency in which the supplier invoice was entered."
+    },
+    {
+      "name": "PAYMENT_CURRENCY_CODE",
+      "description": "Currency used when payment is made or settled."
+    },
+    {
+      "name": "PAYMENT_CROSS_RATE",
+      "description": "Cross-currency rate used when invoice and payment currencies differ."
+    },
+    {
+      "name": "INVOICE_AMOUNT",
+      "description": "Total invoice amount entered before payment settlement."
+    },
+    {
+      "name": "VENDOR_SITE_ID",
+      "description": "Foreign key referencing the supplier site associated with the transaction."
+    },
+    {
+      "name": "AMOUNT_PAID",
+      "description": "Total amount already paid against the supplier invoice."
+    },
+    {
+      "name": "DISCOUNT_AMOUNT_TAKEN",
+      "description": "Discount amount taken at the time of payment settlement."
+    },
+    {
+      "name": "INVOICE_DATE",
+      "description": "Date printed on the supplier invoice or receivables document."
+    },
+    {
+      "name": "SOURCE",
+      "description": "Source that created the transaction, such as manual entry, import, or another Oracle process."
+    },
+    {
+      "name": "INVOICE_TYPE_LOOKUP_CODE",
+      "description": "Lookup code identifying the invoice type, such as standard invoice, credit memo, debit memo, or prepayment."
+    },
+    {
+      "name": "DESCRIPTION",
+      "description": "Free-text business description entered to explain the purpose or content of the transaction."
+    },
+    {
+      "name": "BATCH_ID",
+      "description": "Foreign key referencing the import, entry, or processing batch that grouped the transaction."
+    },
+    {
+      "name": "AMOUNT_APPLICABLE_TO_DISCOUNT",
+      "description": "Business attribute of the supplier invoice used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TAX_AMOUNT",
+      "description": "Total tax amount calculated for the transaction."
+    },
+    {
+      "name": "TERMS_ID",
+      "description": "Foreign key referencing the payment terms definition applied to the transaction."
+    },
+    {
+      "name": "TERMS_DATE",
+      "description": "Date used as the basis for calculating payment due dates and discount dates."
+    },
+    {
+      "name": "PAYMENT_METHOD_LOOKUP_CODE",
+      "description": "Lookup code identifying the method used to settle the transaction."
+    },
+    {
+      "name": "PAY_GROUP_LOOKUP_CODE",
+      "description": "Lookup or classification code identifying pay group lookup for the record."
+    },
+    {
+      "name": "ACCTS_PAY_CODE_COMBINATION_ID",
+      "description": "Liability account combination charged for the supplier invoice or payment accounting entry."
+    },
+    {
+      "name": "PAYMENT_STATUS_FLAG",
+      "description": "Indicates whether the invoice or schedule is unpaid, partially paid, fully paid, or otherwise settled."
+    },
+    {
+      "name": "CREATION_DATE",
+      "description": "Date and time when the record was created."
+    },
+    {
+      "name": "CREATED_BY",
+      "description": "User identifier for the person or process that created the record."
+    },
+    {
+      "name": "BASE_AMOUNT",
+      "description": "Functional currency amount derived from the entered transaction amount."
+    },
+    {
+      "name": "VAT_CODE",
+      "description": "Tax classification code applied to the transaction."
+    },
+    {
+      "name": "LAST_UPDATE_LOGIN",
+      "description": "Login session identifier that performed the last update."
+    },
+    {
+      "name": "EXCLUSIVE_PAYMENT_FLAG",
+      "description": "Indicates whether exclusive payment applies to the record."
+    },
+    {
+      "name": "PO_HEADER_ID",
+      "description": "Purchase order header referenced by the matched transaction."
+    },
+    {
+      "name": "FREIGHT_AMOUNT",
+      "description": "Monetary amount representing freight for the transaction."
+    },
+    {
+      "name": "GOODS_RECEIVED_DATE",
+      "description": "Date on which the goods or services were received."
+    },
+    {
+      "name": "INVOICE_RECEIVED_DATE",
+      "description": "Date on which Accounts Payable received the supplier invoice."
+    },
+    {
+      "name": "VOUCHER_NUM",
+      "description": "Business number used to identify or sequence voucher."
+    },
+    {
+      "name": "APPROVED_AMOUNT",
+      "description": "Monetary amount representing approved for the transaction."
+    },
+    {
+      "name": "RECURRING_PAYMENT_ID",
+      "description": "System-generated identifier for the related recurring payment record."
+    },
+    {
+      "name": "EXCHANGE_RATE",
+      "description": "Exchange rate used to convert the foreign currency transaction to functional currency."
+    },
+    {
+      "name": "EXCHANGE_RATE_TYPE",
+      "description": "Conversion rate type used to derive the exchange rate for the transaction."
+    },
+    {
+      "name": "EXCHANGE_DATE",
+      "description": "Date used to derive the foreign currency conversion rate."
+    },
+    {
+      "name": "EARLIEST_SETTLEMENT_DATE",
+      "description": "Earliest date on which the transaction can be settled."
+    },
+    {
+      "name": "ORIGINAL_PREPAYMENT_AMOUNT",
+      "description": "Monetary amount representing original prepayment for the transaction."
+    },
+    {
+      "name": "DOC_SEQUENCE_ID",
+      "description": "Foreign key referencing the document sequencing definition used to assign the transaction number."
+    },
+    {
+      "name": "DOC_SEQUENCE_VALUE",
+      "description": "Stored value associated with doc sequence."
+    },
+    {
+      "name": "DOC_CATEGORY_CODE",
+      "description": "Lookup or classification code identifying doc category for the record."
+    },
+    {
+      "name": "APPROVAL_STATUS",
+      "description": "Current approval status of the transaction within Oracle workflow or validation processing."
+    },
+    {
+      "name": "APPROVAL_DESCRIPTION",
+      "description": "Descriptive text explaining approval."
+    },
+    {
+      "name": "INVOICE_DISTRIBUTION_TOTAL",
+      "description": "Business attribute of the supplier invoice used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "POSTING_STATUS",
+      "description": "Status value showing the current processing state of posting."
+    },
+    {
+      "name": "PREPAY_FLAG",
+      "description": "Indicates whether prepay applies to the record."
+    },
+    {
+      "name": "AUTHORIZED_BY",
+      "description": "User or approver responsible for authorizing the transaction."
+    },
+    {
+      "name": "CANCELLED_DATE",
+      "description": "Date on which the transaction was cancelled."
+    },
+    {
+      "name": "CANCELLED_BY",
+      "description": "User or person responsible for cancelled."
+    },
+    {
+      "name": "CANCELLED_AMOUNT",
+      "description": "Monetary amount representing cancelled for the transaction."
+    },
+    {
+      "name": "TEMP_CANCELLED_AMOUNT",
+      "description": "Monetary amount representing temp cancelled for the transaction."
+    },
+    {
+      "name": "PROJECT_ACCOUNTING_CONTEXT",
+      "description": "Project accounting context used to derive project-related charging and accounting behavior."
+    },
+    {
+      "name": "USSGL_TRANSACTION_CODE",
+      "description": "Lookup or classification code identifying ussgl transaction for the record."
+    },
+    {
+      "name": "USSGL_TRX_CODE_CONTEXT",
+      "description": "Context value used to interpret the USSGL transaction code for federal reporting."
+    },
+    {
+      "name": "PROJECT_ID",
+      "description": "Foreign key referencing the project charged by the transaction."
+    },
+    {
+      "name": "TASK_ID",
+      "description": "Foreign key referencing the task charged by the project-related transaction."
+    },
+    {
+      "name": "EXPENDITURE_TYPE",
+      "description": "Type classification used to control expenditure processing."
+    },
+    {
+      "name": "EXPENDITURE_ITEM_DATE",
+      "description": "Business date associated with expenditure item."
+    },
+    {
+      "name": "PA_QUANTITY",
+      "description": "Quantity associated with pa for the transaction."
+    },
+    {
+      "name": "EXPENDITURE_ORGANIZATION_ID",
+      "description": "System-generated identifier for the related expenditure organization record."
+    },
+    {
+      "name": "PA_DEFAULT_DIST_CCID",
+      "description": "Business attribute of the supplier invoice used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "VENDOR_PREPAY_AMOUNT",
+      "description": "Monetary amount representing vendor prepay for the transaction."
+    },
+    {
+      "name": "PAYMENT_AMOUNT_TOTAL",
+      "description": "Business attribute of the supplier invoice used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "AWT_FLAG",
+      "description": "Indicates whether awt applies to the record."
+    },
+    {
+      "name": "AWT_GROUP_ID",
+      "description": "Foreign key referencing the withholding tax group applied to the transaction."
+    },
+    {
+      "name": "REFERENCE_1",
+      "description": "Reference value used for integration, reconciliation, or business traceability."
+    },
+    {
+      "name": "REFERENCE_2",
+      "description": "Reference value used for integration, reconciliation, or business traceability."
+    },
+    {
+      "name": "ORG_ID",
+      "description": "Operating unit identifier that owns the transaction in a multi-org Oracle EBS environment."
+    },
+    {
+      "name": "PRE_WITHHOLDING_AMOUNT",
+      "description": "Monetary amount representing pre withholding for the transaction."
+    },
+    {
+      "name": "AUTO_TAX_CALC_FLAG",
+      "description": "Indicates whether auto tax calc applies to the record."
+    },
+    {
+      "name": "PAYMENT_CROSS_RATE_TYPE",
+      "description": "Type classification used to control payment cross rate processing."
+    },
+    {
+      "name": "PAYMENT_CROSS_RATE_DATE",
+      "description": "Business date associated with payment cross rate."
+    },
+    {
+      "name": "PAY_CURR_INVOICE_AMOUNT",
+      "description": "Monetary amount representing pay curr invoice for the transaction."
+    },
+    {
+      "name": "MRC_BASE_AMOUNT",
+      "description": "Monetary amount representing mrc base for the transaction."
+    },
+    {
+      "name": "MRC_EXCHANGE_RATE",
+      "description": "Rate used to calculate or value mrc exchange for the transaction."
+    },
+    {
+      "name": "MRC_EXCHANGE_RATE_TYPE",
+      "description": "Type classification used to control mrc exchange rate processing."
+    },
+    {
+      "name": "MRC_EXCHANGE_DATE",
+      "description": "Business date associated with mrc exchange."
+    },
+    {
+      "name": "GL_DATE",
+      "description": "Accounting date used when posting the transaction to General Ledger."
+    },
+    {
+      "name": "AWARD_ID",
+      "description": "Foreign key referencing the award or grant associated with the transaction."
+    },
+    {
+      "name": "PAID_ON_BEHALF_EMPLOYEE_ID",
+      "description": "System-generated identifier for the related paid on behalf employee record."
+    },
+    {
+      "name": "AMT_DUE_CCARD_COMPANY",
+      "description": "Business attribute of the supplier invoice used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "AMT_DUE_EMPLOYEE",
+      "description": "Business attribute of the supplier invoice used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "APPROVAL_READY_FLAG",
+      "description": "Indicates whether the transaction is ready to enter the approval workflow."
+    },
+    {
+      "name": "APPROVAL_ITERATION",
+      "description": "Business attribute of the supplier invoice used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "WFAPPROVAL_STATUS",
+      "description": "Workflow approval status recorded for the transaction or line."
+    },
+    {
+      "name": "REQUESTER_ID",
+      "description": "Foreign key referencing the employee or user who requested the expense or purchase-related transaction."
+    },
+    {
+      "name": "VALIDATION_REQUEST_ID",
+      "description": "System-generated identifier for the related validation request record."
+    },
+    {
+      "name": "VALIDATED_TAX_AMOUNT",
+      "description": "Monetary amount representing validated tax for the transaction."
+    },
+    {
+      "name": "QUICK_CREDIT",
+      "description": "Business attribute of the supplier invoice used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CREDITED_INVOICE_ID",
+      "description": "Foreign key referencing the original invoice that was credited by this transaction."
+    },
+    {
+      "name": "DISTRIBUTION_SET_ID",
+      "description": "Foreign key referencing the predefined distribution set used to default accounting information."
+    },
+    {
+      "name": "APPLICATION_ID",
+      "description": "System-generated identifier for the related application record."
+    },
+    {
+      "name": "PRODUCT_TABLE",
+      "description": "Business attribute of the supplier invoice used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "REFERENCE_KEY1",
+      "description": "Reference value used for integration, reconciliation, or business traceability."
+    },
+    {
+      "name": "REFERENCE_KEY2",
+      "description": "Reference value used for integration, reconciliation, or business traceability."
+    },
+    {
+      "name": "REFERENCE_KEY3",
+      "description": "Reference value used for integration, reconciliation, or business traceability."
+    },
+    {
+      "name": "REFERENCE_KEY4",
+      "description": "Reference value used for integration, reconciliation, or business traceability."
+    },
+    {
+      "name": "REFERENCE_KEY5",
+      "description": "Reference value used for integration, reconciliation, or business traceability."
+    },
+    {
+      "name": "TOTAL_TAX_AMOUNT",
+      "description": "Total tax liability associated with the transaction."
+    },
+    {
+      "name": "SELF_ASSESSED_TAX_AMOUNT",
+      "description": "Monetary amount representing self assessed tax for the transaction."
+    },
+    {
+      "name": "TAX_RELATED_INVOICE_ID",
+      "description": "System-generated identifier for the related tax related invoice record."
+    },
+    {
+      "name": "TRX_BUSINESS_CATEGORY",
+      "description": "Business transaction category used by tax or compliance processing."
+    },
+    {
+      "name": "USER_DEFINED_FISC_CLASS",
+      "description": "User-defined fiscal classification applied for tax determination and reporting."
+    },
+    {
+      "name": "TAXATION_COUNTRY",
+      "description": "Business attribute of the supplier invoice used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DOCUMENT_SUB_TYPE",
+      "description": "Type classification used to control document sub processing."
+    },
+    {
+      "name": "SUPPLIER_TAX_INVOICE_NUMBER",
+      "description": "Business number used to identify or sequence supplier tax invoice nu."
+    },
+    {
+      "name": "SUPPLIER_TAX_INVOICE_DATE",
+      "description": "Business date associated with supplier tax invoice."
+    },
+    {
+      "name": "SUPPLIER_TAX_EXCHANGE_RATE",
+      "description": "Rate used to calculate or value supplier tax exchange for the transaction."
+    },
+    {
+      "name": "TAX_INVOICE_RECORDING_DATE",
+      "description": "Business date associated with tax invoice recording."
+    },
+    {
+      "name": "TAX_INVOICE_INTERNAL_SEQ",
+      "description": "Business attribute of the supplier invoice used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "LEGAL_ENTITY_ID",
+      "description": "Foreign key referencing the legal entity responsible for the transaction."
+    },
+    {
+      "name": "HISTORICAL_FLAG",
+      "description": "Indicates whether historical applies to the record."
+    },
+    {
+      "name": "FORCE_REVALIDATION_FLAG",
+      "description": "Indicates whether force revalidation applies to the record."
+    },
+    {
+      "name": "BANK_CHARGE_BEARER",
+      "description": "Indicates which party bears bank charges associated with the payment or receipt settlement."
+    },
+    {
+      "name": "REMITTANCE_MESSAGE1",
+      "description": "Remittance advice message communicated to the supplier during payment processing."
+    },
+    {
+      "name": "REMITTANCE_MESSAGE2",
+      "description": "Remittance advice message communicated to the supplier during payment processing."
+    },
+    {
+      "name": "REMITTANCE_MESSAGE3",
+      "description": "Remittance advice message communicated to the supplier during payment processing."
+    },
+    {
+      "name": "UNIQUE_REMITTANCE_IDENTIFIER",
+      "description": "Business attribute of the supplier invoice used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "URI_CHECK_DIGIT",
+      "description": "Business attribute of the supplier invoice used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SETTLEMENT_PRIORITY",
+      "description": "Priority used by payment processing to determine the order of settlement."
+    },
+    {
+      "name": "PAYMENT_REASON_CODE",
+      "description": "Business reason code associated with the payment or settlement instruction."
+    },
+    {
+      "name": "PAYMENT_REASON_COMMENTS",
+      "description": "Business attribute of the supplier invoice used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PAYMENT_METHOD_CODE",
+      "description": "Payment method used to settle the transaction."
+    },
+    {
+      "name": "DELIVERY_CHANNEL_CODE",
+      "description": "Lookup or classification code identifying delivery channel for the record."
+    },
+    {
+      "name": "QUICK_PO_HEADER_ID",
+      "description": "System-generated identifier for the related quick po header record."
+    },
+    {
+      "name": "NET_OF_RETAINAGE_FLAG",
+      "description": "Indicates whether net of retainage applies to the record."
+    },
+    {
+      "name": "RELEASE_AMOUNT_NET_OF_TAX",
+      "description": "Business attribute of the supplier invoice used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CONTROL_AMOUNT",
+      "description": "Monetary amount representing control for the transaction."
+    },
+    {
+      "name": "PARTY_ID",
+      "description": "Foreign key referencing the Trading Community Architecture party associated with the record."
+    },
+    {
+      "name": "PARTY_SITE_ID",
+      "description": "Party site associated with the supplier, customer, or payment record."
+    },
+    {
+      "name": "PAY_PROC_TRXN_TYPE_CODE",
+      "description": "Lookup or classification code identifying pay proc trxn type for the record."
+    },
+    {
+      "name": "PAYMENT_FUNCTION",
+      "description": "Business attribute of the supplier invoice used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CUST_REGISTRATION_CODE",
+      "description": "Lookup or classification code identifying cust registration for the record."
+    },
+    {
+      "name": "CUST_REGISTRATION_NUMBER",
+      "description": "Business number used to identify or sequence cust registration nu."
+    },
+    {
+      "name": "PORT_OF_ENTRY_CODE",
+      "description": "Lookup or classification code identifying port of entry for the record."
+    },
+    {
+      "name": "EXTERNAL_BANK_ACCOUNT_ID",
+      "description": "Foreign key referencing the external supplier or customer bank account used for settlement."
+    },
+    {
+      "name": "VENDOR_CONTACT_ID",
+      "description": "System-generated identifier for the related vendor contact record."
+    },
+    {
+      "name": "INTERNAL_CONTACT_EMAIL",
+      "description": "Business attribute of the supplier invoice used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DISC_IS_INV_LESS_TAX_FLAG",
+      "description": "Indicates whether disc is inv less tax applies to the record."
+    },
+    {
+      "name": "EXCLUDE_FREIGHT_FROM_DISCOUNT",
+      "description": "Indicates whether freight charges are excluded when payment discounts are calculated."
+    },
+    {
+      "name": "PAY_AWT_GROUP_ID",
+      "description": "System-generated identifier for the related pay awt group record."
+    },
+    {
+      "name": "ORIGINAL_INVOICE_AMOUNT",
+      "description": "Monetary amount representing original invoice for the transaction."
+    },
+    {
+      "name": "DISPUTE_REASON",
+      "description": "Business reason captured for dispute."
+    },
+    {
+      "name": "REMIT_TO_SUPPLIER_NAME",
+      "description": "Business name associated with remit to supplier."
+    },
+    {
+      "name": "REMIT_TO_SUPPLIER_ID",
+      "description": "System-generated identifier for the related remit to supplier record."
+    },
+    {
+      "name": "REMIT_TO_SUPPLIER_SITE",
+      "description": "Supplier site to which payment remittance is directed."
+    },
+    {
+      "name": "REMIT_TO_SUPPLIER_SITE_ID",
+      "description": "System-generated identifier for the related remit to supplier site record."
+    },
+    {
+      "name": "RELATIONSHIP_ID",
+      "description": "System-generated identifier for the related relationship record."
+    },
+    {
+      "name": "PO_MATCHED_FLAG",
+      "description": "Indicates whether po matched applies to the record."
+    },
+    {
+      "name": "VALIDATION_WORKER_ID",
+      "description": "System-generated identifier for the related validation worker record."
+    },
+    {
+      "name": "PAY_GROUP_LOOKUP_CODE#1",
+      "description": "Lookup or classification code identifying pay group lookup for the record. Source metadata export included this as a repeated occurrence of the same business attribute."
+    }
   ],
   "relationships": [
-    { "table": "AP_SUPPLIERS", "join": "VENDOR_ID" },
-    { "table": "AP_INVOICE_LINES_ALL", "join": "INVOICE_ID" }
+    {
+      "table": "AP_INVOICE_LINES_ALL",
+      "join": "INVOICE_ID",
+      "relationship_type": "child"
+    },
+    {
+      "table": "AP_INVOICE_DISTRIBUTIONS_ALL",
+      "join": "INVOICE_ID",
+      "relationship_type": "child"
+    },
+    {
+      "table": "AP_PAYMENT_SCHEDULES_ALL",
+      "join": "INVOICE_ID",
+      "relationship_type": "child"
+    },
+    {
+      "table": "AP_INVOICE_PAYMENTS_ALL",
+      "join": "INVOICE_ID",
+      "relationship_type": "child"
+    },
+    {
+      "table": "PO_VENDORS",
+      "join": "VENDOR_ID",
+      "relationship_type": "parent"
+    },
+    {
+      "table": "PO_VENDOR_SITES_ALL",
+      "join": "VENDOR_SITE_ID",
+      "relationship_type": "parent"
+    },
+    {
+      "table": "AP_SUPPLIERS",
+      "join": "VENDOR_ID",
+      "relationship_type": "parent"
+    }
   ],
   "business_questions": [
-    "Show unpaid invoices for a supplier",
-    "Find invoices by supplier",
-    "List invoice amounts and dates"
+    "Show unpaid supplier invoices by supplier and due date.",
+    "Find invoices pending approval or validation.",
+    "List invoices matched to purchase orders.",
+    "Show cancelled invoices and cancellation amounts.",
+    "Find invoices received but not yet fully paid.",
+    "Display invoice aging by supplier or operating unit.",
+    "Show invoices with tax amounts and payment status.",
+    "Identify high-value invoices above an approval threshold.",
+    "List prepayment invoices and their remaining balances.",
+    "Show invoice headers with supplier site and remittance details."
   ]
 }

@@ -1,0 +1,69 @@
+{
+  "module": "Inventory",
+  "table": "MTL_SYSTEM_ITEMS_TL",
+  "description": "Translated item description table for Oracle Inventory. Each record stores language-specific descriptive text for an inventory item and supports multilingual item inquiry, reporting, and user interface presentation by organization.",
+  "primary_key": "INVENTORY_ITEM_ID, ORGANIZATION_ID, LANGUAGE",
+  "columns": [
+    {
+      "name": "INVENTORY_ITEM_ID",
+      "description": "Unique system-generated identifier for the translated item description. Used together with organization context to relate item setup, translated descriptions, costs, and transaction history."
+    },
+    {
+      "name": "ORGANIZATION_ID",
+      "description": "Foreign key referencing the inventory organization or operating organization that owns the record."
+    },
+    {
+      "name": "LANGUAGE",
+      "description": "Language code for the translated value stored in the row."
+    },
+    {
+      "name": "SOURCE_LANG",
+      "description": "Original language from which the translated value was derived."
+    },
+    {
+      "name": "DESCRIPTION",
+      "description": "Free-text business description entered to explain the purpose or content of the transaction."
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "description": "Date and time when the record was last updated."
+    },
+    {
+      "name": "LAST_UPDATED_BY",
+      "description": "User identifier for the person or process that last updated the record."
+    },
+    {
+      "name": "CREATION_DATE",
+      "description": "Date and time when the record was created."
+    },
+    {
+      "name": "CREATED_BY",
+      "description": "User identifier for the person or process that created the record."
+    },
+    {
+      "name": "LAST_UPDATE_LOGIN",
+      "description": "Login session identifier that performed the last update."
+    },
+    {
+      "name": "LONG_DESCRIPTION",
+      "description": "Long-form description used when the standard description is not sufficient for business reporting or inquiry."
+    }
+  ],
+  "relationships": [
+    {
+      "table": "MTL_SYSTEM_ITEMS_B",
+      "join": "INVENTORY_ITEM_ID, ORGANIZATION_ID",
+      "relationship_type": "parent"
+    }
+  ],
+  "business_questions": [
+    "Show translated item descriptions for an inventory item.",
+    "Find multilingual descriptions by language and organization.",
+    "Display long item descriptions for reporting or integrations.",
+    "Show which items have translated descriptions in a given language.",
+    "Trace translated descriptions back to the base item master.",
+    "Find missing translated descriptions for active items.",
+    "List language-specific descriptions for customer-facing reporting.",
+    "Compare source language and translated language item text."
+  ]
+}

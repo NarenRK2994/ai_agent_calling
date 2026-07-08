@@ -1,0 +1,530 @@
+{
+  "module": "Procurement",
+  "table": "PO_VENDOR_SITES_ALL",
+  "description": "Supplier site master table for Oracle Purchasing and Accounts Payable. Each record represents a supplier site such as purchasing, pay, remit-to, or RFQ site and stores address, payment, tax, and operating-unit-specific controls used when transacting with suppliers.",
+  "primary_key": "VENDOR_SITE_ID",
+  "columns": [
+    {
+      "name": "ADDRESS_STYLE",
+      "description": "Business attribute of the supplier site used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "LANGUAGE",
+      "description": "Language code for the translated value stored in the row."
+    },
+    {
+      "name": "PROVINCE",
+      "description": "Province or regional component of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "COUNTRY",
+      "description": "Country component of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "AREA_CODE",
+      "description": "Lookup or classification code identifying area for the record."
+    },
+    {
+      "name": "PHONE",
+      "description": "Business attribute of the supplier site used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CUSTOMER_NUM",
+      "description": "Business number used to identify or sequence customer."
+    },
+    {
+      "name": "SHIP_TO_LOCATION_ID",
+      "description": "Foreign key referencing the ship-to location used for logistics or receiving control."
+    },
+    {
+      "name": "BILL_TO_LOCATION_ID",
+      "description": "Foreign key referencing the bill-to location used for supplier site or customer billing purposes."
+    },
+    {
+      "name": "SHIP_VIA_LOOKUP_CODE",
+      "description": "Lookup or classification code identifying ship via lookup for the record."
+    },
+    {
+      "name": "FREIGHT_TERMS_LOOKUP_CODE",
+      "description": "Lookup or classification code identifying freight terms lookup for the record."
+    },
+    {
+      "name": "FOB_LOOKUP_CODE",
+      "description": "Lookup or classification code identifying fob lookup for the record."
+    },
+    {
+      "name": "INACTIVE_DATE",
+      "description": "Business date associated with inactive."
+    },
+    {
+      "name": "FAX",
+      "description": "Business attribute of the supplier site used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "FAX_AREA_CODE",
+      "description": "Lookup or classification code identifying fax area for the record."
+    },
+    {
+      "name": "TELEX",
+      "description": "Business attribute of the supplier site used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TERMS_DATE_BASIS",
+      "description": "Basis used to determine which date should drive payment term calculation."
+    },
+    {
+      "name": "DISTRIBUTION_SET_ID",
+      "description": "Foreign key referencing the predefined distribution set used to default accounting information."
+    },
+    {
+      "name": "ACCTS_PAY_CODE_COMBINATION_ID",
+      "description": "Liability account combination charged for the supplier invoice or payment accounting entry."
+    },
+    {
+      "name": "PREPAY_CODE_COMBINATION_ID",
+      "description": "System-generated identifier for the related prepay code combination record."
+    },
+    {
+      "name": "PAY_GROUP_LOOKUP_CODE",
+      "description": "Lookup or classification code identifying pay group lookup for the record."
+    },
+    {
+      "name": "PAYMENT_PRIORITY",
+      "description": "Processing priority used when selecting transactions for payment."
+    },
+    {
+      "name": "TERMS_ID",
+      "description": "Foreign key referencing the payment terms definition applied to the transaction."
+    },
+    {
+      "name": "INVOICE_AMOUNT_LIMIT",
+      "description": "Maximum invoice amount allowed based on the supplier or site control setup."
+    },
+    {
+      "name": "PAY_DATE_BASIS_LOOKUP_CODE",
+      "description": "Lookup or classification code identifying pay date basis lookup for the record."
+    },
+    {
+      "name": "ALWAYS_TAKE_DISC_FLAG",
+      "description": "Indicates whether always take disc applies to the record."
+    },
+    {
+      "name": "INVOICE_CURRENCY_CODE",
+      "description": "Currency in which the supplier invoice was entered."
+    },
+    {
+      "name": "PAYMENT_CURRENCY_CODE",
+      "description": "Currency used when payment is made or settled."
+    },
+    {
+      "name": "COUNTY",
+      "description": "County or administrative district component of the address."
+    },
+    {
+      "name": "VENDOR_SITE_ID",
+      "description": "Unique system-generated identifier for the supplier site used by purchasing and payables transactions."
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "description": "Date and time when the record was last updated."
+    },
+    {
+      "name": "LAST_UPDATED_BY",
+      "description": "User identifier for the person or process that last updated the record."
+    },
+    {
+      "name": "VENDOR_ID",
+      "description": "Foreign key referencing the supplier master record associated with the transaction."
+    },
+    {
+      "name": "VENDOR_SITE_CODE",
+      "description": "Business code identifying the supplier site."
+    },
+    {
+      "name": "VENDOR_SITE_CODE_ALT",
+      "description": "Business attribute of the supplier site used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "LAST_UPDATE_LOGIN",
+      "description": "Login session identifier that performed the last update."
+    },
+    {
+      "name": "CREATION_DATE",
+      "description": "Date and time when the record was created."
+    },
+    {
+      "name": "CREATED_BY",
+      "description": "User identifier for the person or process that created the record."
+    },
+    {
+      "name": "PURCHASING_SITE_FLAG",
+      "description": "Indicates whether purchasing site applies to the record."
+    },
+    {
+      "name": "RFQ_ONLY_SITE_FLAG",
+      "description": "Indicates whether rfq only site applies to the record."
+    },
+    {
+      "name": "PAY_SITE_FLAG",
+      "description": "Indicates whether pay site applies to the record."
+    },
+    {
+      "name": "ATTENTION_AR_FLAG",
+      "description": "Indicates whether attention ar applies to the record."
+    },
+    {
+      "name": "ADDRESS_LINE1",
+      "description": "Address line 1 of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "ADDRESS_LINE2",
+      "description": "Address line 2 of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "ADDRESS_LINE3",
+      "description": "Address line 3 of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "ADDRESS_LINES_ALT",
+      "description": "Business attribute of the supplier site used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CITY",
+      "description": "City component of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "STATE",
+      "description": "State or province code component of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "ZIP",
+      "description": "Postal code component of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "HOLD_ALL_PAYMENTS_FLAG",
+      "description": "Indicates whether hold all payments applies to the record."
+    },
+    {
+      "name": "HOLD_FUTURE_PAYMENTS_FLAG",
+      "description": "Indicates whether hold future payments applies to the record."
+    },
+    {
+      "name": "HOLD_REASON",
+      "description": "Reason explaining why the supplier site, invoice, or payment record was placed on hold."
+    },
+    {
+      "name": "HOLD_UNMATCHED_INVOICES_FLAG",
+      "description": "Indicates whether hold unmatched invoices applies to the record."
+    },
+    {
+      "name": "TAX_REPORTING_SITE_FLAG",
+      "description": "Indicates whether tax reporting site applies to the record."
+    },
+    {
+      "name": "REQUEST_ID",
+      "description": "Concurrent request identifier for the program run that created or updated the record."
+    },
+    {
+      "name": "PROGRAM_APPLICATION_ID",
+      "description": "Oracle application identifier for the concurrent program that last updated the record."
+    },
+    {
+      "name": "PROGRAM_ID",
+      "description": "Concurrent program identifier for the process that last updated the record."
+    },
+    {
+      "name": "PROGRAM_UPDATE_DATE",
+      "description": "Date and time when the concurrent program last updated the record."
+    },
+    {
+      "name": "VALIDATION_NUMBER",
+      "description": "Business number used to identify or sequence validation nu."
+    },
+    {
+      "name": "EXCLUDE_FREIGHT_FROM_DISCOUNT",
+      "description": "Indicates whether freight charges are excluded when payment discounts are calculated."
+    },
+    {
+      "name": "BANK_CHARGE_BEARER",
+      "description": "Indicates which party bears bank charges associated with the payment or receipt settlement."
+    },
+    {
+      "name": "ORG_ID",
+      "description": "Operating unit identifier that owns the transaction in a multi-org Oracle EBS environment."
+    },
+    {
+      "name": "CHECK_DIGITS",
+      "description": "Check digits used to validate the business reference or external account number."
+    },
+    {
+      "name": "ADDRESS_LINE4",
+      "description": "Address line 4 of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "ALLOW_AWT_FLAG",
+      "description": "Indicates whether allow awt applies to the record."
+    },
+    {
+      "name": "AWT_GROUP_ID",
+      "description": "Foreign key referencing the withholding tax group applied to the transaction."
+    },
+    {
+      "name": "PAY_AWT_GROUP_ID",
+      "description": "System-generated identifier for the related pay awt group record."
+    },
+    {
+      "name": "DEFAULT_PAY_SITE_ID",
+      "description": "System-generated identifier for the related default pay site record."
+    },
+    {
+      "name": "PAY_ON_CODE",
+      "description": "Lookup or classification code identifying pay on for the record."
+    },
+    {
+      "name": "PAY_ON_RECEIPT_SUMMARY_CODE",
+      "description": "Lookup or classification code identifying pay on receipt summary for the record."
+    },
+    {
+      "name": "TP_HEADER_ID",
+      "description": "System-generated identifier for the related tp header record."
+    },
+    {
+      "name": "ECE_TP_LOCATION_CODE",
+      "description": "Lookup or classification code identifying ece tp location for the record."
+    },
+    {
+      "name": "PCARD_SITE_FLAG",
+      "description": "Indicates whether pcard site applies to the record."
+    },
+    {
+      "name": "MATCH_OPTION",
+      "description": "Matching control option that determines whether invoice matching is performed at purchase order or receipt level."
+    },
+    {
+      "name": "COUNTRY_OF_ORIGIN_CODE",
+      "description": "Lookup or classification code identifying country of origin for the record."
+    },
+    {
+      "name": "FUTURE_DATED_PAYMENT_CCID",
+      "description": "Business attribute of the supplier site used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CREATE_DEBIT_MEMO_FLAG",
+      "description": "Indicates whether create debit memo applies to the record."
+    },
+    {
+      "name": "SUPPLIER_NOTIF_METHOD",
+      "description": "Business attribute of the supplier site used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "EMAIL_ADDRESS",
+      "description": "Email address used for supplier, customer, or party communication."
+    },
+    {
+      "name": "PRIMARY_PAY_SITE_FLAG",
+      "description": "Indicates whether primary pay site applies to the record."
+    },
+    {
+      "name": "SHIPPING_CONTROL",
+      "description": "Business attribute of the supplier site used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SELLING_COMPANY_IDENTIFIER",
+      "description": "Business attribute of the supplier site used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "GAPLESS_INV_NUM_FLAG",
+      "description": "Indicates whether gapless inv num applies to the record."
+    },
+    {
+      "name": "DUNS_NUMBER",
+      "description": "Business number used to identify or sequence duns nu."
+    },
+    {
+      "name": "LOCATION_ID",
+      "description": "Foreign key referencing the address or inventory location referenced by the record."
+    },
+    {
+      "name": "PARTY_SITE_ID",
+      "description": "Party site associated with the supplier, customer, or payment record."
+    },
+    {
+      "name": "TOLERANCE_ID",
+      "description": "System-generated identifier for the related tolerance record."
+    },
+    {
+      "name": "SERVICES_TOLERANCE_ID",
+      "description": "System-generated identifier for the related services tolerance record."
+    },
+    {
+      "name": "RETAINAGE_RATE",
+      "description": "Rate used to calculate or value retainage for the transaction."
+    },
+    {
+      "name": "EDI_ID_NUMBER",
+      "description": "Business number used to identify or sequence edi id nu."
+    },
+    {
+      "name": "VAT_REGISTRATION_NUM",
+      "description": "Business number used to identify or sequence vat registration."
+    },
+    {
+      "name": "LANGUAGE_CODE",
+      "description": "Lookup or classification code identifying language for the record."
+    },
+    {
+      "name": "PAYMENT_METHOD_LOOKUP_CODE",
+      "description": "Lookup code identifying the method used to settle the transaction."
+    },
+    {
+      "name": "BANK_ACCOUNT_NAME",
+      "description": "Business name associated with bank account."
+    },
+    {
+      "name": "BANK_ACCOUNT_NUM",
+      "description": "Business number used to identify or sequence bank account."
+    },
+    {
+      "name": "BANK_NUM",
+      "description": "Business number used to identify or sequence bank."
+    },
+    {
+      "name": "BANK_ACCOUNT_TYPE",
+      "description": "Type classification used to control bank account processing."
+    },
+    {
+      "name": "CURRENT_CATALOG_NUM",
+      "description": "Business number used to identify or sequence current catalog."
+    },
+    {
+      "name": "VAT_CODE",
+      "description": "Tax classification code applied to the transaction."
+    },
+    {
+      "name": "AP_TAX_ROUNDING_RULE",
+      "description": "Rounding adjustment associated with ap tax rounding rule."
+    },
+    {
+      "name": "AUTO_TAX_CALC_FLAG",
+      "description": "Indicates whether auto tax calc applies to the record."
+    },
+    {
+      "name": "AUTO_TAX_CALC_OVERRIDE",
+      "description": "Business attribute of the supplier site used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "AMOUNT_INCLUDES_TAX_FLAG",
+      "description": "Indicates whether amount includes tax applies to the record."
+    },
+    {
+      "name": "OFFSET_VAT_CODE",
+      "description": "Lookup or classification code identifying offset vat for the record."
+    },
+    {
+      "name": "BANK_NUMBER",
+      "description": "Business number used to identify or sequence bank nu."
+    },
+    {
+      "name": "BANK_BRANCH_TYPE",
+      "description": "Type classification used to control bank branch processing."
+    },
+    {
+      "name": "OFFSET_TAX_FLAG",
+      "description": "Indicates whether offset tax applies to the record."
+    },
+    {
+      "name": "REMITTANCE_EMAIL",
+      "description": "Business attribute of the supplier site used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "EDI_TRANSACTION_HANDLING",
+      "description": "Business attribute of the supplier site used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "EDI_PAYMENT_METHOD",
+      "description": "Business attribute of the supplier site used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "EDI_PAYMENT_FORMAT",
+      "description": "Business attribute of the supplier site used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "EDI_REMITTANCE_METHOD",
+      "description": "Business attribute of the supplier site used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "EDI_REMITTANCE_INSTRUCTION",
+      "description": "Business attribute of the supplier site used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "EXCLUSIVE_PAYMENT_FLAG",
+      "description": "Indicates whether exclusive payment applies to the record."
+    },
+    {
+      "name": "CAGE_CODE",
+      "description": "Lookup or classification code identifying cage for the record."
+    },
+    {
+      "name": "LEGAL_BUSINESS_NAME",
+      "description": "Business name associated with legal business."
+    },
+    {
+      "name": "DOING_BUS_AS_NAME",
+      "description": "Business name associated with doing bus as."
+    },
+    {
+      "name": "DIVISION_NAME",
+      "description": "Business name associated with division."
+    },
+    {
+      "name": "SMALL_BUSINESS_CODE",
+      "description": "Lookup or classification code identifying small business for the record."
+    },
+    {
+      "name": "CCR_COMMENTS",
+      "description": "Business attribute of the supplier site used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DEBARMENT_START_DATE",
+      "description": "Business date associated with debarment start."
+    },
+    {
+      "name": "DEBARMENT_END_DATE",
+      "description": "Business date associated with debarment end."
+    },
+    {
+      "name": "STATUS",
+      "description": "Current processing status of the transaction within the Oracle application flow."
+    },
+    {
+      "name": "END_DATE_ACTIVE",
+      "description": "Business attribute of the supplier site used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ACK_LEAD_TIME",
+      "description": "Business attribute of the supplier site used for Oracle EBS transaction processing, control, or reporting."
+    }
+  ],
+  "relationships": [
+    {
+      "table": "AP_INVOICES_ALL",
+      "join": "VENDOR_SITE_ID",
+      "relationship_type": "child"
+    },
+    {
+      "table": "PO_VENDORS",
+      "join": "VENDOR_ID",
+      "relationship_type": "parent"
+    }
+  ],
+  "business_questions": [
+    "Show supplier site details for purchasing and payment processing.",
+    "Find pay sites and purchasing sites for a supplier.",
+    "Display address and remittance information by supplier site.",
+    "Show supplier sites used on Payables invoices.",
+    "Identify supplier sites on payment hold.",
+    "List supplier sites by operating unit and payment method.",
+    "Show remit-to site setup and banking attributes.",
+    "Find inactive or future-dated supplier sites."
+  ]
+}

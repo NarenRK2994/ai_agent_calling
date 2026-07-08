@@ -1,0 +1,181 @@
+{
+  "module": "Accounts Payable",
+  "table": "AP_PAYMENT_SCHEDULES_ALL",
+  "description": "Installment and due-date schedule table for Oracle Accounts Payable. Each record represents a planned payment installment for a supplier invoice and is used by Payment Process Requests to determine due dates, discounts, holds, remittance instructions, and remaining liability.",
+  "primary_key": "INVOICE_ID, PAYMENT_NUM",
+  "columns": [
+    {
+      "name": "INVOICE_ID",
+      "description": "Unique system-generated identifier for the supplier invoice. Used to relate the invoice header to lines, distributions, payment schedules, and payment history."
+    },
+    {
+      "name": "LAST_UPDATED_BY",
+      "description": "User identifier for the person or process that last updated the record."
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "description": "Date and time when the record was last updated."
+    },
+    {
+      "name": "PAYMENT_CROSS_RATE",
+      "description": "Cross-currency rate used when invoice and payment currencies differ."
+    },
+    {
+      "name": "PAYMENT_NUM",
+      "description": "Sequence number identifying the payment event or installment against the document."
+    },
+    {
+      "name": "AMOUNT_REMAINING",
+      "description": "Remaining monetary balance that has not yet been settled or applied."
+    },
+    {
+      "name": "CREATED_BY",
+      "description": "User identifier for the person or process that created the record."
+    },
+    {
+      "name": "CREATION_DATE",
+      "description": "Date and time when the record was created."
+    },
+    {
+      "name": "DISCOUNT_DATE",
+      "description": "Date through which the current discount amount remains available."
+    },
+    {
+      "name": "DUE_DATE",
+      "description": "Date on which payment is due based on payment terms and schedule calculation."
+    },
+    {
+      "name": "FUTURE_PAY_DUE_DATE",
+      "description": "Future dated payment due date used for settlement scheduling."
+    },
+    {
+      "name": "GROSS_AMOUNT",
+      "description": "Gross scheduled amount before discount or settlement adjustments."
+    },
+    {
+      "name": "HOLD_FLAG",
+      "description": "Indicates whether the transaction or schedule is on hold from further processing."
+    },
+    {
+      "name": "LAST_UPDATE_LOGIN",
+      "description": "Login session identifier that performed the last update."
+    },
+    {
+      "name": "PAYMENT_METHOD_LOOKUP_CODE",
+      "description": "Lookup code identifying the method used to settle the transaction."
+    },
+    {
+      "name": "PAYMENT_PRIORITY",
+      "description": "Processing priority used when selecting transactions for payment."
+    },
+    {
+      "name": "PAYMENT_STATUS_FLAG",
+      "description": "Indicates whether the invoice or schedule is unpaid, partially paid, fully paid, or otherwise settled."
+    },
+    {
+      "name": "SECOND_DISCOUNT_DATE",
+      "description": "Business date associated with second discount."
+    },
+    {
+      "name": "THIRD_DISCOUNT_DATE",
+      "description": "Business date associated with third discount."
+    },
+    {
+      "name": "BATCH_ID",
+      "description": "Foreign key referencing the import, entry, or processing batch that grouped the transaction."
+    },
+    {
+      "name": "DISCOUNT_AMOUNT_AVAILABLE",
+      "description": "Business attribute of the invoice payment schedule used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SECOND_DISC_AMT_AVAILABLE",
+      "description": "Business attribute of the invoice payment schedule used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "THIRD_DISC_AMT_AVAILABLE",
+      "description": "Business attribute of the invoice payment schedule used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DISCOUNT_AMOUNT_REMAINING",
+      "description": "Remaining monetary balance that has not yet been settled or applied."
+    },
+    {
+      "name": "ORG_ID",
+      "description": "Operating unit identifier that owns the transaction in a multi-org Oracle EBS environment."
+    },
+    {
+      "name": "EXTERNAL_BANK_ACCOUNT_ID",
+      "description": "Foreign key referencing the external supplier or customer bank account used for settlement."
+    },
+    {
+      "name": "INV_CURR_GROSS_AMOUNT",
+      "description": "Monetary amount representing inv curr gross for the transaction."
+    },
+    {
+      "name": "CHECKRUN_ID",
+      "description": "System-generated identifier for the related checkrun record."
+    },
+    {
+      "name": "DBI_EVENTS_COMPLETE_FLAG",
+      "description": "Indicates whether dbi events complete applies to the record."
+    },
+    {
+      "name": "IBY_HOLD_REASON",
+      "description": "Business reason captured for iby hold."
+    },
+    {
+      "name": "PAYMENT_METHOD_CODE",
+      "description": "Payment method used to settle the transaction."
+    },
+    {
+      "name": "REMITTANCE_MESSAGE1",
+      "description": "Remittance advice message communicated to the supplier during payment processing."
+    },
+    {
+      "name": "REMITTANCE_MESSAGE2",
+      "description": "Remittance advice message communicated to the supplier during payment processing."
+    },
+    {
+      "name": "REMITTANCE_MESSAGE3",
+      "description": "Remittance advice message communicated to the supplier during payment processing."
+    },
+    {
+      "name": "REMIT_TO_SUPPLIER_NAME",
+      "description": "Business name associated with remit to supplier."
+    },
+    {
+      "name": "REMIT_TO_SUPPLIER_ID",
+      "description": "System-generated identifier for the related remit to supplier record."
+    },
+    {
+      "name": "REMIT_TO_SUPPLIER_SITE",
+      "description": "Supplier site to which payment remittance is directed."
+    },
+    {
+      "name": "REMIT_TO_SUPPLIER_SITE_ID",
+      "description": "System-generated identifier for the related remit to supplier site record."
+    },
+    {
+      "name": "RELATIONSHIP_ID",
+      "description": "System-generated identifier for the related relationship record."
+    }
+  ],
+  "relationships": [
+    {
+      "table": "AP_INVOICES_ALL",
+      "join": "INVOICE_ID",
+      "relationship_type": "parent"
+    }
+  ],
+  "business_questions": [
+    "Show due dates and remaining amounts for supplier invoices.",
+    "Find invoices eligible for payment discounts.",
+    "List payment schedules currently on hold.",
+    "Show future-dated supplier payment obligations.",
+    "Identify invoices with multiple scheduled installments.",
+    "Display payment priority and payment method by invoice schedule.",
+    "Find overdue payment schedules by supplier.",
+    "Show remittance instructions attached to payment schedules."
+  ]
+}

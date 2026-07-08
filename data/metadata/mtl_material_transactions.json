@@ -1,0 +1,690 @@
+{
+  "module": "Inventory",
+  "table": "MTL_MATERIAL_TRANSACTIONS",
+  "description": "Inventory movement transaction history table for Oracle Inventory. Each record represents a material transaction such as receipt, issue, transfer, adjustment, return, or WIP movement and provides the operational and costing detail required for inventory visibility, valuation, and audit tracking.",
+  "primary_key": "TRANSACTION_ID",
+  "columns": [
+    {
+      "name": "TRANSACTION_ID",
+      "description": "Unique system-generated identifier for the inventory material transaction."
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "description": "Date and time when the record was last updated."
+    },
+    {
+      "name": "LAST_UPDATED_BY",
+      "description": "User identifier for the person or process that last updated the record."
+    },
+    {
+      "name": "CREATION_DATE",
+      "description": "Date and time when the record was created."
+    },
+    {
+      "name": "CREATED_BY",
+      "description": "User identifier for the person or process that created the record."
+    },
+    {
+      "name": "LAST_UPDATE_LOGIN",
+      "description": "Login session identifier that performed the last update."
+    },
+    {
+      "name": "REQUEST_ID",
+      "description": "Concurrent request identifier for the program run that created or updated the record."
+    },
+    {
+      "name": "PROGRAM_APPLICATION_ID",
+      "description": "Oracle application identifier for the concurrent program that last updated the record."
+    },
+    {
+      "name": "PROGRAM_ID",
+      "description": "Concurrent program identifier for the process that last updated the record."
+    },
+    {
+      "name": "PROGRAM_UPDATE_DATE",
+      "description": "Date and time when the concurrent program last updated the record."
+    },
+    {
+      "name": "INVENTORY_ITEM_ID",
+      "description": "Foreign key referencing the inventory item master record associated with the transaction."
+    },
+    {
+      "name": "REVISION",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ORGANIZATION_ID",
+      "description": "Foreign key referencing the inventory organization or operating organization that owns the record."
+    },
+    {
+      "name": "SUBINVENTORY_CODE",
+      "description": "Lookup or classification code identifying subinventory for the record."
+    },
+    {
+      "name": "LOCATOR_ID",
+      "description": "Foreign key referencing the inventory locator used for the material transaction."
+    },
+    {
+      "name": "TRANSACTION_TYPE_ID",
+      "description": "Foreign key referencing the inventory transaction type that classifies the material movement."
+    },
+    {
+      "name": "TRANSACTION_ACTION_ID",
+      "description": "Foreign key referencing the inventory transaction action that determines how stock is affected."
+    },
+    {
+      "name": "TRANSACTION_SOURCE_TYPE_ID",
+      "description": "Foreign key referencing the source type that explains what business process created the inventory transaction."
+    },
+    {
+      "name": "TRANSACTION_SOURCE_ID",
+      "description": "System-generated identifier for the related transaction source record."
+    },
+    {
+      "name": "TRANSACTION_SOURCE_NAME",
+      "description": "Business name associated with transaction source."
+    },
+    {
+      "name": "TRANSACTION_QUANTITY",
+      "description": "Quantity moved by the inventory transaction in the entered transaction unit of measure."
+    },
+    {
+      "name": "TRANSACTION_UOM",
+      "description": "Unit of measure used for transaction."
+    },
+    {
+      "name": "PRIMARY_QUANTITY",
+      "description": "Quantity associated with primary for the transaction."
+    },
+    {
+      "name": "TRANSACTION_DATE",
+      "description": "Date on which the inventory material movement was recorded."
+    },
+    {
+      "name": "VARIANCE_AMOUNT",
+      "description": "Monetary amount representing variance for the transaction."
+    },
+    {
+      "name": "ACCT_PERIOD_ID",
+      "description": "System-generated identifier for the related acct period record."
+    },
+    {
+      "name": "TRANSACTION_REFERENCE",
+      "description": "User-entered or system-generated reference describing the source of the material transaction."
+    },
+    {
+      "name": "REASON_ID",
+      "description": "Foreign key referencing the reason code definition explaining why the transaction occurred."
+    },
+    {
+      "name": "DISTRIBUTION_ACCOUNT_ID",
+      "description": "System-generated identifier for the related distribution account record."
+    },
+    {
+      "name": "ENCUMBRANCE_ACCOUNT",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ENCUMBRANCE_AMOUNT",
+      "description": "Monetary amount representing encumbrance for the transaction."
+    },
+    {
+      "name": "COST_UPDATE_ID",
+      "description": "System-generated identifier for the related cost update record."
+    },
+    {
+      "name": "COSTED_FLAG",
+      "description": "Indicates whether costed applies to the record."
+    },
+    {
+      "name": "TRANSACTION_GROUP_ID",
+      "description": "System-generated identifier for the related transaction group record."
+    },
+    {
+      "name": "INVOICED_FLAG",
+      "description": "Indicates whether invoiced applies to the record."
+    },
+    {
+      "name": "ACTUAL_COST",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TRANSACTION_COST",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PRIOR_COST",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "NEW_COST",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CURRENCY_CODE",
+      "description": "Currency code in which the transaction is denominated."
+    },
+    {
+      "name": "CURRENCY_CONVERSION_RATE",
+      "description": "Rate used to calculate or value currency conversion for the transaction."
+    },
+    {
+      "name": "CURRENCY_CONVERSION_TYPE",
+      "description": "Type classification used to control currency conversion processing."
+    },
+    {
+      "name": "CURRENCY_CONVERSION_DATE",
+      "description": "Business date associated with currency conversion."
+    },
+    {
+      "name": "USSGL_TRANSACTION_CODE",
+      "description": "Lookup or classification code identifying ussgl transaction for the record."
+    },
+    {
+      "name": "QUANTITY_ADJUSTED",
+      "description": "Quantity associated with quantity for the transaction."
+    },
+    {
+      "name": "EMPLOYEE_CODE",
+      "description": "Lookup or classification code identifying employee for the record."
+    },
+    {
+      "name": "DEPARTMENT_ID",
+      "description": "Foreign key referencing the inventory or operational department associated with the transaction."
+    },
+    {
+      "name": "OPERATION_SEQ_NUM",
+      "description": "Business number used to identify or sequence operation seq."
+    },
+    {
+      "name": "MASTER_SCHEDULE_UPDATE_CODE",
+      "description": "Lookup or classification code identifying master schedule update for the record."
+    },
+    {
+      "name": "RECEIVING_DOCUMENT",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PICKING_LINE_ID",
+      "description": "System-generated identifier for the related picking line record."
+    },
+    {
+      "name": "TRX_SOURCE_LINE_ID",
+      "description": "System-generated identifier for the related trx source line record."
+    },
+    {
+      "name": "TRX_SOURCE_DELIVERY_ID",
+      "description": "System-generated identifier for the related trx source delivery record."
+    },
+    {
+      "name": "REPETITIVE_LINE_ID",
+      "description": "System-generated identifier for the related repetitive line record."
+    },
+    {
+      "name": "PHYSICAL_ADJUSTMENT_ID",
+      "description": "System-generated identifier for the related physical adjustment record."
+    },
+    {
+      "name": "CYCLE_COUNT_ID",
+      "description": "System-generated identifier for the related cycle count record."
+    },
+    {
+      "name": "RMA_LINE_ID",
+      "description": "System-generated identifier for the related rma line record."
+    },
+    {
+      "name": "TRANSFER_TRANSACTION_ID",
+      "description": "System-generated identifier for the related transfer transaction record."
+    },
+    {
+      "name": "TRANSACTION_SET_ID",
+      "description": "System-generated identifier for the related transaction set record."
+    },
+    {
+      "name": "RCV_TRANSACTION_ID",
+      "description": "Foreign key referencing the receiving transaction associated with the invoice match or inventory event."
+    },
+    {
+      "name": "MOVE_TRANSACTION_ID",
+      "description": "System-generated identifier for the related move transaction record."
+    },
+    {
+      "name": "COMPLETION_TRANSACTION_ID",
+      "description": "System-generated identifier for the related completion transaction record."
+    },
+    {
+      "name": "SHORTAGE_PROCESS_CODE",
+      "description": "Lookup or classification code identifying shortage process for the record."
+    },
+    {
+      "name": "SOURCE_CODE",
+      "description": "Lookup or classification code identifying source for the record."
+    },
+    {
+      "name": "SOURCE_LINE_ID",
+      "description": "System-generated identifier for the related source line record."
+    },
+    {
+      "name": "VENDOR_LOT_NUMBER",
+      "description": "Business number used to identify or sequence vendor lot nu."
+    },
+    {
+      "name": "TRANSFER_ORGANIZATION_ID",
+      "description": "System-generated identifier for the related transfer organization record."
+    },
+    {
+      "name": "TRANSFER_SUBINVENTORY",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TRANSFER_LOCATOR_ID",
+      "description": "System-generated identifier for the related transfer locator record."
+    },
+    {
+      "name": "SHIPMENT_NUMBER",
+      "description": "Business number used to identify or sequence shipment nu."
+    },
+    {
+      "name": "TRANSFER_COST",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TRANSPORTATION_DIST_ACCOUNT",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TRANSPORTATION_COST",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TRANSFER_COST_DIST_ACCOUNT",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "WAYBILL_AIRBILL",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "FREIGHT_CODE",
+      "description": "Lookup or classification code identifying freight for the record."
+    },
+    {
+      "name": "NUMBER_OF_CONTAINERS",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "VALUE_CHANGE",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PERCENTAGE_CHANGE",
+      "description": "Percentage value used to calculate percentage change."
+    },
+    {
+      "name": "MOVEMENT_ID",
+      "description": "System-generated identifier for the related movement record."
+    },
+    {
+      "name": "TASK_ID",
+      "description": "Foreign key referencing the task charged by the project-related transaction."
+    },
+    {
+      "name": "TO_TASK_ID",
+      "description": "System-generated identifier for the related to task record."
+    },
+    {
+      "name": "PROJECT_ID",
+      "description": "Foreign key referencing the project charged by the transaction."
+    },
+    {
+      "name": "TO_PROJECT_ID",
+      "description": "System-generated identifier for the related to project record."
+    },
+    {
+      "name": "SOURCE_PROJECT_ID",
+      "description": "System-generated identifier for the related source project record."
+    },
+    {
+      "name": "PA_EXPENDITURE_ORG_ID",
+      "description": "System-generated identifier for the related pa expenditure org record."
+    },
+    {
+      "name": "SOURCE_TASK_ID",
+      "description": "System-generated identifier for the related source task record."
+    },
+    {
+      "name": "EXPENDITURE_TYPE",
+      "description": "Type classification used to control expenditure processing."
+    },
+    {
+      "name": "ERROR_CODE",
+      "description": "Lookup or classification code identifying error for the record."
+    },
+    {
+      "name": "ERROR_EXPLANATION",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PRIOR_COSTED_QUANTITY",
+      "description": "Quantity associated with prior costed for the transaction."
+    },
+    {
+      "name": "TRANSFER_PRIOR_COSTED_QUANTITY",
+      "description": "Quantity associated with transfer prior costed for the transaction."
+    },
+    {
+      "name": "FINAL_COMPLETION_FLAG",
+      "description": "Indicates whether final completion applies to the record."
+    },
+    {
+      "name": "PM_COST_COLLECTED",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PM_COST_COLLECTOR_GROUP_ID",
+      "description": "System-generated identifier for the related pm cost collector group record."
+    },
+    {
+      "name": "SHIPMENT_COSTED",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TRANSFER_PERCENTAGE",
+      "description": "Percentage value used to calculate transfer percentage."
+    },
+    {
+      "name": "MATERIAL_ACCOUNT",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "MATERIAL_OVERHEAD_ACCOUNT",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "RESOURCE_ACCOUNT",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "OUTSIDE_PROCESSING_ACCOUNT",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "OVERHEAD_ACCOUNT",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "COST_GROUP_ID",
+      "description": "Foreign key referencing the inventory cost group used for valuation and accounting."
+    },
+    {
+      "name": "TRANSFER_COST_GROUP_ID",
+      "description": "System-generated identifier for the related transfer cost group record."
+    },
+    {
+      "name": "FLOW_SCHEDULE",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "QA_COLLECTION_ID",
+      "description": "System-generated identifier for the related qa collection record."
+    },
+    {
+      "name": "OVERCOMPLETION_TRANSACTION_QTY",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "OVERCOMPLETION_PRIMARY_QTY",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "OVERCOMPLETION_TRANSACTION_ID",
+      "description": "System-generated identifier for the related overcompletion transaction record."
+    },
+    {
+      "name": "MVT_STAT_STATUS",
+      "description": "Status value showing the current processing state of mvt stat."
+    },
+    {
+      "name": "COMMON_BOM_SEQ_ID",
+      "description": "System-generated identifier for the related common bom seq record."
+    },
+    {
+      "name": "COMMON_ROUTING_SEQ_ID",
+      "description": "System-generated identifier for the related common routing seq record."
+    },
+    {
+      "name": "ORG_COST_GROUP_ID",
+      "description": "System-generated identifier for the related org cost group record."
+    },
+    {
+      "name": "COST_TYPE_ID",
+      "description": "Foreign key referencing the cost type that defines how item cost is valued or analyzed."
+    },
+    {
+      "name": "PERIODIC_PRIMARY_QUANTITY",
+      "description": "Quantity associated with periodic primary for the transaction."
+    },
+    {
+      "name": "MOVE_ORDER_LINE_ID",
+      "description": "Foreign key referencing the move order line that generated the inventory transaction."
+    },
+    {
+      "name": "TASK_GROUP_ID",
+      "description": "System-generated identifier for the related task group record."
+    },
+    {
+      "name": "PICK_SLIP_NUMBER",
+      "description": "Business number used to identify or sequence pick slip nu."
+    },
+    {
+      "name": "LPN_ID",
+      "description": "System-generated identifier for the related lpn record."
+    },
+    {
+      "name": "TRANSFER_LPN_ID",
+      "description": "System-generated identifier for the related transfer lpn record."
+    },
+    {
+      "name": "PICK_STRATEGY_ID",
+      "description": "System-generated identifier for the related pick strategy record."
+    },
+    {
+      "name": "PICK_RULE_ID",
+      "description": "System-generated identifier for the related pick rule record."
+    },
+    {
+      "name": "PUT_AWAY_STRATEGY_ID",
+      "description": "System-generated identifier for the related put away strategy record."
+    },
+    {
+      "name": "PUT_AWAY_RULE_ID",
+      "description": "System-generated identifier for the related put away rule record."
+    },
+    {
+      "name": "CONTENT_LPN_ID",
+      "description": "System-generated identifier for the related content lpn record."
+    },
+    {
+      "name": "PICK_SLIP_DATE",
+      "description": "Business date associated with pick slip."
+    },
+    {
+      "name": "COST_CATEGORY_ID",
+      "description": "System-generated identifier for the related cost category record."
+    },
+    {
+      "name": "ORGANIZATION_TYPE",
+      "description": "Type classification used to control organization processing."
+    },
+    {
+      "name": "TRANSFER_ORGANIZATION_TYPE",
+      "description": "Type classification used to control transfer organization processing."
+    },
+    {
+      "name": "OWNING_ORGANIZATION_ID",
+      "description": "System-generated identifier for the related owning organization record."
+    },
+    {
+      "name": "OWNING_TP_TYPE",
+      "description": "Type classification used to control owning tp processing."
+    },
+    {
+      "name": "XFR_OWNING_ORGANIZATION_ID",
+      "description": "System-generated identifier for the related xfr owning organization record."
+    },
+    {
+      "name": "TRANSFER_OWNING_TP_TYPE",
+      "description": "Type classification used to control transfer owning tp processing."
+    },
+    {
+      "name": "PLANNING_ORGANIZATION_ID",
+      "description": "System-generated identifier for the related planning organization record."
+    },
+    {
+      "name": "PLANNING_TP_TYPE",
+      "description": "Type classification used to control planning tp processing."
+    },
+    {
+      "name": "XFR_PLANNING_ORGANIZATION_ID",
+      "description": "System-generated identifier for the related xfr planning organization record."
+    },
+    {
+      "name": "TRANSFER_PLANNING_TP_TYPE",
+      "description": "Type classification used to control transfer planning tp processing."
+    },
+    {
+      "name": "SECONDARY_UOM_CODE",
+      "description": "Lookup or classification code identifying secondary uom for the record."
+    },
+    {
+      "name": "SECONDARY_TRANSACTION_QUANTITY",
+      "description": "Quantity associated with secondary transaction for the transaction."
+    },
+    {
+      "name": "TRANSACTION_GROUP_SEQ",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SHIP_TO_LOCATION_ID",
+      "description": "Foreign key referencing the ship-to location used for logistics or receiving control."
+    },
+    {
+      "name": "RESERVATION_ID",
+      "description": "System-generated identifier for the related reservation record."
+    },
+    {
+      "name": "TRANSACTION_MODE",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TRANSACTION_BATCH_ID",
+      "description": "System-generated identifier for the related transaction batch record."
+    },
+    {
+      "name": "TRANSACTION_BATCH_SEQ",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "INTRANSIT_ACCOUNT",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "FOB_POINT",
+      "description": "Free On Board point that determines when ownership or shipping responsibility transfers."
+    },
+    {
+      "name": "PARENT_TRANSACTION_ID",
+      "description": "System-generated identifier for the related parent transaction record."
+    },
+    {
+      "name": "LOGICAL_TRX_TYPE_CODE",
+      "description": "Lookup or classification code identifying logical trx type for the record."
+    },
+    {
+      "name": "TRX_FLOW_HEADER_ID",
+      "description": "System-generated identifier for the related trx flow header record."
+    },
+    {
+      "name": "LOGICAL_TRANSACTIONS_CREATED",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "LOGICAL_TRANSACTION",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "INTERCOMPANY_COST",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "INTERCOMPANY_PRICING_OPTION",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "INTERCOMPANY_CURRENCY_CODE",
+      "description": "Lookup or classification code identifying intercompany currency for the record."
+    },
+    {
+      "name": "ORIGINAL_TRANSACTION_TEMP_ID",
+      "description": "System-generated identifier for the related original transaction temp record."
+    },
+    {
+      "name": "TRANSFER_PRICE",
+      "description": "Price amount used for transfer valuation or billing."
+    },
+    {
+      "name": "EXPENSE_ACCOUNT_ID",
+      "description": "System-generated identifier for the related expense account record."
+    },
+    {
+      "name": "COGS_RECOGNITION_PERCENT",
+      "description": "Percentage value used to calculate cogs recognition percent."
+    },
+    {
+      "name": "SO_ISSUE_ACCOUNT_TYPE",
+      "description": "Type classification used to control so issue account processing."
+    },
+    {
+      "name": "OPM_COSTED_FLAG",
+      "description": "Indicates whether opm costed applies to the record."
+    },
+    {
+      "name": "MATERIAL_EXPENSE_ACCOUNT",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TRANSACTION_EXTRACTED",
+      "description": "Business attribute of the material transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "XML_DOCUMENT_ID",
+      "description": "System-generated identifier for the related xml document record."
+    },
+    {
+      "name": "MCC_CODE",
+      "description": "Lookup or classification code identifying mcc for the record."
+    }
+  ],
+  "relationships": [
+    {
+      "table": "MTL_SYSTEM_ITEMS_B",
+      "join": "INVENTORY_ITEM_ID, ORGANIZATION_ID",
+      "relationship_type": "parent"
+    },
+    {
+      "table": "MTL_TRANSACTION_TYPES",
+      "join": "TRANSACTION_TYPE_ID",
+      "relationship_type": "parent"
+    }
+  ],
+  "business_questions": [
+    "Show material transaction history for an inventory item.",
+    "Find inventory issues, receipts, transfers, and adjustments by date.",
+    "Display transactions by organization, subinventory, and locator.",
+    "Show transaction cost, quantity, and source reference details.",
+    "Find transactions by transaction type or source type.",
+    "Trace inventory movements related to a purchase receipt or work order.",
+    "Identify costed versus uncosted material transactions.",
+    "Show transfer transactions between organizations or subinventories."
+  ]
+}

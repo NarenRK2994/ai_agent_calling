@@ -1,0 +1,1443 @@
+{
+  "module": "Inventory",
+  "table": "MTL_SYSTEM_ITEMS_B",
+  "description": "Base item master table for Oracle Inventory. Each record represents an inventory item definition within an organization and controls planning, purchasing, costing, shipping, receiving, service, and inventory behavior used across supply chain processes.",
+  "primary_key": "INVENTORY_ITEM_ID, ORGANIZATION_ID",
+  "columns": [
+    {
+      "name": "INVENTORY_ITEM_ID",
+      "description": "Unique system-generated identifier for the inventory item. Used together with organization context to relate item setup, translated descriptions, costs, and transaction history."
+    },
+    {
+      "name": "ORGANIZATION_ID",
+      "description": "Foreign key referencing the inventory organization or operating organization that owns the record."
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "description": "Date and time when the record was last updated."
+    },
+    {
+      "name": "LAST_UPDATED_BY",
+      "description": "User identifier for the person or process that last updated the record."
+    },
+    {
+      "name": "CREATION_DATE",
+      "description": "Date and time when the record was created."
+    },
+    {
+      "name": "CREATED_BY",
+      "description": "User identifier for the person or process that created the record."
+    },
+    {
+      "name": "LAST_UPDATE_LOGIN",
+      "description": "Login session identifier that performed the last update."
+    },
+    {
+      "name": "SUMMARY_FLAG",
+      "description": "Indicates whether summary applies to the record."
+    },
+    {
+      "name": "ENABLED_FLAG",
+      "description": "Indicates whether enabled applies to the record."
+    },
+    {
+      "name": "START_DATE_ACTIVE",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "END_DATE_ACTIVE",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DESCRIPTION",
+      "description": "Free-text business description entered to explain the purpose or content of the transaction."
+    },
+    {
+      "name": "BUYER_ID",
+      "description": "Foreign key referencing the buyer responsible for the item or purchasing relationship."
+    },
+    {
+      "name": "ACCOUNTING_RULE_ID",
+      "description": "Foreign key referencing the accounting rule that controls revenue recognition timing."
+    },
+    {
+      "name": "INVOICING_RULE_ID",
+      "description": "System-generated identifier for the related invoicing rule record."
+    },
+    {
+      "name": "SEGMENT1",
+      "description": "Primary item number segment used as the core business item identifier."
+    },
+    {
+      "name": "SEGMENT2",
+      "description": "Additional item key flexfield segment 2 used to build the full item number or item classification."
+    },
+    {
+      "name": "SEGMENT3",
+      "description": "Additional item key flexfield segment 3 used to build the full item number or item classification."
+    },
+    {
+      "name": "SEGMENT4",
+      "description": "Additional item key flexfield segment 4 used to build the full item number or item classification."
+    },
+    {
+      "name": "SEGMENT5",
+      "description": "Additional item key flexfield segment 5 used to build the full item number or item classification."
+    },
+    {
+      "name": "SEGMENT6",
+      "description": "Additional item key flexfield segment 6 used to build the full item number or item classification."
+    },
+    {
+      "name": "SEGMENT7",
+      "description": "Additional item key flexfield segment 7 used to build the full item number or item classification."
+    },
+    {
+      "name": "SEGMENT8",
+      "description": "Additional item key flexfield segment 8 used to build the full item number or item classification."
+    },
+    {
+      "name": "SEGMENT9",
+      "description": "Additional item key flexfield segment 9 used to build the full item number or item classification."
+    },
+    {
+      "name": "SEGMENT10",
+      "description": "Additional item key flexfield segment 10 used to build the full item number or item classification."
+    },
+    {
+      "name": "SEGMENT11",
+      "description": "Additional item key flexfield segment 11 used to build the full item number or item classification."
+    },
+    {
+      "name": "SEGMENT12",
+      "description": "Additional item key flexfield segment 12 used to build the full item number or item classification."
+    },
+    {
+      "name": "SEGMENT13",
+      "description": "Additional item key flexfield segment 13 used to build the full item number or item classification."
+    },
+    {
+      "name": "SEGMENT14",
+      "description": "Additional item key flexfield segment 14 used to build the full item number or item classification."
+    },
+    {
+      "name": "SEGMENT15",
+      "description": "Additional item key flexfield segment 15 used to build the full item number or item classification."
+    },
+    {
+      "name": "SEGMENT16",
+      "description": "Additional item key flexfield segment 16 used to build the full item number or item classification."
+    },
+    {
+      "name": "SEGMENT17",
+      "description": "Additional item key flexfield segment 17 used to build the full item number or item classification."
+    },
+    {
+      "name": "SEGMENT18",
+      "description": "Additional item key flexfield segment 18 used to build the full item number or item classification."
+    },
+    {
+      "name": "SEGMENT19",
+      "description": "Additional item key flexfield segment 19 used to build the full item number or item classification."
+    },
+    {
+      "name": "SEGMENT20",
+      "description": "Additional item key flexfield segment 20 used to build the full item number or item classification."
+    },
+    {
+      "name": "PURCHASING_ITEM_FLAG",
+      "description": "Indicates whether purchasing item applies to the record."
+    },
+    {
+      "name": "SHIPPABLE_ITEM_FLAG",
+      "description": "Indicates whether shippable item applies to the record."
+    },
+    {
+      "name": "CUSTOMER_ORDER_FLAG",
+      "description": "Indicates whether customer order applies to the record."
+    },
+    {
+      "name": "INTERNAL_ORDER_FLAG",
+      "description": "Indicates whether internal order applies to the record."
+    },
+    {
+      "name": "SERVICE_ITEM_FLAG",
+      "description": "Indicates whether service item applies to the record."
+    },
+    {
+      "name": "INVENTORY_ITEM_FLAG",
+      "description": "Indicates whether inventory item applies to the record."
+    },
+    {
+      "name": "ENG_ITEM_FLAG",
+      "description": "Indicates whether eng item applies to the record."
+    },
+    {
+      "name": "INVENTORY_ASSET_FLAG",
+      "description": "Indicates whether inventory asset applies to the record."
+    },
+    {
+      "name": "PURCHASING_ENABLED_FLAG",
+      "description": "Indicates whether purchasing enabled applies to the record."
+    },
+    {
+      "name": "CUSTOMER_ORDER_ENABLED_FLAG",
+      "description": "Indicates whether customer order enabled applies to the record."
+    },
+    {
+      "name": "INTERNAL_ORDER_ENABLED_FLAG",
+      "description": "Indicates whether internal order enabled applies to the record."
+    },
+    {
+      "name": "SO_TRANSACTIONS_FLAG",
+      "description": "Indicates whether so transactions applies to the record."
+    },
+    {
+      "name": "MTL_TRANSACTIONS_ENABLED_FLAG",
+      "description": "Indicates whether mtl transactions enabled applies to the record."
+    },
+    {
+      "name": "STOCK_ENABLED_FLAG",
+      "description": "Indicates whether stock enabled applies to the record."
+    },
+    {
+      "name": "BOM_ENABLED_FLAG",
+      "description": "Indicates whether bom enabled applies to the record."
+    },
+    {
+      "name": "BUILD_IN_WIP_FLAG",
+      "description": "Indicates whether build in wip applies to the record."
+    },
+    {
+      "name": "REVISION_QTY_CONTROL_CODE",
+      "description": "Lookup or classification code identifying revision qty control for the record."
+    },
+    {
+      "name": "ITEM_CATALOG_GROUP_ID",
+      "description": "Foreign key referencing the item catalog group used to classify the item."
+    },
+    {
+      "name": "CATALOG_STATUS_FLAG",
+      "description": "Indicates whether catalog status applies to the record."
+    },
+    {
+      "name": "RETURNABLE_FLAG",
+      "description": "Indicates whether returnable applies to the record."
+    },
+    {
+      "name": "DEFAULT_SHIPPING_ORG",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "COLLATERAL_FLAG",
+      "description": "Indicates whether collateral applies to the record."
+    },
+    {
+      "name": "TAXABLE_FLAG",
+      "description": "Indicates whether taxable applies to the record."
+    },
+    {
+      "name": "QTY_RCV_EXCEPTION_CODE",
+      "description": "Lookup or classification code identifying qty rcv exception for the record."
+    },
+    {
+      "name": "ALLOW_ITEM_DESC_UPDATE_FLAG",
+      "description": "Indicates whether allow item desc update applies to the record."
+    },
+    {
+      "name": "INSPECTION_REQUIRED_FLAG",
+      "description": "Indicates whether inspection required applies to the record."
+    },
+    {
+      "name": "RECEIPT_REQUIRED_FLAG",
+      "description": "Indicates whether receipt required applies to the record."
+    },
+    {
+      "name": "MARKET_PRICE",
+      "description": "Price amount used for market valuation or billing."
+    },
+    {
+      "name": "HAZARD_CLASS_ID",
+      "description": "System-generated identifier for the related hazard class record."
+    },
+    {
+      "name": "RFQ_REQUIRED_FLAG",
+      "description": "Indicates whether rfq required applies to the record."
+    },
+    {
+      "name": "QTY_RCV_TOLERANCE",
+      "description": "Tolerance threshold used to control qty rcv tolerance."
+    },
+    {
+      "name": "LIST_PRICE_PER_UNIT",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "UN_NUMBER_ID",
+      "description": "System-generated identifier for the related un number record."
+    },
+    {
+      "name": "PRICE_TOLERANCE_PERCENT",
+      "description": "Tolerance threshold used to control price tolerance percent."
+    },
+    {
+      "name": "ASSET_CATEGORY_ID",
+      "description": "Foreign key referencing the Oracle Assets category used for capitalization or asset tracking."
+    },
+    {
+      "name": "ROUNDING_FACTOR",
+      "description": "Rounding adjustment associated with rounding factor."
+    },
+    {
+      "name": "UNIT_OF_ISSUE",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ENFORCE_SHIP_TO_LOCATION_CODE",
+      "description": "Lookup or classification code identifying enforce ship to location for the record."
+    },
+    {
+      "name": "ALLOW_SUBSTITUTE_RECEIPTS_FLAG",
+      "description": "Indicates whether allow substitute receipts applies to the record."
+    },
+    {
+      "name": "ALLOW_UNORDERED_RECEIPTS_FLAG",
+      "description": "Indicates whether allow unordered receipts applies to the record."
+    },
+    {
+      "name": "ALLOW_EXPRESS_DELIVERY_FLAG",
+      "description": "Indicates whether allow express delivery applies to the record."
+    },
+    {
+      "name": "DAYS_EARLY_RECEIPT_ALLOWED",
+      "description": "Allowed number or value for days early receipt."
+    },
+    {
+      "name": "DAYS_LATE_RECEIPT_ALLOWED",
+      "description": "Allowed number or value for days late receipt."
+    },
+    {
+      "name": "RECEIPT_DAYS_EXCEPTION_CODE",
+      "description": "Lookup or classification code identifying receipt days exception for the record."
+    },
+    {
+      "name": "RECEIVING_ROUTING_ID",
+      "description": "System-generated identifier for the related receiving routing record."
+    },
+    {
+      "name": "INVOICE_CLOSE_TOLERANCE",
+      "description": "Tolerance threshold used to control invoice close tolerance."
+    },
+    {
+      "name": "RECEIVE_CLOSE_TOLERANCE",
+      "description": "Tolerance threshold used to control receive close tolerance."
+    },
+    {
+      "name": "AUTO_LOT_ALPHA_PREFIX",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "START_AUTO_LOT_NUMBER",
+      "description": "Business number used to identify or sequence start auto lot nu."
+    },
+    {
+      "name": "LOT_CONTROL_CODE",
+      "description": "Lookup or classification code identifying lot control for the record."
+    },
+    {
+      "name": "SHELF_LIFE_CODE",
+      "description": "Lookup or classification code identifying shelf life for the record."
+    },
+    {
+      "name": "SHELF_LIFE_DAYS",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SERIAL_NUMBER_CONTROL_CODE",
+      "description": "Lookup or classification code identifying serial number control for the record."
+    },
+    {
+      "name": "START_AUTO_SERIAL_NUMBER",
+      "description": "Business number used to identify or sequence start auto serial nu."
+    },
+    {
+      "name": "AUTO_SERIAL_ALPHA_PREFIX",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SOURCE_TYPE",
+      "description": "Type classification used to control source processing."
+    },
+    {
+      "name": "SOURCE_ORGANIZATION_ID",
+      "description": "System-generated identifier for the related source organization record."
+    },
+    {
+      "name": "SOURCE_SUBINVENTORY",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "EXPENSE_ACCOUNT",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ENCUMBRANCE_ACCOUNT",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "RESTRICT_SUBINVENTORIES_CODE",
+      "description": "Lookup or classification code identifying restrict subinventories for the record."
+    },
+    {
+      "name": "UNIT_WEIGHT",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "WEIGHT_UOM_CODE",
+      "description": "Lookup or classification code identifying weight uom for the record."
+    },
+    {
+      "name": "VOLUME_UOM_CODE",
+      "description": "Lookup or classification code identifying volume uom for the record."
+    },
+    {
+      "name": "UNIT_VOLUME",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "RESTRICT_LOCATORS_CODE",
+      "description": "Lookup or classification code identifying restrict locators for the record."
+    },
+    {
+      "name": "LOCATION_CONTROL_CODE",
+      "description": "Lookup or classification code identifying location control for the record."
+    },
+    {
+      "name": "SHRINKAGE_RATE",
+      "description": "Rate used to calculate or value shrinkage for the transaction."
+    },
+    {
+      "name": "ACCEPTABLE_EARLY_DAYS",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PLANNING_TIME_FENCE_CODE",
+      "description": "Lookup or classification code identifying planning time fence for the record."
+    },
+    {
+      "name": "DEMAND_TIME_FENCE_CODE",
+      "description": "Lookup or classification code identifying demand time fence for the record."
+    },
+    {
+      "name": "LEAD_TIME_LOT_SIZE",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "STD_LOT_SIZE",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CUM_MANUFACTURING_LEAD_TIME",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "OVERRUN_PERCENTAGE",
+      "description": "Percentage value used to calculate overrun percentage."
+    },
+    {
+      "name": "MRP_CALCULATE_ATP_FLAG",
+      "description": "Indicates whether mrp calculate atp applies to the record."
+    },
+    {
+      "name": "ACCEPTABLE_RATE_INCREASE",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ACCEPTABLE_RATE_DECREASE",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CUMULATIVE_TOTAL_LEAD_TIME",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PLANNING_TIME_FENCE_DAYS",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DEMAND_TIME_FENCE_DAYS",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "END_ASSEMBLY_PEGGING_FLAG",
+      "description": "Indicates whether end assembly pegging applies to the record."
+    },
+    {
+      "name": "REPETITIVE_PLANNING_FLAG",
+      "description": "Indicates whether repetitive planning applies to the record."
+    },
+    {
+      "name": "PLANNING_EXCEPTION_SET",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "BOM_ITEM_TYPE",
+      "description": "Type classification used to control bom item processing."
+    },
+    {
+      "name": "PICK_COMPONENTS_FLAG",
+      "description": "Indicates whether pick components applies to the record."
+    },
+    {
+      "name": "REPLENISH_TO_ORDER_FLAG",
+      "description": "Indicates whether replenish to order applies to the record."
+    },
+    {
+      "name": "BASE_ITEM_ID",
+      "description": "System-generated identifier for the related base item record."
+    },
+    {
+      "name": "ATP_COMPONENTS_FLAG",
+      "description": "Indicates whether atp components applies to the record."
+    },
+    {
+      "name": "ATP_FLAG",
+      "description": "Indicates whether atp applies to the record."
+    },
+    {
+      "name": "FIXED_LEAD_TIME",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "VARIABLE_LEAD_TIME",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "WIP_SUPPLY_LOCATOR_ID",
+      "description": "System-generated identifier for the related wip supply locator record."
+    },
+    {
+      "name": "WIP_SUPPLY_TYPE",
+      "description": "Type classification used to control wip supply processing."
+    },
+    {
+      "name": "WIP_SUPPLY_SUBINVENTORY",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PRIMARY_UOM_CODE",
+      "description": "Primary unit of measure used to control inventory balances and transactions for the item."
+    },
+    {
+      "name": "PRIMARY_UNIT_OF_MEASURE",
+      "description": "Unit of measure used for primary quantity."
+    },
+    {
+      "name": "ALLOWED_UNITS_LOOKUP_CODE",
+      "description": "Lookup or classification code identifying allowed units lookup for the record."
+    },
+    {
+      "name": "COST_OF_SALES_ACCOUNT",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SALES_ACCOUNT",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DEFAULT_INCLUDE_IN_ROLLUP_FLAG",
+      "description": "Indicates whether default include in rollup applies to the record."
+    },
+    {
+      "name": "INVENTORY_ITEM_STATUS_CODE",
+      "description": "Lookup or classification code identifying inventory item status for the record."
+    },
+    {
+      "name": "INVENTORY_PLANNING_CODE",
+      "description": "Lookup or classification code identifying inventory planning for the record."
+    },
+    {
+      "name": "PLANNER_CODE",
+      "description": "Lookup or classification code identifying planner for the record."
+    },
+    {
+      "name": "PLANNING_MAKE_BUY_CODE",
+      "description": "Lookup or classification code identifying planning make buy for the record."
+    },
+    {
+      "name": "FIXED_LOT_MULTIPLIER",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ROUNDING_CONTROL_TYPE",
+      "description": "Type classification used to control rounding control processing."
+    },
+    {
+      "name": "CARRYING_COST",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "POSTPROCESSING_LEAD_TIME",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PREPROCESSING_LEAD_TIME",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "FULL_LEAD_TIME",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ORDER_COST",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "MRP_SAFETY_STOCK_PERCENT",
+      "description": "Percentage value used to calculate mrp safety stock percent."
+    },
+    {
+      "name": "MRP_SAFETY_STOCK_CODE",
+      "description": "Lookup or classification code identifying mrp safety stock for the record."
+    },
+    {
+      "name": "MIN_MINMAX_QUANTITY",
+      "description": "Quantity associated with min minmax for the transaction."
+    },
+    {
+      "name": "MAX_MINMAX_QUANTITY",
+      "description": "Quantity associated with max minmax for the transaction."
+    },
+    {
+      "name": "MINIMUM_ORDER_QUANTITY",
+      "description": "Quantity associated with minimum order for the transaction."
+    },
+    {
+      "name": "FIXED_ORDER_QUANTITY",
+      "description": "Quantity associated with fixed order for the transaction."
+    },
+    {
+      "name": "FIXED_DAYS_SUPPLY",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "MAXIMUM_ORDER_QUANTITY",
+      "description": "Quantity associated with maximum order for the transaction."
+    },
+    {
+      "name": "ATP_RULE_ID",
+      "description": "System-generated identifier for the related atp rule record."
+    },
+    {
+      "name": "PICKING_RULE_ID",
+      "description": "System-generated identifier for the related picking rule record."
+    },
+    {
+      "name": "RESERVABLE_TYPE",
+      "description": "Type classification used to control reservable processing."
+    },
+    {
+      "name": "POSITIVE_MEASUREMENT_ERROR",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "NEGATIVE_MEASUREMENT_ERROR",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ENGINEERING_ECN_CODE",
+      "description": "Lookup or classification code identifying engineering ecn for the record."
+    },
+    {
+      "name": "ENGINEERING_ITEM_ID",
+      "description": "System-generated identifier for the related engineering item record."
+    },
+    {
+      "name": "ENGINEERING_DATE",
+      "description": "Business date associated with engineering."
+    },
+    {
+      "name": "SERVICE_STARTING_DELAY",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "VENDOR_WARRANTY_FLAG",
+      "description": "Indicates whether vendor warranty applies to the record."
+    },
+    {
+      "name": "SERVICEABLE_COMPONENT_FLAG",
+      "description": "Indicates whether serviceable component applies to the record."
+    },
+    {
+      "name": "SERVICEABLE_PRODUCT_FLAG",
+      "description": "Indicates whether serviceable product applies to the record."
+    },
+    {
+      "name": "BASE_WARRANTY_SERVICE_ID",
+      "description": "System-generated identifier for the related base warranty service record."
+    },
+    {
+      "name": "PAYMENT_TERMS_ID",
+      "description": "System-generated identifier for the related payment terms record."
+    },
+    {
+      "name": "PREVENTIVE_MAINTENANCE_FLAG",
+      "description": "Indicates whether preventive maintenance applies to the record."
+    },
+    {
+      "name": "PRIMARY_SPECIALIST_ID",
+      "description": "System-generated identifier for the related primary specialist record."
+    },
+    {
+      "name": "SECONDARY_SPECIALIST_ID",
+      "description": "System-generated identifier for the related secondary specialist record."
+    },
+    {
+      "name": "SERVICEABLE_ITEM_CLASS_ID",
+      "description": "System-generated identifier for the related serviceable item class record."
+    },
+    {
+      "name": "TIME_BILLABLE_FLAG",
+      "description": "Indicates whether time billable applies to the record."
+    },
+    {
+      "name": "MATERIAL_BILLABLE_FLAG",
+      "description": "Indicates whether material billable applies to the record."
+    },
+    {
+      "name": "EXPENSE_BILLABLE_FLAG",
+      "description": "Indicates whether expense billable applies to the record."
+    },
+    {
+      "name": "PRORATE_SERVICE_FLAG",
+      "description": "Indicates whether prorate service applies to the record."
+    },
+    {
+      "name": "COVERAGE_SCHEDULE_ID",
+      "description": "System-generated identifier for the related coverage schedule record."
+    },
+    {
+      "name": "SERVICE_DURATION_PERIOD_CODE",
+      "description": "Lookup or classification code identifying service duration period for the record."
+    },
+    {
+      "name": "SERVICE_DURATION",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "WARRANTY_VENDOR_ID",
+      "description": "System-generated identifier for the related warranty vendor record."
+    },
+    {
+      "name": "MAX_WARRANTY_AMOUNT",
+      "description": "Monetary amount representing max warranty for the transaction."
+    },
+    {
+      "name": "RESPONSE_TIME_PERIOD_CODE",
+      "description": "Lookup or classification code identifying response time period for the record."
+    },
+    {
+      "name": "RESPONSE_TIME_VALUE",
+      "description": "Stored value associated with response time."
+    },
+    {
+      "name": "NEW_REVISION_CODE",
+      "description": "Lookup or classification code identifying new revision for the record."
+    },
+    {
+      "name": "INVOICEABLE_ITEM_FLAG",
+      "description": "Indicates whether invoiceable item applies to the record."
+    },
+    {
+      "name": "TAX_CODE",
+      "description": "Lookup or classification code identifying tax for the record."
+    },
+    {
+      "name": "INVOICE_ENABLED_FLAG",
+      "description": "Indicates whether invoice enabled applies to the record."
+    },
+    {
+      "name": "MUST_USE_APPROVED_VENDOR_FLAG",
+      "description": "Indicates whether must use approved vendor applies to the record."
+    },
+    {
+      "name": "REQUEST_ID",
+      "description": "Concurrent request identifier for the program run that created or updated the record."
+    },
+    {
+      "name": "PROGRAM_APPLICATION_ID",
+      "description": "Oracle application identifier for the concurrent program that last updated the record."
+    },
+    {
+      "name": "PROGRAM_ID",
+      "description": "Concurrent program identifier for the process that last updated the record."
+    },
+    {
+      "name": "PROGRAM_UPDATE_DATE",
+      "description": "Date and time when the concurrent program last updated the record."
+    },
+    {
+      "name": "OUTSIDE_OPERATION_FLAG",
+      "description": "Indicates whether outside operation applies to the record."
+    },
+    {
+      "name": "OUTSIDE_OPERATION_UOM_TYPE",
+      "description": "Type classification used to control outside operation uom processing."
+    },
+    {
+      "name": "SAFETY_STOCK_BUCKET_DAYS",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "AUTO_REDUCE_MPS",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "COSTING_ENABLED_FLAG",
+      "description": "Indicates whether costing enabled applies to the record."
+    },
+    {
+      "name": "AUTO_CREATED_CONFIG_FLAG",
+      "description": "Indicates whether auto created config applies to the record."
+    },
+    {
+      "name": "CYCLE_COUNT_ENABLED_FLAG",
+      "description": "Indicates whether cycle count enabled applies to the record."
+    },
+    {
+      "name": "ITEM_TYPE",
+      "description": "Type classification used to control item processing."
+    },
+    {
+      "name": "MODEL_CONFIG_CLAUSE_NAME",
+      "description": "Business name associated with model config clause."
+    },
+    {
+      "name": "SHIP_MODEL_COMPLETE_FLAG",
+      "description": "Indicates whether ship model complete applies to the record."
+    },
+    {
+      "name": "MRP_PLANNING_CODE",
+      "description": "Lookup or classification code identifying mrp planning for the record."
+    },
+    {
+      "name": "RETURN_INSPECTION_REQUIREMENT",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ATO_FORECAST_CONTROL",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "RELEASE_TIME_FENCE_CODE",
+      "description": "Lookup or classification code identifying release time fence for the record."
+    },
+    {
+      "name": "RELEASE_TIME_FENCE_DAYS",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CONTAINER_ITEM_FLAG",
+      "description": "Indicates whether container item applies to the record."
+    },
+    {
+      "name": "VEHICLE_ITEM_FLAG",
+      "description": "Indicates whether vehicle item applies to the record."
+    },
+    {
+      "name": "MAXIMUM_LOAD_WEIGHT",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "MINIMUM_FILL_PERCENT",
+      "description": "Percentage value used to calculate minimum fill percent."
+    },
+    {
+      "name": "CONTAINER_TYPE_CODE",
+      "description": "Lookup or classification code identifying container type for the record."
+    },
+    {
+      "name": "INTERNAL_VOLUME",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "WH_UPDATE_DATE",
+      "description": "Business date associated with wh update."
+    },
+    {
+      "name": "PRODUCT_FAMILY_ITEM_ID",
+      "description": "System-generated identifier for the related product family item record."
+    },
+    {
+      "name": "PURCHASING_TAX_CODE",
+      "description": "Lookup or classification code identifying purchasing tax for the record."
+    },
+    {
+      "name": "OVERCOMPLETION_TOLERANCE_TYPE",
+      "description": "Type classification used to control overcompletion tolerance processing."
+    },
+    {
+      "name": "OVERCOMPLETION_TOLERANCE_VALUE",
+      "description": "Stored value associated with overcompletion tolerance."
+    },
+    {
+      "name": "EFFECTIVITY_CONTROL",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CHECK_SHORTAGES_FLAG",
+      "description": "Indicates whether check shortages applies to the record."
+    },
+    {
+      "name": "OVER_SHIPMENT_TOLERANCE",
+      "description": "Tolerance threshold used to control over shipment tolerance."
+    },
+    {
+      "name": "UNDER_SHIPMENT_TOLERANCE",
+      "description": "Tolerance threshold used to control under shipment tolerance."
+    },
+    {
+      "name": "OVER_RETURN_TOLERANCE",
+      "description": "Tolerance threshold used to control over return tolerance."
+    },
+    {
+      "name": "UNDER_RETURN_TOLERANCE",
+      "description": "Tolerance threshold used to control under return tolerance."
+    },
+    {
+      "name": "EQUIPMENT_TYPE",
+      "description": "Type classification used to control equipment processing."
+    },
+    {
+      "name": "RECOVERED_PART_DISP_CODE",
+      "description": "Lookup or classification code identifying recovered part disp for the record."
+    },
+    {
+      "name": "DEFECT_TRACKING_ON_FLAG",
+      "description": "Indicates whether defect tracking on applies to the record."
+    },
+    {
+      "name": "USAGE_ITEM_FLAG",
+      "description": "Indicates whether usage item applies to the record."
+    },
+    {
+      "name": "EVENT_FLAG",
+      "description": "Indicates whether event applies to the record."
+    },
+    {
+      "name": "ELECTRONIC_FLAG",
+      "description": "Indicates whether electronic applies to the record."
+    },
+    {
+      "name": "DOWNLOADABLE_FLAG",
+      "description": "Indicates whether downloadable applies to the record."
+    },
+    {
+      "name": "VOL_DISCOUNT_EXEMPT_FLAG",
+      "description": "Indicates whether vol discount exempt applies to the record."
+    },
+    {
+      "name": "COUPON_EXEMPT_FLAG",
+      "description": "Indicates whether coupon exempt applies to the record."
+    },
+    {
+      "name": "COMMS_NL_TRACKABLE_FLAG",
+      "description": "Indicates whether comms nl trackable applies to the record."
+    },
+    {
+      "name": "ASSET_CREATION_CODE",
+      "description": "Lookup or classification code identifying asset creation for the record."
+    },
+    {
+      "name": "COMMS_ACTIVATION_REQD_FLAG",
+      "description": "Indicates whether comms activation reqd applies to the record."
+    },
+    {
+      "name": "ORDERABLE_ON_WEB_FLAG",
+      "description": "Indicates whether orderable on web applies to the record."
+    },
+    {
+      "name": "BACK_ORDERABLE_FLAG",
+      "description": "Indicates whether back orderable applies to the record."
+    },
+    {
+      "name": "WEB_STATUS",
+      "description": "Status value showing the current processing state of web."
+    },
+    {
+      "name": "INDIVISIBLE_FLAG",
+      "description": "Indicates whether indivisible applies to the record."
+    },
+    {
+      "name": "DIMENSION_UOM_CODE",
+      "description": "Lookup or classification code identifying dimension uom for the record."
+    },
+    {
+      "name": "UNIT_LENGTH",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "UNIT_WIDTH",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "UNIT_HEIGHT",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "BULK_PICKED_FLAG",
+      "description": "Indicates whether bulk picked applies to the record."
+    },
+    {
+      "name": "LOT_STATUS_ENABLED",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DEFAULT_LOT_STATUS_ID",
+      "description": "System-generated identifier for the related default lot status record."
+    },
+    {
+      "name": "SERIAL_STATUS_ENABLED",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DEFAULT_SERIAL_STATUS_ID",
+      "description": "System-generated identifier for the related default serial status record."
+    },
+    {
+      "name": "LOT_SPLIT_ENABLED",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "LOT_MERGE_ENABLED",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "INVENTORY_CARRY_PENALTY",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "OPERATION_SLACK_PENALTY",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "FINANCING_ALLOWED_FLAG",
+      "description": "Indicates whether financing allowed applies to the record."
+    },
+    {
+      "name": "EAM_ITEM_TYPE",
+      "description": "Type classification used to control eam item processing."
+    },
+    {
+      "name": "EAM_ACTIVITY_TYPE_CODE",
+      "description": "Lookup or classification code identifying eam activity type for the record."
+    },
+    {
+      "name": "EAM_ACTIVITY_CAUSE_CODE",
+      "description": "Lookup or classification code identifying eam activity cause for the record."
+    },
+    {
+      "name": "EAM_ACT_NOTIFICATION_FLAG",
+      "description": "Indicates whether eam act notification applies to the record."
+    },
+    {
+      "name": "EAM_ACT_SHUTDOWN_STATUS",
+      "description": "Status value showing the current processing state of eam act shutdown."
+    },
+    {
+      "name": "DUAL_UOM_CONTROL",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SECONDARY_UOM_CODE",
+      "description": "Lookup or classification code identifying secondary uom for the record."
+    },
+    {
+      "name": "DUAL_UOM_DEVIATION_HIGH",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DUAL_UOM_DEVIATION_LOW",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CONTRACT_ITEM_TYPE_CODE",
+      "description": "Lookup or classification code identifying contract item type for the record."
+    },
+    {
+      "name": "SUBSCRIPTION_DEPEND_FLAG",
+      "description": "Indicates whether subscription depend applies to the record."
+    },
+    {
+      "name": "SERV_REQ_ENABLED_CODE",
+      "description": "Lookup or classification code identifying serv req enabled for the record."
+    },
+    {
+      "name": "SERV_BILLING_ENABLED_FLAG",
+      "description": "Indicates whether serv billing enabled applies to the record."
+    },
+    {
+      "name": "SERV_IMPORTANCE_LEVEL",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PLANNED_INV_POINT_FLAG",
+      "description": "Indicates whether planned inv point applies to the record."
+    },
+    {
+      "name": "LOT_TRANSLATE_ENABLED",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DEFAULT_SO_SOURCE_TYPE",
+      "description": "Type classification used to control default so source processing."
+    },
+    {
+      "name": "CREATE_SUPPLY_FLAG",
+      "description": "Indicates whether create supply applies to the record."
+    },
+    {
+      "name": "SUBSTITUTION_WINDOW_CODE",
+      "description": "Lookup or classification code identifying substitution window for the record."
+    },
+    {
+      "name": "SUBSTITUTION_WINDOW_DAYS",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "IB_ITEM_INSTANCE_CLASS",
+      "description": "Classification assigned to ib item instance."
+    },
+    {
+      "name": "CONFIG_MODEL_TYPE",
+      "description": "Type classification used to control config model processing."
+    },
+    {
+      "name": "LOT_SUBSTITUTION_ENABLED",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "MINIMUM_LICENSE_QUANTITY",
+      "description": "Quantity associated with minimum license for the transaction."
+    },
+    {
+      "name": "EAM_ACTIVITY_SOURCE_CODE",
+      "description": "Lookup or classification code identifying eam activity source for the record."
+    },
+    {
+      "name": "LIFECYCLE_ID",
+      "description": "System-generated identifier for the related lifecycle record."
+    },
+    {
+      "name": "CURRENT_PHASE_ID",
+      "description": "System-generated identifier for the related current phase record."
+    },
+    {
+      "name": "OBJECT_VERSION_NUMBER",
+      "description": "Business number used to identify or sequence object version nu."
+    },
+    {
+      "name": "TRACKING_QUANTITY_IND",
+      "description": "Quantity associated with tracking qua for the transaction."
+    },
+    {
+      "name": "ONT_PRICING_QTY_SOURCE",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SECONDARY_DEFAULT_IND",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "OPTION_SPECIFIC_SOURCED",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "APPROVAL_STATUS",
+      "description": "Current approval status of the transaction within Oracle workflow or validation processing."
+    },
+    {
+      "name": "VMI_MINIMUM_UNITS",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "VMI_MINIMUM_DAYS",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "VMI_MAXIMUM_UNITS",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "VMI_MAXIMUM_DAYS",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "VMI_FIXED_ORDER_QUANTITY",
+      "description": "Quantity associated with vmi fixed order for the transaction."
+    },
+    {
+      "name": "SO_AUTHORIZATION_FLAG",
+      "description": "Indicates whether so authorization applies to the record."
+    },
+    {
+      "name": "CONSIGNED_FLAG",
+      "description": "Indicates whether consigned applies to the record."
+    },
+    {
+      "name": "ASN_AUTOEXPIRE_FLAG",
+      "description": "Indicates whether asn autoexpire applies to the record."
+    },
+    {
+      "name": "VMI_FORECAST_TYPE",
+      "description": "Type classification used to control vmi forecast processing."
+    },
+    {
+      "name": "FORECAST_HORIZON",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "EXCLUDE_FROM_BUDGET_FLAG",
+      "description": "Indicates whether exclude from budget applies to the record."
+    },
+    {
+      "name": "DAYS_TGT_INV_SUPPLY",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DAYS_TGT_INV_WINDOW",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DAYS_MAX_INV_SUPPLY",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DAYS_MAX_INV_WINDOW",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DRP_PLANNED_FLAG",
+      "description": "Indicates whether drp planned applies to the record."
+    },
+    {
+      "name": "CRITICAL_COMPONENT_FLAG",
+      "description": "Indicates whether critical component applies to the record."
+    },
+    {
+      "name": "CONTINOUS_TRANSFER",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CONVERGENCE",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DIVERGENCE",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CONFIG_ORGS",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CONFIG_MATCH",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CAS_NUMBER",
+      "description": "Business number used to identify or sequence cas nu."
+    },
+    {
+      "name": "CHILD_LOT_FLAG",
+      "description": "Indicates whether child lot applies to the record."
+    },
+    {
+      "name": "CHILD_LOT_PREFIX",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CHILD_LOT_STARTING_NUMBER",
+      "description": "Business number used to identify or sequence child lot starting nu."
+    },
+    {
+      "name": "CHILD_LOT_VALIDATION_FLAG",
+      "description": "Indicates whether child lot validation applies to the record."
+    },
+    {
+      "name": "DEFAULT_GRADE",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "EXPIRATION_ACTION_CODE",
+      "description": "Lookup or classification code identifying expiration action for the record."
+    },
+    {
+      "name": "EXPIRATION_ACTION_INTERVAL",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "GRADE_CONTROL_FLAG",
+      "description": "Indicates whether grade control applies to the record."
+    },
+    {
+      "name": "HAZARDOUS_MATERIAL_FLAG",
+      "description": "Indicates whether hazardous material applies to the record."
+    },
+    {
+      "name": "HOLD_DAYS",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "LOT_DIVISIBLE_FLAG",
+      "description": "Indicates whether lot divisible applies to the record."
+    },
+    {
+      "name": "MATURITY_DAYS",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PARENT_CHILD_GENERATION_FLAG",
+      "description": "Indicates whether parent child generation applies to the record."
+    },
+    {
+      "name": "PROCESS_COSTING_ENABLED_FLAG",
+      "description": "Indicates whether process costing enabled applies to the record."
+    },
+    {
+      "name": "PROCESS_EXECUTION_ENABLED_FLAG",
+      "description": "Indicates whether process execution enabled applies to the record."
+    },
+    {
+      "name": "PROCESS_QUALITY_ENABLED_FLAG",
+      "description": "Indicates whether process quality enabled applies to the record."
+    },
+    {
+      "name": "PROCESS_SUPPLY_LOCATOR_ID",
+      "description": "System-generated identifier for the related process supply locator record."
+    },
+    {
+      "name": "PROCESS_SUPPLY_SUBINVENTORY",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PROCESS_YIELD_LOCATOR_ID",
+      "description": "System-generated identifier for the related process yield locator record."
+    },
+    {
+      "name": "PROCESS_YIELD_SUBINVENTORY",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "RECIPE_ENABLED_FLAG",
+      "description": "Indicates whether recipe enabled applies to the record."
+    },
+    {
+      "name": "RETEST_INTERVAL",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CHARGE_PERIODICITY_CODE",
+      "description": "Lookup or classification code identifying charge periodicity for the record."
+    },
+    {
+      "name": "REPAIR_LEADTIME",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "REPAIR_YIELD",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PREPOSITION_POINT",
+      "description": "Point or location reference used for preposition."
+    },
+    {
+      "name": "REPAIR_PROGRAM",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SUBCONTRACTING_COMPONENT",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "OUTSOURCED_ASSEMBLY",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "EGO_MASTER_ITEMS_DFF_CTX",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "GDSN_OUTBOUND_ENABLED_FLAG",
+      "description": "Indicates whether gdsn outbound enabled applies to the record."
+    },
+    {
+      "name": "TRADE_ITEM_DESCRIPTOR",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "STYLE_ITEM_ID",
+      "description": "System-generated identifier for the related style item record."
+    },
+    {
+      "name": "STYLE_ITEM_FLAG",
+      "description": "Indicates whether style item applies to the record."
+    },
+    {
+      "name": "LAST_SUBMITTED_NIR_ID",
+      "description": "System-generated identifier for the related last submitted nir record."
+    },
+    {
+      "name": "DEFAULT_MATERIAL_STATUS_ID",
+      "description": "System-generated identifier for the related default material status record."
+    },
+    {
+      "name": "SERIAL_TAGGING_FLAG",
+      "description": "Indicates whether serial tagging applies to the record."
+    },
+    {
+      "name": "IB_ITEM_TRACKING_LEVEL",
+      "description": "Business attribute of the inventory item used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "MCC_CLASSIFICATION_TYPE",
+      "description": "Type classification used to control mcc classification processing."
+    },
+    {
+      "name": "MCC_CONTROL_CODE",
+      "description": "Lookup or classification code identifying mcc control for the record."
+    },
+    {
+      "name": "MCC_TRACKING_CODE",
+      "description": "Lookup or classification code identifying mcc tracking for the record."
+    }
+  ],
+  "relationships": [
+    {
+      "table": "MTL_SYSTEM_ITEMS_TL",
+      "join": "INVENTORY_ITEM_ID, ORGANIZATION_ID",
+      "relationship_type": "child"
+    },
+    {
+      "table": "MTL_MATERIAL_TRANSACTIONS",
+      "join": "INVENTORY_ITEM_ID, ORGANIZATION_ID",
+      "relationship_type": "child"
+    },
+    {
+      "table": "CST_ITEM_COSTS",
+      "join": "INVENTORY_ITEM_ID, ORGANIZATION_ID",
+      "relationship_type": "child"
+    }
+  ],
+  "business_questions": [
+    "Show item master setup for an inventory organization.",
+    "Find items enabled for purchasing, inventory, and customer orders.",
+    "Display planning, costing, and receiving controls for an item.",
+    "Show item attributes used in shipping and inventory transactions.",
+    "Find items by item number, description, or category segment.",
+    "Identify items that are inactive or end-dated.",
+    "Show items with serial, lot, or locator control enabled.",
+    "Display item master records used in costing and transaction history."
+  ]
+}

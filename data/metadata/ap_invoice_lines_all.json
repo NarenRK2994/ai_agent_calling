@@ -1,35 +1,689 @@
 {
   "module": "Accounts Payable",
   "table": "AP_INVOICE_LINES_ALL",
-  "description": "Stores supplier invoice line information including item, tax, freight, and miscellaneous line details.",
-  "primary_key": "LINE_NUMBER",
+  "description": "Invoice line detail table for Oracle Accounts Payable. Each record represents a supplier invoice line such as an item, tax, freight, miscellaneous charge, or prepayment application and supports invoice matching, charge allocation, receiving verification, project coding, and downstream accounting distributions.",
+  "primary_key": "INVOICE_ID, LINE_NUMBER",
   "columns": [
-    { "name": "INVOICE_ID", "description": "Reference to the invoice header." },
-    { "name": "LINE_NUMBER", "description": "Invoice line number." },
-    { "name": "LINE_TYPE_LOOKUP_CODE", "description": "Type of invoice line such as ITEM, TAX, FREIGHT, or MISCELLANEOUS." },
-    { "name": "AMOUNT", "description": "Invoice line amount." },
-    { "name": "DESCRIPTION", "description": "Description of the invoice line." },
-    { "name": "ACCOUNTING_DATE", "description": "Accounting date for the invoice line." },
-    { "name": "PO_HEADER_ID", "description": "Purchase Order header associated with the invoice line." },
-    { "name": "PO_LINE_ID", "description": "Purchase Order line associated with the invoice line." },
-    { "name": "PO_DISTRIBUTION_ID", "description": "Purchase Order distribution associated with the invoice line." },
-    { "name": "QUANTITY_INVOICED", "description": "Quantity invoiced." },
-    { "name": "UNIT_PRICE", "description": "Unit price of the invoice line." }
+    {
+      "name": "INVOICE_ID",
+      "description": "Unique system-generated identifier for the supplier invoice. Used to relate the invoice header to lines, distributions, payment schedules, and payment history."
+    },
+    {
+      "name": "LINE_NUMBER",
+      "description": "Business sequence number identifying the invoice line within its parent document."
+    },
+    {
+      "name": "LINE_TYPE_LOOKUP_CODE",
+      "description": "Lookup or classification code identifying line type lookup for the record."
+    },
+    {
+      "name": "REQUESTER_ID",
+      "description": "Foreign key referencing the employee or user who requested the expense or purchase-related transaction."
+    },
+    {
+      "name": "DESCRIPTION",
+      "description": "Free-text business description entered to explain the purpose or content of the transaction."
+    },
+    {
+      "name": "LINE_SOURCE",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ORG_ID",
+      "description": "Operating unit identifier that owns the transaction in a multi-org Oracle EBS environment."
+    },
+    {
+      "name": "LINE_GROUP_NUMBER",
+      "description": "Business number used to identify or sequence line group nu."
+    },
+    {
+      "name": "INVENTORY_ITEM_ID",
+      "description": "Foreign key referencing the inventory item master record associated with the transaction."
+    },
+    {
+      "name": "ITEM_DESCRIPTION",
+      "description": "Descriptive text explaining item."
+    },
+    {
+      "name": "SERIAL_NUMBER",
+      "description": "Business number used to identify or sequence serial nu."
+    },
+    {
+      "name": "MANUFACTURER",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "MODEL_NUMBER",
+      "description": "Business number used to identify or sequence model nu."
+    },
+    {
+      "name": "WARRANTY_NUMBER",
+      "description": "Business number used to identify or sequence warranty nu."
+    },
+    {
+      "name": "GENERATE_DISTS",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "MATCH_TYPE",
+      "description": "Type classification used to control match processing."
+    },
+    {
+      "name": "DISTRIBUTION_SET_ID",
+      "description": "Foreign key referencing the predefined distribution set used to default accounting information."
+    },
+    {
+      "name": "ACCOUNT_SEGMENT",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "BALANCING_SEGMENT",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "COST_CENTER_SEGMENT",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "OVERLAY_DIST_CODE_CONCAT",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DEFAULT_DIST_CCID",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PRORATE_ACROSS_ALL_ITEMS",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ACCOUNTING_DATE",
+      "description": "Accounting date used to recognize the transaction in Subledger Accounting and General Ledger."
+    },
+    {
+      "name": "PERIOD_NAME",
+      "description": "Business name associated with period."
+    },
+    {
+      "name": "DEFERRED_ACCTG_FLAG",
+      "description": "Indicates whether deferred acctg applies to the record."
+    },
+    {
+      "name": "DEF_ACCTG_START_DATE",
+      "description": "Start date of the deferred accounting recognition period."
+    },
+    {
+      "name": "DEF_ACCTG_END_DATE",
+      "description": "End date of the deferred accounting recognition period."
+    },
+    {
+      "name": "DEF_ACCTG_NUMBER_OF_PERIODS",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DEF_ACCTG_PERIOD_TYPE",
+      "description": "Type classification used to control def acctg period processing."
+    },
+    {
+      "name": "SET_OF_BOOKS_ID",
+      "description": "Ledger identifier in which accounting entries are recorded."
+    },
+    {
+      "name": "AMOUNT",
+      "description": "Monetary amount recorded for the transaction in the transaction currency."
+    },
+    {
+      "name": "BASE_AMOUNT",
+      "description": "Functional currency amount derived from the entered transaction amount."
+    },
+    {
+      "name": "ROUNDING_AMT",
+      "description": "Monetary amount recorded for rounding."
+    },
+    {
+      "name": "QUANTITY_INVOICED",
+      "description": "Quantity associated with quantity for the transaction."
+    },
+    {
+      "name": "UNIT_MEAS_LOOKUP_CODE",
+      "description": "Lookup or classification code identifying unit meas lookup for the record."
+    },
+    {
+      "name": "UNIT_PRICE",
+      "description": "Unit price used to calculate the transaction amount."
+    },
+    {
+      "name": "WFAPPROVAL_STATUS",
+      "description": "Workflow approval status recorded for the transaction or line."
+    },
+    {
+      "name": "USSGL_TRANSACTION_CODE",
+      "description": "Lookup or classification code identifying ussgl transaction for the record."
+    },
+    {
+      "name": "DISCARDED_FLAG",
+      "description": "Indicates whether discarded applies to the record."
+    },
+    {
+      "name": "ORIGINAL_AMOUNT",
+      "description": "Monetary amount representing original for the transaction."
+    },
+    {
+      "name": "ORIGINAL_BASE_AMOUNT",
+      "description": "Monetary amount representing original base for the transaction."
+    },
+    {
+      "name": "ORIGINAL_ROUNDING_AMT",
+      "description": "Monetary amount recorded for original rounding."
+    },
+    {
+      "name": "CANCELLED_FLAG",
+      "description": "Indicates whether cancelled applies to the record."
+    },
+    {
+      "name": "INCOME_TAX_REGION",
+      "description": "Income tax region used for statutory reporting or withholding processing."
+    },
+    {
+      "name": "TYPE_1099",
+      "description": "1099 reporting classification assigned to the supplier transaction for statutory reporting."
+    },
+    {
+      "name": "STAT_AMOUNT",
+      "description": "Monetary amount representing stat for the transaction."
+    },
+    {
+      "name": "PREPAY_INVOICE_ID",
+      "description": "System-generated identifier for the related prepay invoice record."
+    },
+    {
+      "name": "PREPAY_LINE_NUMBER",
+      "description": "Business number used to identify or sequence prepay line nu."
+    },
+    {
+      "name": "INVOICE_INCLUDES_PREPAY_FLAG",
+      "description": "Indicates whether invoice includes prepay applies to the record."
+    },
+    {
+      "name": "CORRECTED_INV_ID",
+      "description": "System-generated identifier for the related corrected inv record."
+    },
+    {
+      "name": "CORRECTED_LINE_NUMBER",
+      "description": "Business number used to identify or sequence corrected line nu."
+    },
+    {
+      "name": "PO_HEADER_ID",
+      "description": "Purchase order header referenced by the matched transaction."
+    },
+    {
+      "name": "PO_LINE_ID",
+      "description": "Purchase order line referenced by the matched transaction."
+    },
+    {
+      "name": "PO_RELEASE_ID",
+      "description": "Foreign key referencing the purchase order release associated with the transaction."
+    },
+    {
+      "name": "PO_LINE_LOCATION_ID",
+      "description": "Foreign key referencing the purchase order shipment line associated with the transaction."
+    },
+    {
+      "name": "PO_DISTRIBUTION_ID",
+      "description": "Purchase order distribution referenced by the matched transaction."
+    },
+    {
+      "name": "RCV_TRANSACTION_ID",
+      "description": "Foreign key referencing the receiving transaction associated with the invoice match or inventory event."
+    },
+    {
+      "name": "FINAL_MATCH_FLAG",
+      "description": "Indicates whether final match applies to the record."
+    },
+    {
+      "name": "ASSETS_TRACKING_FLAG",
+      "description": "Indicates whether assets tracking applies to the record."
+    },
+    {
+      "name": "ASSET_BOOK_TYPE_CODE",
+      "description": "Lookup or classification code identifying asset book type for the record."
+    },
+    {
+      "name": "ASSET_CATEGORY_ID",
+      "description": "Foreign key referencing the Oracle Assets category used for capitalization or asset tracking."
+    },
+    {
+      "name": "PROJECT_ID",
+      "description": "Foreign key referencing the project charged by the transaction."
+    },
+    {
+      "name": "TASK_ID",
+      "description": "Foreign key referencing the task charged by the project-related transaction."
+    },
+    {
+      "name": "EXPENDITURE_TYPE",
+      "description": "Type classification used to control expenditure processing."
+    },
+    {
+      "name": "EXPENDITURE_ITEM_DATE",
+      "description": "Business date associated with expenditure item."
+    },
+    {
+      "name": "EXPENDITURE_ORGANIZATION_ID",
+      "description": "System-generated identifier for the related expenditure organization record."
+    },
+    {
+      "name": "PA_QUANTITY",
+      "description": "Quantity associated with pa for the transaction."
+    },
+    {
+      "name": "PA_CC_AR_INVOICE_ID",
+      "description": "System-generated identifier for the related pa cc ar invoice record."
+    },
+    {
+      "name": "PA_CC_AR_INVOICE_LINE_NUM",
+      "description": "Business number used to identify or sequence pa cc ar invoice line."
+    },
+    {
+      "name": "PA_CC_PROCESSED_CODE",
+      "description": "Lookup or classification code identifying pa cc processed for the record."
+    },
+    {
+      "name": "AWARD_ID",
+      "description": "Foreign key referencing the award or grant associated with the transaction."
+    },
+    {
+      "name": "AWT_GROUP_ID",
+      "description": "Foreign key referencing the withholding tax group applied to the transaction."
+    },
+    {
+      "name": "REFERENCE_1",
+      "description": "Reference value used for integration, reconciliation, or business traceability."
+    },
+    {
+      "name": "REFERENCE_2",
+      "description": "Reference value used for integration, reconciliation, or business traceability."
+    },
+    {
+      "name": "RECEIPT_VERIFIED_FLAG",
+      "description": "Indicates whether receipt verified applies to the record."
+    },
+    {
+      "name": "RECEIPT_REQUIRED_FLAG",
+      "description": "Indicates whether receipt required applies to the record."
+    },
+    {
+      "name": "RECEIPT_MISSING_FLAG",
+      "description": "Indicates whether receipt missing applies to the record."
+    },
+    {
+      "name": "JUSTIFICATION",
+      "description": "Free-text explanation entered to document the business purpose of the record."
+    },
+    {
+      "name": "EXPENSE_GROUP",
+      "description": "Grouping value used to classify or process expense."
+    },
+    {
+      "name": "START_EXPENSE_DATE",
+      "description": "Start date of the expense period covered by the line or distribution."
+    },
+    {
+      "name": "END_EXPENSE_DATE",
+      "description": "End date of the expense period covered by the line or distribution."
+    },
+    {
+      "name": "RECEIPT_CURRENCY_CODE",
+      "description": "Lookup or classification code identifying receipt currency for the record."
+    },
+    {
+      "name": "RECEIPT_CONVERSION_RATE",
+      "description": "Rate used to calculate or value receipt conversion for the transaction."
+    },
+    {
+      "name": "RECEIPT_CURRENCY_AMOUNT",
+      "description": "Monetary amount representing receipt currency for the transaction."
+    },
+    {
+      "name": "DAILY_AMOUNT",
+      "description": "Monetary amount representing daily for the transaction."
+    },
+    {
+      "name": "WEB_PARAMETER_ID",
+      "description": "System-generated identifier for the related web parameter record."
+    },
+    {
+      "name": "ADJUSTMENT_REASON",
+      "description": "Business reason captured for adjustment."
+    },
+    {
+      "name": "MERCHANT_DOCUMENT_NUMBER",
+      "description": "Business number used to identify or sequence merchant document nu."
+    },
+    {
+      "name": "MERCHANT_NAME",
+      "description": "Business name associated with merchant."
+    },
+    {
+      "name": "MERCHANT_REFERENCE",
+      "description": "Reference supplied by the merchant for the card or expense transaction."
+    },
+    {
+      "name": "MERCHANT_TAX_REG_NUMBER",
+      "description": "Business number used to identify or sequence merchant tax reg nu."
+    },
+    {
+      "name": "MERCHANT_TAXPAYER_ID",
+      "description": "System-generated identifier for the related merchant taxpayer record."
+    },
+    {
+      "name": "COUNTRY_OF_SUPPLY",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CREDIT_CARD_TRX_ID",
+      "description": "System-generated identifier for the related credit card trx record."
+    },
+    {
+      "name": "COMPANY_PREPAID_INVOICE_ID",
+      "description": "System-generated identifier for the related company prepaid invoice record."
+    },
+    {
+      "name": "CC_REVERSAL_FLAG",
+      "description": "Indicates whether cc reversal applies to the record."
+    },
+    {
+      "name": "CREATION_DATE",
+      "description": "Date and time when the record was created."
+    },
+    {
+      "name": "CREATED_BY",
+      "description": "User identifier for the person or process that created the record."
+    },
+    {
+      "name": "LAST_UPDATED_BY",
+      "description": "User identifier for the person or process that last updated the record."
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "description": "Date and time when the record was last updated."
+    },
+    {
+      "name": "LAST_UPDATE_LOGIN",
+      "description": "Login session identifier that performed the last update."
+    },
+    {
+      "name": "PROGRAM_APPLICATION_ID",
+      "description": "Oracle application identifier for the concurrent program that last updated the record."
+    },
+    {
+      "name": "PROGRAM_ID",
+      "description": "Concurrent program identifier for the process that last updated the record."
+    },
+    {
+      "name": "PROGRAM_UPDATE_DATE",
+      "description": "Date and time when the concurrent program last updated the record."
+    },
+    {
+      "name": "REQUEST_ID",
+      "description": "Concurrent request identifier for the program run that created or updated the record."
+    },
+    {
+      "name": "LINE_SELECTED_FOR_APPL_FLAG",
+      "description": "Indicates whether line selected for appl applies to the record."
+    },
+    {
+      "name": "PREPAY_APPL_REQUEST_ID",
+      "description": "System-generated identifier for the related prepay appl request record."
+    },
+    {
+      "name": "APPLICATION_ID",
+      "description": "System-generated identifier for the related application record."
+    },
+    {
+      "name": "PRODUCT_TABLE",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "REFERENCE_KEY1",
+      "description": "Reference value used for integration, reconciliation, or business traceability."
+    },
+    {
+      "name": "REFERENCE_KEY2",
+      "description": "Reference value used for integration, reconciliation, or business traceability."
+    },
+    {
+      "name": "REFERENCE_KEY3",
+      "description": "Reference value used for integration, reconciliation, or business traceability."
+    },
+    {
+      "name": "REFERENCE_KEY4",
+      "description": "Reference value used for integration, reconciliation, or business traceability."
+    },
+    {
+      "name": "REFERENCE_KEY5",
+      "description": "Reference value used for integration, reconciliation, or business traceability."
+    },
+    {
+      "name": "PURCHASING_CATEGORY_ID",
+      "description": "System-generated identifier for the related purchasing category record."
+    },
+    {
+      "name": "COST_FACTOR_ID",
+      "description": "System-generated identifier for the related cost factor record."
+    },
+    {
+      "name": "CONTROL_AMOUNT",
+      "description": "Monetary amount representing control for the transaction."
+    },
+    {
+      "name": "ASSESSABLE_VALUE",
+      "description": "Stored value associated with assessable."
+    },
+    {
+      "name": "TOTAL_REC_TAX_AMOUNT",
+      "description": "Monetary amount representing total rec tax for the transaction."
+    },
+    {
+      "name": "TOTAL_NREC_TAX_AMOUNT",
+      "description": "Monetary amount representing total nrec tax for the transaction."
+    },
+    {
+      "name": "TOTAL_REC_TAX_AMT_FUNCL_CURR",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TOTAL_NREC_TAX_AMT_FUNCL_CURR",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "INCLUDED_TAX_AMOUNT",
+      "description": "Monetary amount representing included tax for the transaction."
+    },
+    {
+      "name": "PRIMARY_INTENDED_USE",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TAX_ALREADY_CALCULATED_FLAG",
+      "description": "Indicates whether tax already calculated applies to the record."
+    },
+    {
+      "name": "SHIP_TO_LOCATION_ID",
+      "description": "Foreign key referencing the ship-to location used for logistics or receiving control."
+    },
+    {
+      "name": "PRODUCT_TYPE",
+      "description": "Type classification used to control product processing."
+    },
+    {
+      "name": "PRODUCT_CATEGORY",
+      "description": "Business category assigned to product."
+    },
+    {
+      "name": "PRODUCT_FISC_CLASSIFICATION",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "USER_DEFINED_FISC_CLASS",
+      "description": "User-defined fiscal classification applied for tax determination and reporting."
+    },
+    {
+      "name": "TRX_BUSINESS_CATEGORY",
+      "description": "Business transaction category used by tax or compliance processing."
+    },
+    {
+      "name": "SUMMARY_TAX_LINE_ID",
+      "description": "System-generated identifier for the related summary tax line record."
+    },
+    {
+      "name": "TAX_REGIME_CODE",
+      "description": "Lookup or classification code identifying tax regime for the record."
+    },
+    {
+      "name": "TAX",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TAX_JURISDICTION_CODE",
+      "description": "Lookup or classification code identifying tax jurisdiction for the record."
+    },
+    {
+      "name": "TAX_STATUS_CODE",
+      "description": "Lookup or classification code identifying tax status for the record."
+    },
+    {
+      "name": "TAX_RATE_ID",
+      "description": "System-generated identifier for the related tax rate record."
+    },
+    {
+      "name": "TAX_RATE_CODE",
+      "description": "Lookup or classification code identifying tax rate for the record."
+    },
+    {
+      "name": "TAX_RATE",
+      "description": "Tax rate applied to calculate the tax amount."
+    },
+    {
+      "name": "TAX_CODE_ID",
+      "description": "System-generated identifier for the related tax code record."
+    },
+    {
+      "name": "HISTORICAL_FLAG",
+      "description": "Indicates whether historical applies to the record."
+    },
+    {
+      "name": "TAX_CLASSIFICATION_CODE",
+      "description": "Lookup or classification code identifying tax classification for the record."
+    },
+    {
+      "name": "SOURCE_APPLICATION_ID",
+      "description": "System-generated identifier for the related source application record."
+    },
+    {
+      "name": "SOURCE_EVENT_CLASS_CODE",
+      "description": "Lookup or classification code identifying source event class for the record."
+    },
+    {
+      "name": "SOURCE_ENTITY_CODE",
+      "description": "Lookup or classification code identifying source entity for the record."
+    },
+    {
+      "name": "SOURCE_TRX_ID",
+      "description": "System-generated identifier for the related source trx record."
+    },
+    {
+      "name": "SOURCE_LINE_ID",
+      "description": "System-generated identifier for the related source line record."
+    },
+    {
+      "name": "SOURCE_TRX_LEVEL_TYPE",
+      "description": "Type classification used to control source trx level processing."
+    },
+    {
+      "name": "RETAINED_AMOUNT",
+      "description": "Monetary amount representing retained for the transaction."
+    },
+    {
+      "name": "RETAINED_AMOUNT_REMAINING",
+      "description": "Retainage amount associated with the transaction and any remaining retained balance."
+    },
+    {
+      "name": "RETAINED_INVOICE_ID",
+      "description": "System-generated identifier for the related retained invoice record."
+    },
+    {
+      "name": "RETAINED_LINE_NUMBER",
+      "description": "Business number used to identify or sequence retained line nu."
+    },
+    {
+      "name": "LINE_SELECTED_FOR_RELEASE_FLAG",
+      "description": "Indicates whether line selected for release applies to the record."
+    },
+    {
+      "name": "LINE_OWNER_ROLE",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DISPUTABLE_FLAG",
+      "description": "Indicates whether disputable applies to the record."
+    },
+    {
+      "name": "RCV_SHIPMENT_LINE_ID",
+      "description": "System-generated identifier for the related rcv shipment line record."
+    },
+    {
+      "name": "AIL_INVOICE_ID",
+      "description": "System-generated identifier for the related ail invoice record."
+    },
+    {
+      "name": "AIL_DISTRIBUTION_LINE_NUMBER",
+      "description": "Business number used to identify or sequence ail distribution line nu."
+    },
+    {
+      "name": "AIL_INVOICE_ID2",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "AIL_DISTRIBUTION_LINE_NUMBER2",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "AIL_INVOICE_ID3",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "AIL_DISTRIBUTION_LINE_NUMBER3",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "AIL_INVOICE_ID4",
+      "description": "Business attribute of the invoice line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PAY_AWT_GROUP_ID",
+      "description": "System-generated identifier for the related pay awt group record."
+    },
+    {
+      "name": "MERCHANT_NAME#1",
+      "description": "Business name associated with merchant. Source metadata export included this as a repeated occurrence of the same business attribute."
+    }
   ],
   "relationships": [
-    { "table": "AP_INVOICES_ALL", "join": "INVOICE_ID" },
-    { "table": "PO_HEADERS_ALL", "join": "PO_HEADER_ID" },
-    { "table": "PO_LINES_ALL", "join": "PO_LINE_ID" },
-    { "table": "PO_DISTRIBUTIONS_ALL", "join": "PO_DISTRIBUTION_ID" }
+    {
+      "table": "AP_INVOICES_ALL",
+      "join": "INVOICE_ID",
+      "relationship_type": "parent"
+    }
   ],
   "business_questions": [
-    "Show invoice line details for an invoice",
-    "List item lines for a supplier invoice",
-    "Show tax and freight lines",
-    "Find invoice lines matched to purchase orders",
-    "Display invoice line quantities and unit prices",
-    "Show invoice line accounting dates",
-    "Find invoice lines by description",
-    "List invoice lines for a purchase order"
+    "Show invoice line details for a supplier invoice.",
+    "List item, tax, freight, and miscellaneous lines by invoice.",
+    "Find invoice lines matched to purchase orders or receipts.",
+    "Show invoice lines with quantity, unit price, and amount.",
+    "Identify expense report lines missing receipts or justification.",
+    "List invoice lines charged to projects or awards.",
+    "Find cancelled or discarded invoice lines.",
+    "Show invoice lines awaiting distribution generation or approval."
   ]
 }

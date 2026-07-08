@@ -1,0 +1,493 @@
+{
+  "module": "Accounts Receivable",
+  "table": "RA_CUSTOMER_TRX_LINES_ALL",
+  "description": "Accounts Receivable transaction line table. Each record represents a billed line, tax line, freight line, or charge line belonging to a receivables transaction and provides item, quantity, pricing, tax, and revenue recognition detail for billing and accounting.",
+  "primary_key": "CUSTOMER_TRX_LINE_ID",
+  "columns": [
+    {
+      "name": "CUSTOMER_TRX_LINE_ID",
+      "description": "Foreign key referencing the receivables transaction line identified by the record."
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "description": "Date and time when the record was last updated."
+    },
+    {
+      "name": "LAST_UPDATED_BY",
+      "description": "User identifier for the person or process that last updated the record."
+    },
+    {
+      "name": "CREATION_DATE",
+      "description": "Date and time when the record was created."
+    },
+    {
+      "name": "CREATED_BY",
+      "description": "User identifier for the person or process that created the record."
+    },
+    {
+      "name": "LAST_UPDATE_LOGIN",
+      "description": "Login session identifier that performed the last update."
+    },
+    {
+      "name": "CUSTOMER_TRX_ID",
+      "description": "Foreign key referencing the receivables transaction header to which the record belongs."
+    },
+    {
+      "name": "LINE_NUMBER",
+      "description": "Business number used to identify or sequence line nu."
+    },
+    {
+      "name": "SET_OF_BOOKS_ID",
+      "description": "Ledger identifier in which accounting entries are recorded."
+    },
+    {
+      "name": "REASON_CODE",
+      "description": "Lookup or classification code identifying reason for the record."
+    },
+    {
+      "name": "INVENTORY_ITEM_ID",
+      "description": "Foreign key referencing the inventory item master record associated with the transaction."
+    },
+    {
+      "name": "DESCRIPTION",
+      "description": "Free-text business description entered to explain the purpose or content of the transaction."
+    },
+    {
+      "name": "PREVIOUS_CUSTOMER_TRX_ID",
+      "description": "System-generated identifier for the related previous customer trx record."
+    },
+    {
+      "name": "PREVIOUS_CUSTOMER_TRX_LINE_ID",
+      "description": "System-generated identifier for the related previous customer trx line record."
+    },
+    {
+      "name": "QUANTITY_ORDERED",
+      "description": "Quantity associated with quantit for the transaction."
+    },
+    {
+      "name": "QUANTITY_CREDITED",
+      "description": "Quantity associated with quantity for the transaction."
+    },
+    {
+      "name": "QUANTITY_INVOICED",
+      "description": "Quantity associated with quantity for the transaction."
+    },
+    {
+      "name": "UNIT_STANDARD_PRICE",
+      "description": "Price amount used for unit standard valuation or billing."
+    },
+    {
+      "name": "UNIT_SELLING_PRICE",
+      "description": "Price amount used for unit selling valuation or billing."
+    },
+    {
+      "name": "SALES_ORDER",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SALES_ORDER_REVISION",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SALES_ORDER_LINE",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SALES_ORDER_DATE",
+      "description": "Date on which the referenced sales order was created or booked."
+    },
+    {
+      "name": "ACCOUNTING_RULE_ID",
+      "description": "Foreign key referencing the accounting rule that controls revenue recognition timing."
+    },
+    {
+      "name": "ACCOUNTING_RULE_DURATION",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "LINE_TYPE",
+      "description": "Type classification used to control line processing."
+    },
+    {
+      "name": "REQUEST_ID",
+      "description": "Concurrent request identifier for the program run that created or updated the record."
+    },
+    {
+      "name": "PROGRAM_APPLICATION_ID",
+      "description": "Oracle application identifier for the concurrent program that last updated the record."
+    },
+    {
+      "name": "PROGRAM_ID",
+      "description": "Concurrent program identifier for the process that last updated the record."
+    },
+    {
+      "name": "PROGRAM_UPDATE_DATE",
+      "description": "Date and time when the concurrent program last updated the record."
+    },
+    {
+      "name": "RULE_START_DATE",
+      "description": "Start date for the accounting or billing rule application."
+    },
+    {
+      "name": "INITIAL_CUSTOMER_TRX_LINE_ID",
+      "description": "System-generated identifier for the related initial customer trx line record."
+    },
+    {
+      "name": "INTERFACE_LINE_CONTEXT",
+      "description": "Context value used to interpret or derive interface line."
+    },
+    {
+      "name": "SALES_ORDER_SOURCE",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TAXABLE_FLAG",
+      "description": "Indicates whether taxable applies to the record."
+    },
+    {
+      "name": "EXTENDED_AMOUNT",
+      "description": "Monetary amount representing extended for the transaction."
+    },
+    {
+      "name": "REVENUE_AMOUNT",
+      "description": "Monetary amount representing revenue for the transaction."
+    },
+    {
+      "name": "AUTORULE_COMPLETE_FLAG",
+      "description": "Indicates whether autorule complete applies to the record."
+    },
+    {
+      "name": "LINK_TO_CUST_TRX_LINE_ID",
+      "description": "System-generated identifier for the related link to cust trx line record."
+    },
+    {
+      "name": "TAX_PRECEDENCE",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TAX_RATE",
+      "description": "Tax rate applied to calculate the tax amount."
+    },
+    {
+      "name": "ITEM_EXCEPTION_RATE_ID",
+      "description": "System-generated identifier for the related item exception rate record."
+    },
+    {
+      "name": "TAX_EXEMPTION_ID",
+      "description": "System-generated identifier for the related tax exemption record."
+    },
+    {
+      "name": "MEMO_LINE_ID",
+      "description": "System-generated identifier for the related memo line record."
+    },
+    {
+      "name": "AUTORULE_DURATION_PROCESSED",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "UOM_CODE",
+      "description": "Lookup or classification code identifying uom for the record."
+    },
+    {
+      "name": "DEFAULT_USSGL_TRANSACTION_CODE",
+      "description": "Lookup or classification code identifying default ussgl transaction for the record."
+    },
+    {
+      "name": "DEFAULT_USSGL_TRX_CODE_CONTEXT",
+      "description": "Context value used to interpret or derive default ussgl trx code."
+    },
+    {
+      "name": "VAT_TAX_ID",
+      "description": "System-generated identifier for the related vat tax record."
+    },
+    {
+      "name": "AUTOTAX",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "LAST_PERIOD_TO_CREDIT",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ITEM_CONTEXT",
+      "description": "Context value used to interpret or derive item."
+    },
+    {
+      "name": "TAX_EXEMPT_FLAG",
+      "description": "Indicates whether tax exempt applies to the record."
+    },
+    {
+      "name": "TAX_EXEMPT_NUMBER",
+      "description": "Business number used to identify or sequence tax exempt nu."
+    },
+    {
+      "name": "TAX_EXEMPT_REASON_CODE",
+      "description": "Lookup or classification code identifying tax exempt reason for the record."
+    },
+    {
+      "name": "TAX_VENDOR_RETURN_CODE",
+      "description": "Lookup or classification code identifying tax vendor return for the record."
+    },
+    {
+      "name": "SALES_TAX_ID",
+      "description": "System-generated identifier for the related sales tax record."
+    },
+    {
+      "name": "LOCATION_SEGMENT_ID",
+      "description": "System-generated identifier for the related location segment record."
+    },
+    {
+      "name": "MOVEMENT_ID",
+      "description": "System-generated identifier for the related movement record."
+    },
+    {
+      "name": "ORG_ID",
+      "description": "Operating unit identifier that owns the transaction in a multi-org Oracle EBS environment."
+    },
+    {
+      "name": "WH_UPDATE_DATE",
+      "description": "Business date associated with wh update."
+    },
+    {
+      "name": "GROSS_UNIT_SELLING_PRICE",
+      "description": "Price amount used for gross unit selling valuation or billing."
+    },
+    {
+      "name": "GROSS_EXTENDED_AMOUNT",
+      "description": "Monetary amount representing gross extended for the transaction."
+    },
+    {
+      "name": "AMOUNT_INCLUDES_TAX_FLAG",
+      "description": "Indicates whether amount includes tax applies to the record."
+    },
+    {
+      "name": "TAXABLE_AMOUNT",
+      "description": "Monetary amount representing taxable for the transaction."
+    },
+    {
+      "name": "WAREHOUSE_ID",
+      "description": "Foreign key referencing the warehouse organization used for shipping or inventory processing."
+    },
+    {
+      "name": "TRANSLATED_DESCRIPTION",
+      "description": "Descriptive text explaining translated."
+    },
+    {
+      "name": "EXTENDED_ACCTD_AMOUNT",
+      "description": "Monetary amount representing extended acctd for the transaction."
+    },
+    {
+      "name": "BR_REF_CUSTOMER_TRX_ID",
+      "description": "System-generated identifier for the related br ref customer trx record."
+    },
+    {
+      "name": "BR_REF_PAYMENT_SCHEDULE_ID",
+      "description": "System-generated identifier for the related br ref payment schedule record."
+    },
+    {
+      "name": "BR_ADJUSTMENT_ID",
+      "description": "System-generated identifier for the related br adjustment record."
+    },
+    {
+      "name": "MRC_EXTENDED_ACCTD_AMOUNT",
+      "description": "Monetary amount representing mrc extended acctd for the transaction."
+    },
+    {
+      "name": "PAYMENT_SET_ID",
+      "description": "System-generated identifier for the related payment set record."
+    },
+    {
+      "name": "CONTRACT_LINE_ID",
+      "description": "System-generated identifier for the related contract line record."
+    },
+    {
+      "name": "SOURCE_DATA_KEY1",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SOURCE_DATA_KEY2",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SOURCE_DATA_KEY3",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SOURCE_DATA_KEY4",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SOURCE_DATA_KEY5",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "INVOICED_LINE_ACCTG_LEVEL",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "OVERRIDE_AUTO_ACCOUNTING_FLAG",
+      "description": "Indicates whether override auto accounting applies to the record."
+    },
+    {
+      "name": "SHIP_TO_CUSTOMER_ID",
+      "description": "Foreign key referencing the ship-to customer account associated with the transaction."
+    },
+    {
+      "name": "SHIP_TO_ADDRESS_ID",
+      "description": "System-generated identifier for the related ship to address record."
+    },
+    {
+      "name": "SHIP_TO_SITE_USE_ID",
+      "description": "Foreign key referencing the ship-to site use associated with the transaction."
+    },
+    {
+      "name": "SHIP_TO_CONTACT_ID",
+      "description": "Foreign key referencing the ship-to contact associated with the transaction."
+    },
+    {
+      "name": "HISTORICAL_FLAG",
+      "description": "Indicates whether historical applies to the record."
+    },
+    {
+      "name": "TAX_LINE_ID",
+      "description": "System-generated identifier for the related tax line record."
+    },
+    {
+      "name": "LINE_RECOVERABLE",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TAX_RECOVERABLE",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TAX_CLASSIFICATION_CODE",
+      "description": "Lookup or classification code identifying tax classification for the record."
+    },
+    {
+      "name": "AMOUNT_DUE_REMAINING",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ACCTD_AMOUNT_DUE_REMAINING",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "AMOUNT_DUE_ORIGINAL",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ACCTD_AMOUNT_DUE_ORIGINAL",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CHRG_AMOUNT_REMAINING",
+      "description": "Remaining monetary balance that has not yet been settled or applied."
+    },
+    {
+      "name": "CHRG_ACCTD_AMOUNT_REMAINING",
+      "description": "Remaining monetary balance that has not yet been settled or applied."
+    },
+    {
+      "name": "FRT_ADJ_REMAINING",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "FRT_ADJ_ACCTD_REMAINING",
+      "description": "Business attribute of the receivables transaction line used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "FRT_ED_AMOUNT",
+      "description": "Monetary amount representing frt ed for the transaction."
+    },
+    {
+      "name": "FRT_ED_ACCTD_AMOUNT",
+      "description": "Monetary amount representing frt ed acctd for the transaction."
+    },
+    {
+      "name": "FRT_UNED_AMOUNT",
+      "description": "Monetary amount representing frt uned for the transaction."
+    },
+    {
+      "name": "FRT_UNED_ACCTD_AMOUNT",
+      "description": "Monetary amount representing frt uned acctd for the transaction."
+    },
+    {
+      "name": "DEFERRAL_EXCLUSION_FLAG",
+      "description": "Indicates whether deferral exclusion applies to the record."
+    },
+    {
+      "name": "RULE_END_DATE",
+      "description": "End date for the accounting or billing rule application."
+    },
+    {
+      "name": "PAYMENT_TRXN_EXTENSION_ID",
+      "description": "System-generated identifier for the related payment trxn extension record."
+    },
+    {
+      "name": "INTEREST_LINE_ID",
+      "description": "System-generated identifier for the related interest line record."
+    },
+    {
+      "name": "TAX_CALC_ACCTD_AMT",
+      "description": "Monetary amount recorded for tax calc acctd."
+    },
+    {
+      "name": "DOC_LINE_ID_INT_1",
+      "description": "Document line reference used by tax, integration, or source document tracking."
+    },
+    {
+      "name": "DOC_LINE_ID_INT_2",
+      "description": "Document line reference used by tax, integration, or source document tracking."
+    },
+    {
+      "name": "DOC_LINE_ID_INT_3",
+      "description": "Document line reference used by tax, integration, or source document tracking."
+    },
+    {
+      "name": "DOC_LINE_ID_INT_4",
+      "description": "Document line reference used by tax, integration, or source document tracking."
+    },
+    {
+      "name": "DOC_LINE_ID_INT_5",
+      "description": "Document line reference used by tax, integration, or source document tracking."
+    },
+    {
+      "name": "DOC_LINE_ID_CHAR_1",
+      "description": "Document line reference used by tax, integration, or source document tracking."
+    },
+    {
+      "name": "DOC_LINE_ID_CHAR_2",
+      "description": "Document line reference used by tax, integration, or source document tracking."
+    },
+    {
+      "name": "DOC_LINE_ID_CHAR_3",
+      "description": "Document line reference used by tax, integration, or source document tracking."
+    },
+    {
+      "name": "DOC_LINE_ID_CHAR_4",
+      "description": "Document line reference used by tax, integration, or source document tracking."
+    },
+    {
+      "name": "DOC_LINE_ID_CHAR_5",
+      "description": "Document line reference used by tax, integration, or source document tracking."
+    }
+  ],
+  "relationships": [
+    {
+      "table": "RA_CUSTOMER_TRX_ALL",
+      "join": "CUSTOMER_TRX_ID",
+      "relationship_type": "parent"
+    }
+  ],
+  "business_questions": [
+    "Show line-level billing details for a customer transaction.",
+    "Find item, tax, freight, and charge lines on an AR invoice.",
+    "Display quantities, unit prices, and extended amounts by line.",
+    "Show revenue-related details for invoice lines.",
+    "Find transaction lines for a specific inventory item.",
+    "Identify tax-exempt or tax-recoverable invoice lines.",
+    "Show lines linked to previous transactions or credits.",
+    "Display ship-to references and operational attributes by line."
+  ]
+}

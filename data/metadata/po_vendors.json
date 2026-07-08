@@ -1,0 +1,374 @@
+{
+  "module": "Procurement",
+  "table": "PO_VENDORS",
+  "description": "Supplier master table used by Oracle Purchasing and referenced throughout Procure to Pay. Each record represents a supplier entity and stores supplier identity, payment defaults, tax reporting information, control flags, and relationships used by purchasing, payables, and supplier management processes.",
+  "primary_key": "VENDOR_ID",
+  "columns": [
+    {
+      "name": "VENDOR_ID",
+      "description": "Unique system-generated identifier for the supplier. Used to relate supplier transactions, sites, invoices, and payments."
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "description": "Date and time when the record was last updated."
+    },
+    {
+      "name": "LAST_UPDATED_BY",
+      "description": "User identifier for the person or process that last updated the record."
+    },
+    {
+      "name": "VENDOR_NAME",
+      "description": "Business name of the supplier."
+    },
+    {
+      "name": "VENDOR_NAME_ALT",
+      "description": "Business attribute of the supplier used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "SEGMENT1",
+      "description": "Primary supplier number segment used as the business supplier identifier."
+    },
+    {
+      "name": "SUMMARY_FLAG",
+      "description": "Indicates whether summary applies to the record."
+    },
+    {
+      "name": "ENABLED_FLAG",
+      "description": "Indicates whether enabled applies to the record."
+    },
+    {
+      "name": "SEGMENT2",
+      "description": "Flexfield segment 2 used to capture business classification or numbering information."
+    },
+    {
+      "name": "SEGMENT3",
+      "description": "Flexfield segment 3 used to capture business classification or numbering information."
+    },
+    {
+      "name": "SEGMENT4",
+      "description": "Flexfield segment 4 used to capture business classification or numbering information."
+    },
+    {
+      "name": "SEGMENT5",
+      "description": "Flexfield segment 5 used to capture business classification or numbering information."
+    },
+    {
+      "name": "LAST_UPDATE_LOGIN",
+      "description": "Login session identifier that performed the last update."
+    },
+    {
+      "name": "CREATION_DATE",
+      "description": "Date and time when the record was created."
+    },
+    {
+      "name": "CREATED_BY",
+      "description": "User identifier for the person or process that created the record."
+    },
+    {
+      "name": "EMPLOYEE_ID",
+      "description": "System-generated identifier for the related employee record."
+    },
+    {
+      "name": "VENDOR_TYPE_LOOKUP_CODE",
+      "description": "Lookup or classification code identifying vendor type lookup for the record."
+    },
+    {
+      "name": "CUSTOMER_NUM",
+      "description": "Business number used to identify or sequence customer."
+    },
+    {
+      "name": "ONE_TIME_FLAG",
+      "description": "Indicates whether one time applies to the record."
+    },
+    {
+      "name": "PARENT_VENDOR_ID",
+      "description": "System-generated identifier for the related parent vendor record."
+    },
+    {
+      "name": "MIN_ORDER_AMOUNT",
+      "description": "Monetary amount representing min order for the transaction."
+    },
+    {
+      "name": "TERMS_ID",
+      "description": "Foreign key referencing the payment terms definition applied to the transaction."
+    },
+    {
+      "name": "SET_OF_BOOKS_ID",
+      "description": "Ledger identifier in which accounting entries are recorded."
+    },
+    {
+      "name": "ALWAYS_TAKE_DISC_FLAG",
+      "description": "Indicates whether always take disc applies to the record."
+    },
+    {
+      "name": "PAY_DATE_BASIS_LOOKUP_CODE",
+      "description": "Lookup or classification code identifying pay date basis lookup for the record."
+    },
+    {
+      "name": "PAY_GROUP_LOOKUP_CODE",
+      "description": "Lookup or classification code identifying pay group lookup for the record."
+    },
+    {
+      "name": "PAYMENT_PRIORITY",
+      "description": "Processing priority used when selecting transactions for payment."
+    },
+    {
+      "name": "INVOICE_CURRENCY_CODE",
+      "description": "Currency in which the supplier invoice was entered."
+    },
+    {
+      "name": "PAYMENT_CURRENCY_CODE",
+      "description": "Currency used when payment is made or settled."
+    },
+    {
+      "name": "INVOICE_AMOUNT_LIMIT",
+      "description": "Maximum invoice amount allowed based on the supplier or site control setup."
+    },
+    {
+      "name": "HOLD_ALL_PAYMENTS_FLAG",
+      "description": "Indicates whether hold all payments applies to the record."
+    },
+    {
+      "name": "HOLD_FUTURE_PAYMENTS_FLAG",
+      "description": "Indicates whether hold future payments applies to the record."
+    },
+    {
+      "name": "HOLD_REASON",
+      "description": "Reason explaining why the supplier site, invoice, or payment record was placed on hold."
+    },
+    {
+      "name": "NUM_1099",
+      "description": "1099-related tax reporting attribute used for statutory supplier reporting."
+    },
+    {
+      "name": "INDIVIDUAL_1099",
+      "description": "1099-related tax reporting attribute used for statutory supplier reporting."
+    },
+    {
+      "name": "TYPE_1099",
+      "description": "1099 reporting classification assigned to the supplier transaction for statutory reporting."
+    },
+    {
+      "name": "WITHHOLDING_STATUS_LOOKUP_CODE",
+      "description": "Lookup or classification code identifying withholding status lookup for the record."
+    },
+    {
+      "name": "WITHHOLDING_START_DATE",
+      "description": "Business date associated with withholding start."
+    },
+    {
+      "name": "ORGANIZATION_TYPE_LOOKUP_CODE",
+      "description": "Lookup or classification code identifying organization type lookup for the record."
+    },
+    {
+      "name": "START_DATE_ACTIVE",
+      "description": "Business attribute of the supplier used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "END_DATE_ACTIVE",
+      "description": "Business attribute of the supplier used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "MINORITY_GROUP_LOOKUP_CODE",
+      "description": "Lookup or classification code identifying minority group lookup for the record."
+    },
+    {
+      "name": "WOMEN_OWNED_FLAG",
+      "description": "Indicates whether women owned applies to the record."
+    },
+    {
+      "name": "SMALL_BUSINESS_FLAG",
+      "description": "Indicates whether small business applies to the record."
+    },
+    {
+      "name": "STANDARD_INDUSTRY_CLASS",
+      "description": "Classification assigned to standard industry."
+    },
+    {
+      "name": "HOLD_FLAG",
+      "description": "Indicates whether the transaction or schedule is on hold from further processing."
+    },
+    {
+      "name": "PURCHASING_HOLD_REASON",
+      "description": "Business reason captured for purchasing hold."
+    },
+    {
+      "name": "HOLD_BY",
+      "description": "User or person responsible for hold."
+    },
+    {
+      "name": "HOLD_DATE",
+      "description": "Business date associated with hold."
+    },
+    {
+      "name": "TERMS_DATE_BASIS",
+      "description": "Basis used to determine which date should drive payment term calculation."
+    },
+    {
+      "name": "INSPECTION_REQUIRED_FLAG",
+      "description": "Indicates whether inspection required applies to the record."
+    },
+    {
+      "name": "RECEIPT_REQUIRED_FLAG",
+      "description": "Indicates whether receipt required applies to the record."
+    },
+    {
+      "name": "QTY_RCV_TOLERANCE",
+      "description": "Tolerance threshold used to control qty rcv tolerance."
+    },
+    {
+      "name": "QTY_RCV_EXCEPTION_CODE",
+      "description": "Lookup or classification code identifying qty rcv exception for the record."
+    },
+    {
+      "name": "ENFORCE_SHIP_TO_LOCATION_CODE",
+      "description": "Lookup or classification code identifying enforce ship to location for the record."
+    },
+    {
+      "name": "DAYS_EARLY_RECEIPT_ALLOWED",
+      "description": "Allowed number or value for days early receipt."
+    },
+    {
+      "name": "DAYS_LATE_RECEIPT_ALLOWED",
+      "description": "Allowed number or value for days late receipt."
+    },
+    {
+      "name": "RECEIPT_DAYS_EXCEPTION_CODE",
+      "description": "Lookup or classification code identifying receipt days exception for the record."
+    },
+    {
+      "name": "RECEIVING_ROUTING_ID",
+      "description": "System-generated identifier for the related receiving routing record."
+    },
+    {
+      "name": "ALLOW_SUBSTITUTE_RECEIPTS_FLAG",
+      "description": "Indicates whether allow substitute receipts applies to the record."
+    },
+    {
+      "name": "ALLOW_UNORDERED_RECEIPTS_FLAG",
+      "description": "Indicates whether allow unordered receipts applies to the record."
+    },
+    {
+      "name": "HOLD_UNMATCHED_INVOICES_FLAG",
+      "description": "Indicates whether hold unmatched invoices applies to the record."
+    },
+    {
+      "name": "TAX_VERIFICATION_DATE",
+      "description": "Business date associated with tax verification."
+    },
+    {
+      "name": "NAME_CONTROL",
+      "description": "Business attribute of the supplier used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "STATE_REPORTABLE_FLAG",
+      "description": "Indicates whether state reportable applies to the record."
+    },
+    {
+      "name": "FEDERAL_REPORTABLE_FLAG",
+      "description": "Indicates whether federal reportable applies to the record."
+    },
+    {
+      "name": "REQUEST_ID",
+      "description": "Concurrent request identifier for the program run that created or updated the record."
+    },
+    {
+      "name": "PROGRAM_APPLICATION_ID",
+      "description": "Oracle application identifier for the concurrent program that last updated the record."
+    },
+    {
+      "name": "PROGRAM_ID",
+      "description": "Concurrent program identifier for the process that last updated the record."
+    },
+    {
+      "name": "PROGRAM_UPDATE_DATE",
+      "description": "Date and time when the concurrent program last updated the record."
+    },
+    {
+      "name": "VAT_REGISTRATION_NUM",
+      "description": "Business number used to identify or sequence vat registration."
+    },
+    {
+      "name": "AUTO_CALCULATE_INTEREST_FLAG",
+      "description": "Indicates whether auto calculate interest applies to the record."
+    },
+    {
+      "name": "VALIDATION_NUMBER",
+      "description": "Business number used to identify or sequence validation nu."
+    },
+    {
+      "name": "EXCLUDE_FREIGHT_FROM_DISCOUNT",
+      "description": "Indicates whether freight charges are excluded when payment discounts are calculated."
+    },
+    {
+      "name": "TAX_REPORTING_NAME",
+      "description": "Business name associated with tax reporting."
+    },
+    {
+      "name": "CHECK_DIGITS",
+      "description": "Check digits used to validate the business reference or external account number."
+    },
+    {
+      "name": "ALLOW_AWT_FLAG",
+      "description": "Indicates whether allow awt applies to the record."
+    },
+    {
+      "name": "AWT_GROUP_ID",
+      "description": "Foreign key referencing the withholding tax group applied to the transaction."
+    },
+    {
+      "name": "BANK_CHARGE_BEARER",
+      "description": "Indicates which party bears bank charges associated with the payment or receipt settlement."
+    },
+    {
+      "name": "MATCH_OPTION",
+      "description": "Matching control option that determines whether invoice matching is performed at purchase order or receipt level."
+    },
+    {
+      "name": "CREATE_DEBIT_MEMO_FLAG",
+      "description": "Indicates whether create debit memo applies to the record."
+    },
+    {
+      "name": "PARTY_ID",
+      "description": "Foreign key referencing the Trading Community Architecture party associated with the record."
+    },
+    {
+      "name": "PARENT_PARTY_ID",
+      "description": "System-generated identifier for the related parent party record."
+    },
+    {
+      "name": "NI_NUMBER",
+      "description": "Business number used to identify or sequence ni nu."
+    },
+    {
+      "name": "PARTY_NUMBER",
+      "description": "Business reference number assigned to the Trading Community party."
+    },
+    {
+      "name": "PAY_AWT_GROUP_ID",
+      "description": "System-generated identifier for the related pay awt group record."
+    }
+  ],
+  "relationships": [
+    {
+      "table": "AP_INVOICES_ALL",
+      "join": "VENDOR_ID",
+      "relationship_type": "child"
+    },
+    {
+      "table": "PO_VENDOR_SITES_ALL",
+      "join": "VENDOR_ID",
+      "relationship_type": "child"
+    }
+  ],
+  "business_questions": [
+    "Show supplier master records and supplier classification details.",
+    "Find suppliers used on Payables invoices.",
+    "Display supplier payment defaults and withholding settings.",
+    "Show suppliers by supplier number, name, or party reference.",
+    "Identify suppliers on hold for purchasing or payment.",
+    "List suppliers by type, tax reporting status, or payment priority.",
+    "Show active and inactive supplier records.",
+    "Find suppliers associated with a specific party or parent supplier."
+  ]
+}

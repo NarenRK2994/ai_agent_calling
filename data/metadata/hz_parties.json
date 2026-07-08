@@ -1,0 +1,397 @@
+{
+  "module": "Customer Data",
+  "table": "HZ_PARTIES",
+  "description": "Core party master table in Oracle Trading Community Architecture. Each record represents a person, organization, or group used as the shared business identity for customers, suppliers, banks, and other trading partners across Oracle EBS modules.",
+  "primary_key": "PARTY_ID",
+  "columns": [
+    {
+      "name": "PARTY_ID",
+      "description": "Unique system-generated identifier for the party record shared across Oracle EBS modules."
+    },
+    {
+      "name": "PARTY_NUMBER",
+      "description": "Business reference number assigned to the Trading Community party."
+    },
+    {
+      "name": "PARTY_NAME",
+      "description": "Business name associated with party."
+    },
+    {
+      "name": "PARTY_TYPE",
+      "description": "Type classification used to control party processing."
+    },
+    {
+      "name": "VALIDATED_FLAG",
+      "description": "Indicates whether validated applies to the record."
+    },
+    {
+      "name": "LAST_UPDATED_BY",
+      "description": "User identifier for the person or process that last updated the record."
+    },
+    {
+      "name": "CREATION_DATE",
+      "description": "Date and time when the record was created."
+    },
+    {
+      "name": "LAST_UPDATE_LOGIN",
+      "description": "Login session identifier that performed the last update."
+    },
+    {
+      "name": "REQUEST_ID",
+      "description": "Concurrent request identifier for the program run that created or updated the record."
+    },
+    {
+      "name": "PROGRAM_APPLICATION_ID",
+      "description": "Oracle application identifier for the concurrent program that last updated the record."
+    },
+    {
+      "name": "CREATED_BY",
+      "description": "User identifier for the person or process that created the record."
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "description": "Date and time when the record was last updated."
+    },
+    {
+      "name": "PROGRAM_ID",
+      "description": "Concurrent program identifier for the process that last updated the record."
+    },
+    {
+      "name": "PROGRAM_UPDATE_DATE",
+      "description": "Date and time when the concurrent program last updated the record."
+    },
+    {
+      "name": "WH_UPDATE_DATE",
+      "description": "Business date associated with wh update."
+    },
+    {
+      "name": "ORIG_SYSTEM_REFERENCE",
+      "description": "Reference to the originating source system record used during integration or conversion."
+    },
+    {
+      "name": "SIC_CODE",
+      "description": "Lookup or classification code identifying sic for the record."
+    },
+    {
+      "name": "HQ_BRANCH_IND",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CUSTOMER_KEY",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TAX_REFERENCE",
+      "description": "Business reference captured for tax."
+    },
+    {
+      "name": "JGZZ_FISCAL_CODE",
+      "description": "Lookup or classification code identifying jgzz fiscal for the record."
+    },
+    {
+      "name": "DUNS_NUMBER",
+      "description": "Business number used to identify or sequence duns nu."
+    },
+    {
+      "name": "TAX_NAME",
+      "description": "Business name associated with tax."
+    },
+    {
+      "name": "PERSON_PRE_NAME_ADJUNCT",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PERSON_FIRST_NAME",
+      "description": "Business name associated with person first."
+    },
+    {
+      "name": "PERSON_MIDDLE_NAME",
+      "description": "Business name associated with person middle."
+    },
+    {
+      "name": "PERSON_LAST_NAME",
+      "description": "Business name associated with person last."
+    },
+    {
+      "name": "PERSON_NAME_SUFFIX",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PERSON_TITLE",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PERSON_ACADEMIC_TITLE",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PERSON_PREVIOUS_LAST_NAME",
+      "description": "Business name associated with person previous last."
+    },
+    {
+      "name": "KNOWN_AS",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PERSON_IDEN_TYPE",
+      "description": "Type classification used to control person iden processing."
+    },
+    {
+      "name": "PERSON_IDENTIFIER",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "GROUP_TYPE",
+      "description": "Type classification used to control group processing."
+    },
+    {
+      "name": "COUNTRY",
+      "description": "Country component of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "ADDRESS1",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ADDRESS2",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ADDRESS3",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ADDRESS4",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CITY",
+      "description": "City component of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "POSTAL_CODE",
+      "description": "Lookup or classification code identifying postal for the record."
+    },
+    {
+      "name": "STATE",
+      "description": "State or province code component of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "PROVINCE",
+      "description": "Province or regional component of the supplier, customer, or remittance address."
+    },
+    {
+      "name": "STATUS",
+      "description": "Current processing status of the transaction within the Oracle application flow."
+    },
+    {
+      "name": "COUNTY",
+      "description": "County or administrative district component of the address."
+    },
+    {
+      "name": "SIC_CODE_TYPE",
+      "description": "Type classification used to control sic code processing."
+    },
+    {
+      "name": "TOTAL_NUM_OF_ORDERS",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TOTAL_ORDERED_AMOUNT",
+      "description": "Monetary amount representing total ordered for the transaction."
+    },
+    {
+      "name": "LAST_ORDERED_DATE",
+      "description": "Business date associated with last ordered."
+    },
+    {
+      "name": "URL",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "EMAIL_ADDRESS",
+      "description": "Email address used for supplier, customer, or party communication."
+    },
+    {
+      "name": "DO_NOT_MAIL_FLAG",
+      "description": "Indicates whether do not mail applies to the record."
+    },
+    {
+      "name": "ANALYSIS_FY",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "FISCAL_YEAREND_MONTH",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "EMPLOYEES_TOTAL",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CURR_FY_POTENTIAL_REVENUE",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "NEXT_FY_POTENTIAL_REVENUE",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "YEAR_ESTABLISHED",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "GSA_INDICATOR_FLAG",
+      "description": "Indicates whether gsa indicator applies to the record."
+    },
+    {
+      "name": "MISSION_STATEMENT",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ORGANIZATION_NAME_PHONETIC",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PERSON_FIRST_NAME_PHONETIC",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PERSON_LAST_NAME_PHONETIC",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "LANGUAGE_NAME",
+      "description": "Business name associated with language."
+    },
+    {
+      "name": "CATEGORY_CODE",
+      "description": "Lookup or classification code identifying category for the record."
+    },
+    {
+      "name": "REFERENCE_USE_FLAG",
+      "description": "Indicates whether reference use applies to the record."
+    },
+    {
+      "name": "THIRD_PARTY_FLAG",
+      "description": "Indicates whether third party applies to the record."
+    },
+    {
+      "name": "COMPETITOR_FLAG",
+      "description": "Indicates whether competitor applies to the record."
+    },
+    {
+      "name": "SALUTATION",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "KNOWN_AS2",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "KNOWN_AS3",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "KNOWN_AS4",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "KNOWN_AS5",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DUNS_NUMBER_C",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "OBJECT_VERSION_NUMBER",
+      "description": "Business number used to identify or sequence object version nu."
+    },
+    {
+      "name": "CREATED_BY_MODULE",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "APPLICATION_ID",
+      "description": "System-generated identifier for the related application record."
+    },
+    {
+      "name": "PRIMARY_PHONE_CONTACT_PT_ID",
+      "description": "System-generated identifier for the related primary phone contact pt record."
+    },
+    {
+      "name": "PRIMARY_PHONE_PURPOSE",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PRIMARY_PHONE_LINE_TYPE",
+      "description": "Type classification used to control primary phone line processing."
+    },
+    {
+      "name": "PRIMARY_PHONE_COUNTRY_CODE",
+      "description": "Lookup or classification code identifying primary phone country for the record."
+    },
+    {
+      "name": "PRIMARY_PHONE_AREA_CODE",
+      "description": "Lookup or classification code identifying primary phone area for the record."
+    },
+    {
+      "name": "PRIMARY_PHONE_NUMBER",
+      "description": "Business number used to identify or sequence primary phone nu."
+    },
+    {
+      "name": "PRIMARY_PHONE_EXTENSION",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CERTIFICATION_LEVEL",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CERT_REASON_CODE",
+      "description": "Lookup or classification code identifying cert reason for the record."
+    },
+    {
+      "name": "PREFERRED_CONTACT_METHOD",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "HOME_COUNTRY",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PERSON_BO_VERSION",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ORG_BO_VERSION",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PERSON_CUST_BO_VERSION",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ORG_CUST_BO_VERSION",
+      "description": "Business attribute of the party used for Oracle EBS transaction processing, control, or reporting."
+    }
+  ],
+  "relationships": [
+    {
+      "table": "HZ_CUST_ACCOUNTS",
+      "join": "PARTY_ID",
+      "relationship_type": "child"
+    }
+  ],
+  "business_questions": [
+    "Show party master details for customers or suppliers.",
+    "Find the party record associated with a customer account.",
+    "List organizations or persons by party name or number.",
+    "Show party records referenced by receivables customers.",
+    "Identify parties used across multiple Oracle modules.",
+    "Display party master information for reporting and integration.",
+    "Find duplicate or similar party names for review.",
+    "Trace a party to downstream customer account usage."
+  ]
+}

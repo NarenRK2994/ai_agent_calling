@@ -1,17 +1,33 @@
 {
   "module": "Accounts Payable",
   "table": "AP_SUPPLIERS",
-  "description": "Stores supplier master information.",
+  "description": "Supplier master reference used by the current metadata set for Oracle Accounts Payable. Each record represents a supplier and provides the business identity needed to associate invoices and payments with the supplier master, although this environment also uses Oracle Purchasing supplier tables such as PO_VENDORS.",
   "primary_key": "VENDOR_ID",
   "columns": [
-    { "name": "VENDOR_ID", "description": "Primary key for the supplier." },
-    { "name": "VENDOR_NAME", "description": "Supplier name." }
-	],
+    {
+      "name": "VENDOR_ID",
+      "description": "Unique system-generated identifier for the supplier. Used to relate supplier transactions, sites, invoices, and payments."
+    },
+    {
+      "name": "VENDOR_NAME",
+      "description": "Business name of the supplier."
+    }
+  ],
   "relationships": [
-    { "table": "AP_INVOICES_ALL", "join": "VENDOR_ID" }
+    {
+      "table": "AP_INVOICES_ALL",
+      "join": "VENDOR_ID",
+      "relationship_type": "child"
+    }
   ],
   "business_questions": [
-    "Find supplier details",
-    "Match invoices to suppliers"
+    "Show supplier master details used by Accounts Payable.",
+    "List invoices associated with a supplier.",
+    "Find supplier names by internal supplier identifier.",
+    "Show suppliers with invoice activity in the current period.",
+    "Identify suppliers with unpaid invoices.",
+    "Display supplier records referenced by Payables transactions.",
+    "Find suppliers used in invoice and payment reporting.",
+    "Show supplier master records requiring reconciliation with purchasing supplier tables."
   ]
 }

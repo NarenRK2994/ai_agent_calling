@@ -1,0 +1,551 @@
+{
+  "module": "Accounts Receivable",
+  "table": "RA_CUSTOMER_TRX_ALL",
+  "description": "Accounts Receivable transaction header table. Each record represents an invoice, debit memo, credit memo, chargeback, or bill receivable transaction and captures customer billing references, transaction dates, source details, ledger context, and order-to-cash processing attributes.",
+  "primary_key": "CUSTOMER_TRX_ID",
+  "columns": [
+    {
+      "name": "CUSTOMER_TRX_ID",
+      "description": "Unique system-generated identifier for the receivables transaction. Used to relate the transaction header to transaction lines, schedules, and receipt applications."
+    },
+    {
+      "name": "LAST_UPDATE_DATE",
+      "description": "Date and time when the record was last updated."
+    },
+    {
+      "name": "LAST_UPDATED_BY",
+      "description": "User identifier for the person or process that last updated the record."
+    },
+    {
+      "name": "CREATION_DATE",
+      "description": "Date and time when the record was created."
+    },
+    {
+      "name": "CREATED_BY",
+      "description": "User identifier for the person or process that created the record."
+    },
+    {
+      "name": "LAST_UPDATE_LOGIN",
+      "description": "Login session identifier that performed the last update."
+    },
+    {
+      "name": "TRX_NUMBER",
+      "description": "Business transaction number assigned to the receivables document."
+    },
+    {
+      "name": "CUST_TRX_TYPE_ID",
+      "description": "Foreign key referencing the receivables transaction type that controls accounting and processing behavior."
+    },
+    {
+      "name": "TRX_DATE",
+      "description": "Transaction date of the receivables document."
+    },
+    {
+      "name": "SET_OF_BOOKS_ID",
+      "description": "Ledger identifier in which accounting entries are recorded."
+    },
+    {
+      "name": "BILL_TO_CONTACT_ID",
+      "description": "Foreign key referencing the bill-to contact associated with the customer transaction."
+    },
+    {
+      "name": "BATCH_ID",
+      "description": "Foreign key referencing the import, entry, or processing batch that grouped the transaction."
+    },
+    {
+      "name": "BATCH_SOURCE_ID",
+      "description": "Foreign key referencing the transaction source used to create the receivables document."
+    },
+    {
+      "name": "REASON_CODE",
+      "description": "Lookup or classification code identifying reason for the record."
+    },
+    {
+      "name": "SOLD_TO_CUSTOMER_ID",
+      "description": "Foreign key referencing the sold-to customer account associated with the receivables transaction."
+    },
+    {
+      "name": "SOLD_TO_CONTACT_ID",
+      "description": "System-generated identifier for the related sold to contact record."
+    },
+    {
+      "name": "SOLD_TO_SITE_USE_ID",
+      "description": "Foreign key referencing the sold-to site use associated with the transaction."
+    },
+    {
+      "name": "BILL_TO_CUSTOMER_ID",
+      "description": "Customer account used as the bill-to party on the receivables transaction."
+    },
+    {
+      "name": "BILL_TO_SITE_USE_ID",
+      "description": "Foreign key referencing the bill-to site use associated with the transaction."
+    },
+    {
+      "name": "SHIP_TO_CUSTOMER_ID",
+      "description": "Foreign key referencing the ship-to customer account associated with the transaction."
+    },
+    {
+      "name": "SHIP_TO_CONTACT_ID",
+      "description": "Foreign key referencing the ship-to contact associated with the transaction."
+    },
+    {
+      "name": "SHIP_TO_SITE_USE_ID",
+      "description": "Foreign key referencing the ship-to site use associated with the transaction."
+    },
+    {
+      "name": "SHIPMENT_ID",
+      "description": "System-generated identifier for the related shipment record."
+    },
+    {
+      "name": "REMIT_TO_ADDRESS_ID",
+      "description": "System-generated identifier for the related remit to address record."
+    },
+    {
+      "name": "TERM_ID",
+      "description": "System-generated identifier for the related term record."
+    },
+    {
+      "name": "TERM_DUE_DATE",
+      "description": "Business date associated with term due."
+    },
+    {
+      "name": "PREVIOUS_CUSTOMER_TRX_ID",
+      "description": "System-generated identifier for the related previous customer trx record."
+    },
+    {
+      "name": "PRIMARY_SALESREP_ID",
+      "description": "System-generated identifier for the related primary salesrep record."
+    },
+    {
+      "name": "PRINTING_ORIGINAL_DATE",
+      "description": "Business date associated with printing original."
+    },
+    {
+      "name": "PRINTING_LAST_PRINTED",
+      "description": "Business attribute of the receivables transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PRINTING_OPTION",
+      "description": "Business attribute of the receivables transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PRINTING_COUNT",
+      "description": "Business attribute of the receivables transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PRINTING_PENDING",
+      "description": "Business attribute of the receivables transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PURCHASE_ORDER",
+      "description": "Business attribute of the receivables transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PURCHASE_ORDER_REVISION",
+      "description": "Business attribute of the receivables transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "PURCHASE_ORDER_DATE",
+      "description": "Business date associated with purchase order."
+    },
+    {
+      "name": "CUSTOMER_REFERENCE",
+      "description": "Business reference captured for customer."
+    },
+    {
+      "name": "CUSTOMER_REFERENCE_DATE",
+      "description": "Business date associated with customer reference."
+    },
+    {
+      "name": "COMMENTS",
+      "description": "Free-text explanation entered to document the business purpose of the record."
+    },
+    {
+      "name": "INTERNAL_NOTES",
+      "description": "Business attribute of the receivables transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "EXCHANGE_RATE_TYPE",
+      "description": "Conversion rate type used to derive the exchange rate for the transaction."
+    },
+    {
+      "name": "EXCHANGE_DATE",
+      "description": "Date used to derive the foreign currency conversion rate."
+    },
+    {
+      "name": "EXCHANGE_RATE",
+      "description": "Exchange rate used to convert the foreign currency transaction to functional currency."
+    },
+    {
+      "name": "TERRITORY_ID",
+      "description": "System-generated identifier for the related territory record."
+    },
+    {
+      "name": "INVOICE_CURRENCY_CODE",
+      "description": "Currency in which the supplier invoice was entered."
+    },
+    {
+      "name": "INITIAL_CUSTOMER_TRX_ID",
+      "description": "System-generated identifier for the related initial customer trx record."
+    },
+    {
+      "name": "AGREEMENT_ID",
+      "description": "System-generated identifier for the related agreement record."
+    },
+    {
+      "name": "END_DATE_COMMITMENT",
+      "description": "Business attribute of the receivables transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "START_DATE_COMMITMENT",
+      "description": "Business attribute of the receivables transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "LAST_PRINTED_SEQUENCE_NUM",
+      "description": "Business number used to identify or sequence last printed sequence."
+    },
+    {
+      "name": "ORIG_SYSTEM_BATCH_NAME",
+      "description": "Business name associated with orig system batch."
+    },
+    {
+      "name": "POST_REQUEST_ID",
+      "description": "System-generated identifier for the related post request record."
+    },
+    {
+      "name": "REQUEST_ID",
+      "description": "Concurrent request identifier for the program run that created or updated the record."
+    },
+    {
+      "name": "PROGRAM_APPLICATION_ID",
+      "description": "Oracle application identifier for the concurrent program that last updated the record."
+    },
+    {
+      "name": "PROGRAM_ID",
+      "description": "Concurrent program identifier for the process that last updated the record."
+    },
+    {
+      "name": "PROGRAM_UPDATE_DATE",
+      "description": "Date and time when the concurrent program last updated the record."
+    },
+    {
+      "name": "FINANCE_CHARGES",
+      "description": "Business attribute of the receivables transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "COMPLETE_FLAG",
+      "description": "Indicates whether complete applies to the record."
+    },
+    {
+      "name": "POSTING_CONTROL_ID",
+      "description": "System-generated identifier for the related posting control record."
+    },
+    {
+      "name": "BILL_TO_ADDRESS_ID",
+      "description": "System-generated identifier for the related bill to address record."
+    },
+    {
+      "name": "RA_POST_LOOP_NUMBER",
+      "description": "Business number used to identify or sequence ra post loop nu."
+    },
+    {
+      "name": "SHIP_TO_ADDRESS_ID",
+      "description": "System-generated identifier for the related ship to address record."
+    },
+    {
+      "name": "CREDIT_METHOD_FOR_RULES",
+      "description": "Business attribute of the receivables transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "CREDIT_METHOD_FOR_INSTALLMENTS",
+      "description": "Business attribute of the receivables transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "RECEIPT_METHOD_ID",
+      "description": "Foreign key referencing the receipt method controlling customer receipt processing."
+    },
+    {
+      "name": "RELATED_CUSTOMER_TRX_ID",
+      "description": "System-generated identifier for the related related customer trx record."
+    },
+    {
+      "name": "INVOICING_RULE_ID",
+      "description": "System-generated identifier for the related invoicing rule record."
+    },
+    {
+      "name": "SHIP_VIA",
+      "description": "Shipping method or carrier reference associated with the transaction or customer account."
+    },
+    {
+      "name": "SHIP_DATE_ACTUAL",
+      "description": "Business attribute of the receivables transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "WAYBILL_NUMBER",
+      "description": "Business number used to identify or sequence waybill nu."
+    },
+    {
+      "name": "FOB_POINT",
+      "description": "Free On Board point that determines when ownership or shipping responsibility transfers."
+    },
+    {
+      "name": "CUSTOMER_BANK_ACCOUNT_ID",
+      "description": "Foreign key referencing the customer bank account used for receipt processing."
+    },
+    {
+      "name": "INTERFACE_HEADER_CONTEXT",
+      "description": "Context value used to interpret or derive interface header."
+    },
+    {
+      "name": "DEFAULT_USSGL_TRX_CODE_CONTEXT",
+      "description": "Context value used to interpret or derive default ussgl trx code."
+    },
+    {
+      "name": "DEFAULT_USSGL_TRANSACTION_CODE",
+      "description": "Lookup or classification code identifying default ussgl transaction for the record."
+    },
+    {
+      "name": "RECURRED_FROM_TRX_NUMBER",
+      "description": "Business number used to identify or sequence recurred from trx nu."
+    },
+    {
+      "name": "STATUS_TRX",
+      "description": "Business attribute of the receivables transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DOC_SEQUENCE_ID",
+      "description": "Foreign key referencing the document sequencing definition used to assign the transaction number."
+    },
+    {
+      "name": "DOC_SEQUENCE_VALUE",
+      "description": "Stored value associated with doc sequence."
+    },
+    {
+      "name": "PAYING_CUSTOMER_ID",
+      "description": "System-generated identifier for the related paying customer record."
+    },
+    {
+      "name": "PAYING_SITE_USE_ID",
+      "description": "System-generated identifier for the related paying site use record."
+    },
+    {
+      "name": "RELATED_BATCH_SOURCE_ID",
+      "description": "System-generated identifier for the related related batch source record."
+    },
+    {
+      "name": "DEFAULT_TAX_EXEMPT_FLAG",
+      "description": "Indicates whether default tax exempt applies to the record."
+    },
+    {
+      "name": "CREATED_FROM",
+      "description": "Business attribute of the receivables transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "ORG_ID",
+      "description": "Operating unit identifier that owns the transaction in a multi-org Oracle EBS environment."
+    },
+    {
+      "name": "WH_UPDATE_DATE",
+      "description": "Business date associated with wh update."
+    },
+    {
+      "name": "EDI_PROCESSED_FLAG",
+      "description": "Indicates whether edi processed applies to the record."
+    },
+    {
+      "name": "EDI_PROCESSED_STATUS",
+      "description": "Status value showing the current processing state of edi processed."
+    },
+    {
+      "name": "MRC_EXCHANGE_RATE_TYPE",
+      "description": "Type classification used to control mrc exchange rate processing."
+    },
+    {
+      "name": "MRC_EXCHANGE_DATE",
+      "description": "Business date associated with mrc exchange."
+    },
+    {
+      "name": "MRC_EXCHANGE_RATE",
+      "description": "Rate used to calculate or value mrc exchange for the transaction."
+    },
+    {
+      "name": "PAYMENT_SERVER_ORDER_NUM",
+      "description": "Business number used to identify or sequence payment server order."
+    },
+    {
+      "name": "APPROVAL_CODE",
+      "description": "Lookup or classification code identifying approval for the record."
+    },
+    {
+      "name": "ADDRESS_VERIFICATION_CODE",
+      "description": "Lookup or classification code identifying address verification for the record."
+    },
+    {
+      "name": "OLD_TRX_NUMBER",
+      "description": "Business number used to identify or sequence old trx nu."
+    },
+    {
+      "name": "BR_AMOUNT",
+      "description": "Monetary amount representing br for the transaction."
+    },
+    {
+      "name": "BR_UNPAID_FLAG",
+      "description": "Indicates whether br unpaid applies to the record."
+    },
+    {
+      "name": "BR_ON_HOLD_FLAG",
+      "description": "Indicates whether br on hold applies to the record."
+    },
+    {
+      "name": "DRAWEE_ID",
+      "description": "System-generated identifier for the related drawee record."
+    },
+    {
+      "name": "DRAWEE_CONTACT_ID",
+      "description": "System-generated identifier for the related drawee contact record."
+    },
+    {
+      "name": "DRAWEE_SITE_USE_ID",
+      "description": "System-generated identifier for the related drawee site use record."
+    },
+    {
+      "name": "REMITTANCE_BANK_ACCOUNT_ID",
+      "description": "System-generated identifier for the related remittance bank account record."
+    },
+    {
+      "name": "OVERRIDE_REMIT_ACCOUNT_FLAG",
+      "description": "Indicates whether override remit account applies to the record."
+    },
+    {
+      "name": "DRAWEE_BANK_ACCOUNT_ID",
+      "description": "System-generated identifier for the related drawee bank account record."
+    },
+    {
+      "name": "SPECIAL_INSTRUCTIONS",
+      "description": "Business attribute of the receivables transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "REMITTANCE_BATCH_ID",
+      "description": "System-generated identifier for the related remittance batch record."
+    },
+    {
+      "name": "PREPAYMENT_FLAG",
+      "description": "Indicates whether prepayment applies to the record."
+    },
+    {
+      "name": "CT_REFERENCE",
+      "description": "Business reference captured for ct."
+    },
+    {
+      "name": "CONTRACT_ID",
+      "description": "System-generated identifier for the related contract record."
+    },
+    {
+      "name": "BILL_TEMPLATE_ID",
+      "description": "System-generated identifier for the related bill template record."
+    },
+    {
+      "name": "REVERSED_CASH_RECEIPT_ID",
+      "description": "System-generated identifier for the related reversed cash receipt record."
+    },
+    {
+      "name": "CC_ERROR_CODE",
+      "description": "Lookup or classification code identifying cc error for the record."
+    },
+    {
+      "name": "CC_ERROR_TEXT",
+      "description": "Detailed text associated with cc error."
+    },
+    {
+      "name": "CC_ERROR_FLAG",
+      "description": "Indicates whether cc error applies to the record."
+    },
+    {
+      "name": "UPGRADE_METHOD",
+      "description": "Legacy upgrade or migration attribute preserved from conversion processing."
+    },
+    {
+      "name": "LEGAL_ENTITY_ID",
+      "description": "Foreign key referencing the legal entity responsible for the transaction."
+    },
+    {
+      "name": "REMIT_BANK_ACCT_USE_ID",
+      "description": "System-generated identifier for the related remit bank acct use record."
+    },
+    {
+      "name": "PAYMENT_TRXN_EXTENSION_ID",
+      "description": "System-generated identifier for the related payment trxn extension record."
+    },
+    {
+      "name": "AX_ACCOUNTED_FLAG",
+      "description": "Indicates whether ax accounted applies to the record."
+    },
+    {
+      "name": "APPLICATION_ID",
+      "description": "System-generated identifier for the related application record."
+    },
+    {
+      "name": "BILLING_DATE",
+      "description": "Business date associated with billing."
+    },
+    {
+      "name": "INTEREST_HEADER_ID",
+      "description": "Foreign key referencing the related interest invoice or interest charge header."
+    },
+    {
+      "name": "LATE_CHARGES_ASSESSED",
+      "description": "Business attribute of the receivables transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "TRAILER_NUMBER",
+      "description": "Business number used to identify or sequence trailer nu."
+    },
+    {
+      "name": "REV_REC_APPLICATION",
+      "description": "Business attribute of the receivables transaction used for Oracle EBS transaction processing, control, or reporting."
+    },
+    {
+      "name": "DOCUMENT_TYPE_ID",
+      "description": "System-generated identifier for the related document type record."
+    },
+    {
+      "name": "DOCUMENT_CREATION_DATE",
+      "description": "Business date associated with document creation."
+    },
+    {
+      "name": "SRC_INVOICING_RULE_ID",
+      "description": "System-generated identifier for the related src invoicing rule record."
+    },
+    {
+      "name": "BILLING_EXT_REQUEST",
+      "description": "Business attribute of the receivables transaction used for Oracle EBS transaction processing, control, or reporting."
+    }
+  ],
+  "relationships": [
+    {
+      "table": "HZ_CUST_ACCOUNTS",
+      "join": "CUST_ACCOUNT_ID",
+      "relationship_type": "parent"
+    },
+    {
+      "table": "RA_CUSTOMER_TRX_LINES_ALL",
+      "join": "CUSTOMER_TRX_ID",
+      "relationship_type": "child"
+    },
+    {
+      "table": "AR_RECEIVABLE_APPLICATIONS_ALL",
+      "join": "APPLIED_CUSTOMER_TRX_ID",
+      "relationship_type": "child"
+    }
+  ],
+  "business_questions": [
+    "Show Accounts Receivable invoices and credit memos by customer.",
+    "Find customer transactions by transaction number and date.",
+    "Display receivables transactions by bill-to customer account.",
+    "Show transactions created from a specific batch source.",
+    "Identify completed, posted, or reversed receivables transactions.",
+    "List customer invoices with payment terms and due date context.",
+    "Show bill-to and ship-to customer references on a transaction.",
+    "Find receivables transactions associated with an order or interface source."
+  ]
+}
