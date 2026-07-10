@@ -69,6 +69,8 @@ class LLMConfig:
     context_window: int
     max_new_tokens: int
     temperature: float
+    gpu_memory_limit: str | None
+    release_gpu_after_response: bool
 
 
 @dataclass(frozen=True, slots=True)
@@ -168,10 +170,12 @@ def get_config() -> AppConfig:
             context_window=_get_int("ERP_AGENT_LLM_CONTEXT_WINDOW", 8192),
             max_new_tokens=_get_int("ERP_AGENT_LLM_MAX_NEW_TOKENS", 512),
             temperature=float(_get_env("ERP_AGENT_LLM_TEMPERATURE", "0.1")),
+            gpu_memory_limit=_get_optional_env("ERP_AGENT_LLM_GPU_MEMORY_LIMIT", "16GiB"),
+            release_gpu_after_response=_get_bool("ERP_AGENT_LLM_RELEASE_GPU_AFTER_RESPONSE", True),
         ),
         embedding=EmbeddingConfig(
             model_name=_get_env("ERP_AGENT_EMBEDDING_MODEL", "BAAI/bge-large-en-v1.5"),
-            device=_get_env("ERP_AGENT_EMBEDDING_DEVICE", "cuda"),
+            device=_get_env("ERP_AGENT_EMBEDDING_DEVICE", "cpu"),
             collection_name=_get_env("ERP_AGENT_VECTOR_COLLECTION", "erp_metadata"),
             top_k=_get_int("ERP_AGENT_VECTOR_TOP_K", 5),
             persist_directory=Path(

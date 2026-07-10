@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 from collections.abc import Iterator
+from contextlib import nullcontext
+import gc
 from threading import Thread
 from typing import Any
 
@@ -21,6 +23,7 @@ class QwenLLM(BaseLLM):
         context_window: int = 8192,
         max_new_tokens: int = 512,
         device_map: str = "auto",
+        gpu_memory_limit: str | None = "16GiB",
         tokenizer: Any | None = None,
         model: Any | None = None,
         prompt_loader: PromptTemplateLoader | None = None,
@@ -30,6 +33,7 @@ class QwenLLM(BaseLLM):
         self.context_window = context_window
         self.max_new_tokens = max_new_tokens
         self.device_map = device_map
+        self.gpu_memory_limit = gpu_memory_limit
         self._tokenizer = tokenizer
         self._model = model
         self.prompt_loader = prompt_loader
@@ -54,26 +58,40 @@ class QwenLLM(BaseLLM):
         if self._model is None:
             from transformers import AutoModelForCausalLM
 
+            load_kwargs = {
+                "torch_dtype": "auto",
+                "device_map": self.device_map,
+                "low_cpu_mem_usage": True,
+                "trust_remote_code": True,
+            }
+            if self.gpu_memory_limit and self.device_map != "cpu":
+                load_kwargs["max_memory"] = self._build_max_memory()
+
             self._model = AutoModelForCausalLM.from_pretrained(
                 self.model_name,
-                torch_dtype="auto",
-                device_map=self.device_map,
-                low_cpu_mem_usage=True,
-                trust_remote_code=True,
+                **load_kwargs,
             )
             self._model.eval()
         return self._model
 
     def generate(self, prompt: str) -> str:
         """Generate a full completion for a prompt using local HuggingFace inference."""
+        import torch
+
         tokenized_inputs = self._prepare_inputs(prompt)
-        generated_ids = self.model.generate(
-            **tokenized_inputs,
-            max_new_tokens=self.max_new_tokens,
-            temperature=self.temperature,
-            do_sample=self.temperature > 0,
-            pad_token_id=self.tokenizer.pad_token_id,
+        inference_context = (
+            torch.inference_mode()
+            if hasattr(torch, "inference_mode")
+            else torch.no_grad()
         )
+        with inference_context:
+            generated_ids = self.model.generate(
+                **tokenized_inputs,
+                max_new_tokens=self.max_new_tokens,
+                temperature=self.temperature,
+                do_sample=self.temperature > 0,
+                pad_token_id=self.tokenizer.pad_token_id,
+            )
         new_token_ids = generated_ids[0][tokenized_inputs["input_ids"].shape[-1] :]
         return self.tokenizer.decode(new_token_ids, skip_special_tokens=True).strip()
 
@@ -95,11 +113,16 @@ class QwenLLM(BaseLLM):
             "pad_token_id": self.tokenizer.pad_token_id,
             "streamer": streamer,
         }
-        thread = Thread(target=self.model.generate, kwargs=generation_kwargs, daemon=True)
+        thread = Thread(
+            target=self._generate_with_inference_mode,
+            kwargs=generation_kwargs,
+            daemon=True,
+        )
         thread.start()
         for chunk in streamer:
             if chunk:
                 yield chunk
+        thread.join()
 
     def generate_from_template(self, template: Any, **kwargs: Any) -> str:
         """Render a prompt template and run standard generation on the result."""
@@ -127,3 +150,45 @@ class QwenLLM(BaseLLM):
             "input_ids": input_ids.to(model_device),
             "attention_mask": attention_mask.to(model_device),
         }
+
+    def close(self) -> None:
+        """Release model/tokenizer references and ask CUDA to free cached memory."""
+        self._model = None
+        self._tokenizer = None
+        gc.collect()
+        self._clear_cuda_cache()
+
+    def _build_max_memory(self) -> dict[Any, str]:
+        """Build a per-device Transformers max_memory map."""
+        import torch
+
+        if not torch.cuda.is_available():
+            return {"cpu": "64GiB"}
+        max_memory: dict[Any, str] = {"cpu": "64GiB"}
+        for device_index in range(torch.cuda.device_count()):
+            max_memory[device_index] = self.gpu_memory_limit
+        return max_memory
+
+    def _generate_with_inference_mode(self, **generation_kwargs: Any) -> None:
+        """Run generation without autograd inside the streaming worker."""
+        import torch
+
+        inference_context = (
+            torch.inference_mode()
+            if hasattr(torch, "inference_mode")
+            else torch.no_grad()
+        )
+        with inference_context:
+            self.model.generate(**generation_kwargs)
+
+    def _clear_cuda_cache(self) -> None:
+        """Best-effort CUDA cache cleanup after the model is released."""
+        try:
+            import torch
+        except ImportError:
+            return
+        if torch.cuda.is_available():
+            with nullcontext():
+                torch.cuda.empty_cache()
+                if hasattr(torch.cuda, "ipc_collect"):
+                    torch.cuda.ipc_collect()

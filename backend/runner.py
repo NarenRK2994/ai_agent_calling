@@ -37,6 +37,7 @@ def run_question(
         context_window=context.config.llm.context_window,
         max_new_tokens=context.config.llm.max_new_tokens,
         device_map=context.config.llm.device,
+        gpu_memory_limit=context.config.llm.gpu_memory_limit,
         prompt_loader=prompt_loader,
     )
 
@@ -77,20 +78,25 @@ def run_question(
     )
     summary_agent = SummaryAgent("summary_agent", llm=llm, prompt_loader=prompt_loader)
 
-    workflow = build_workflow(
-        intent_agent=intent_agent,
-        schema_agent=schema_agent,
-        prompt_builder_agent=prompt_builder_agent,
-        sql_agent=sql_agent,
-        validation_agent=validation_agent,
-        execution_agent=execution_agent,
-        summary_agent=summary_agent,
-        runtime=runtime,
-        max_validation_retries=context.config.runtime.sql_validation_retries,
-    )
+    try:
+        workflow = build_workflow(
+            intent_agent=intent_agent,
+            schema_agent=schema_agent,
+            prompt_builder_agent=prompt_builder_agent,
+            sql_agent=sql_agent,
+            validation_agent=validation_agent,
+            execution_agent=execution_agent,
+            summary_agent=summary_agent,
+            runtime=runtime,
+            max_validation_retries=context.config.runtime.sql_validation_retries,
+        )
 
-    initial_state = ERPAgentState(
-        user_question=question.strip(),
-        session_id=f"session-{uuid4()}",
-    )
-    return execute_workflow(workflow, initial_state, runtime)
+        initial_state = ERPAgentState(
+            user_question=question.strip(),
+            session_id=f"session-{uuid4()}",
+        )
+        return execute_workflow(workflow, initial_state, runtime)
+    finally:
+        if context.config.llm.release_gpu_after_response:
+            llm.close()
+            embedding_service.close()

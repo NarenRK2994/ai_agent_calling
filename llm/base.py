@@ -21,3 +21,6 @@ class BaseLLM(ABC):
     @abstractmethod
     def generate_from_template(self, template: Any, **kwargs: Any) -> str:
         """Render a prompt template and generate text from it."""
+
+    def close(self) -> None:
+        """Release any model resources when the adapter is no longer needed."""

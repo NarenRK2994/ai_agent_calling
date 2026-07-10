@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Sequence
+import gc
 from typing import Any, Protocol
 
 from retriever.models import ERPTableMetadata
@@ -70,3 +71,16 @@ class EmbeddingService:
     def embed_documents(self, documents: Sequence[ERPTableMetadata]) -> list[list[float]]:
         """Embed metadata documents using their flattened text representation."""
         return self.embed_texts([document.to_document_text() for document in documents])
+
+    def close(self) -> None:
+        """Release the embedding model and clear cached CUDA memory."""
+        self._model = None
+        gc.collect()
+        try:
+            import torch
+        except ImportError:
+            return
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+            if hasattr(torch.cuda, "ipc_collect"):
+                torch.cuda.ipc_collect()
